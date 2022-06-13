@@ -17,11 +17,11 @@
         <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
         <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
         <meta name="author" content="robirurk">
-        <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/mini.png')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- START: Styles -->
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css')}}">
         <!-- Bootstrap -->
         <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
         <!-- Font Awesome -->
@@ -31,8 +31,8 @@
         <!-- Flickity -->
         <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
         <!-- Photoswipe -->
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+        <link rel="stylesheet" type="text/css')}}" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+        <link rel="stylesheet" type="text/css')}}" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
         <!-- Piroll -->
         <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
         <!-- Custom Styles -->
@@ -40,19 +40,21 @@
         <!-- END: Styles -->
         <!-- jQuery -->
         <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
-        <style>
-            .nk-carousel-3 .flickity-slider>div
-            {
-                height: 570px;
-                width: 100%;
-            }
+        <!--<style>
+            
+.nk-fullpage-portfolio .nk-fullpage-bg-image::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .1;
+}
+        </style>-->
 
-            .nk-carousel-3 .flickity-slider>div>div
-            {
-                background-size: cover;
-                background-position: 50% 50%;
-            }
-        </style>
     </head>
     <body>
         <header class="nk-header nk-header-opaque">
@@ -105,143 +107,63 @@
             </nav>
             <!-- END: Navbar -->
         </header>
-        <!-- START: Navbar Mobile -->
-        <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
-            <div class="nk-nav-table">
-                <div class="nk-nav-row">
-                    <div class="container">
-                        <div class="nk-nav-header">
-                            <div class="nk-nav-logo">
-                                <a href="/" class="nk-nav-logo">
-                                    <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="1">
-                                </a>
-                            </div>
-                            <div class="nk-nav-close nk-navbar-full-toggle">
-                                <span class="nk-icon-close"></span>
+        <!-- END: Fullscreen Navbar -->
+        <div class="nk-main">
+            <div class="nk-fullpage-portfolio">
+                <div class="nk-fullpage-item">
+                    <img src="{{url_for('static', filename='assets/2521/about1.jpg')}}" alt="" class="nk-fullpage-image">
+                    <!--<div class="nk-fullpage-view-button">
+                        <div class="container">
+                            <a class="nk-btn-2" href="work-single-4.html">밑에작은링크글자</a>
+                        </div>
+                    </div>-->
+                    <div class="nk-fullpage-content">
+                        <div class="container">
+                            <h2 class="nk-fullpage-title display-4"><a>드라마 속 주인공과 함께 떠나는 여행</a></h2>
+                            <div class="nk-fullpage-item-category">
+                                <a>dramatrip은 국내 드라마 촬영지 위치와 주변 업체 소개를 통해<br>지역경제 발전과 더불어 문화적 경쟁력 확보에 앞장섭니다</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="nk-nav-row-full nk-nav-row">
-                    <div class="nano">
-                        <div class="nano-content">
-                            <div class="nk-nav-table">
-                                <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
-                                    <ul class="nk-nav">
-                                        <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
-                                    </ul>
-                                </div>
+                
+                <div class="nk-fullpage-item">
+                    <img src="{{url_for('static', filename='assets/2521/about3.jpg')}}" alt="" class="nk-fullpage-image">
+                    <!--<div class="nk-fullpage-view-button">
+                        <div class="container">
+                            <a class="nk-btn-2" href="work-single-4.html">밑에작은링크글자</a>
+                        </div>
+                    </div>-->
+                    <div class="nk-fullpage-content">
+                        <div class="container">
+                            <h2 class="nk-fullpage-title display-4"><a>전 세계로 뻗어나가는 한국 드라마</a></h2>
+                            <div class="nk-fullpage-item-category">
+                                <a>K콘텐츠가 세계인들의 주목을 받고 있는 상황에 맞춰<br>
+                                    관련 장소 안내를 통해 국내 관광산업 활성화에 앞장섭니다.</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--member start-->
+                <div class="nk-fullpage-item">
+                    <img src="{{url_for('static', filename='assets/2521/캡처.jpg')}}" alt="" class="nk-fullpage-image">
+                    <div class="nk-fullpage-content">
+                        <div class="container">
+                            <h2 class="nk-fullpage-title display-4"><a>MEMBER</a></h2>
+                            <div class="nk-fullpage-item-category">
+                                <a href="https://github.com/건국">김건국 github@</a><br>
+                                <a href="https://github.com/예진">김예진 github@</a><br>
+                                <a href="https://github.com/jiwnon">김지우 github@</a><br>
+                                <a href="https://github.com/화정">이화정 github@</a><br>
+                                <a href="https://github.com/연정">장연정 github@</a><br>
+                                <a href="https://github.com/연화">장연화 github@</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--member end-->
+
             </div>
-        </nav>
-        <!-- END: Navbar Mobile -->
-        <div class="nk-main bg-white">
-            <!-- START: Carousel -->
-            <div class="nk-carousel-3 nk-carousel-no-margin nk-carousel-all-visible nk-carousel-arrows text-white text-center" data-size="1" data-autoplay="18000" data-arrows="true">
-                <div class="nk-carousel-inner">
-                    <div>
-                        <div style="background-image: url('/static/assets/2521/2521chat2.png');">
-                            <div class="nk-vertical-center">
-                                <div>
-                                    <h1 class="nk-title text-white"> <br> </h1>
-                                    <div class="lead-sm"> </div>
-                                    <div class="nk-gap-1"></div>
-                                    <a href="/map" class="nk-btn nk-btn-long">지도 보기</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="background-image: url('/static/assets/공공데이터실제사진/보문단지길.jpg');">
-                            <div class="nk-vertical-center">
-                                <div>
-                                    <h1 class="nk-title text-white"> <br> </h1>
-                                    <div class="lead-sm"> 보문단지길 </div>
-                                    <div class="nk-gap-1"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="background-image: url('/static/assets/공공데이터실제사진/광화문광장.jpg');">
-                            <div class="nk-vertical-center">
-                                <div>
-                                    <h1 class="nk-title text-white"> <br> </h1>
-                                    <div class="lead-sm"> 광화문광장 </div>
-                                    <div class="nk-gap-1"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END: Carousel -->
-            <!-- START: Portfolio -->
-            <div class="container">
-                <!-- START: Filter -->
-                <ul class="nk-isotope-filter nk-isotope-filter-active">
-                    <li class="active" data-filter="*">ALL</li>
-                    <li data-filter="1">전주</li>
-                    <li data-filter="2">서울</li>
-                    <li data-filter="3">강원</li>
-                    <li data-filter="4">ETC</li>
-                </ul>
-                <!-- END: Filter -->
-                <div class="nk-portfolio-list nk-isotope nk-isotope-3-cols nk-isotope-gap">
-                    
-                    {% for i in range(0, len) %}
-                    <div class="nk-isotope-item" data-filter={{DataFilter[i]}}>
-                        <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-4">
-                            <a href="{{ url_for('LocatePage', Place=Place[i]) }}" class="nk-portfolio-item-link"></a>
-                            <div class="nk-portfolio-item-image">
-                                <div style="background-image: url('static/assets/2521/{{MainImage[i]}}')"></div>
-                            </div>
-                            <div class="nk-portfolio-item-info">
-                                <div>
-                                    <h2 class="portfolio-item-title h5">{{Title[i]}}</h2>
-                                    <div class="portfolio-item-category">{{Subtitle[i]}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    
-                </div>
-                <div class="nk-gap-5"></div>
-            </div>
-            <!-- END: Portfolio -->
-            <!-- START: Footer -->
-            <footer class="nk-footer">
-                <div class="container">
-                    <div class="row vertical-gap">
-                        <div class="col-lg-3">
-                            <h3 class="h5 mb-20">Drip : DramaTrip</h3>
-                            <a>드라마 촬영지 정보 제공 웹 서비스</a>
-                        </div>
-                        <div class="col-lg-3">
-                            <h3 class="h5 mb-20">MEMBER</h3>
-                            <a>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                        </div>
-                        <div class="col-lg-6">
-                            <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
-                            <a>연출 : 정지현</a>
-                            <a><br>극본 : 권도은</a>
-                            <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
-                            <a><br>채널정보 : tvN, Netflix</a>
-                            <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- END: Footer -->
         </div>
         <!-- START: Scripts -->
         <!-- GSAP -->

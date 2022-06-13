@@ -13,7 +13,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{Place}}</title>
+        <title>{{Place_eng}}</title>
         <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
         <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
         <meta name="author" content="robirurk">
@@ -52,7 +52,7 @@
             .nk-navbar-transparent-always
             .nk-navbar-white-text-on-top
             .nk-navbar-dark
-    
+    -->
             <nav class="nk-navbar nk-navbar-top">
                 <div class="container">
                     <div class="nk-nav-table">
@@ -64,8 +64,7 @@
                     </div>
                 </div>
             </nav>
-            
-             END: Navbar -->
+            <!-- END: Navbar -->
         </header>
         <div class="nk-main">
             <div class="container-fluid">
@@ -74,19 +73,18 @@
                         <div class="col-lg-6 push-lg-6">
                             <div class="nk-sidebar-sticky" data-offset-top="0">
                                 <div class="nk-portfolio-info">
-                                    <h1 class="nk-portfolio-title">{{DramaPlace}}</h1>
+                                    <h1 class="nk-portfolio-title">{{DramaPlace_eng}}</h1>
                                     <div class="nk-portfolio-text">
-                                        <p>{{ Dialogue }}</p>
-                                        <!--<p>-EP.{{ Episode }}</p>-->
+                                        <p>{{ Dialogue_eng }}</p>
                                     </div>
                                     <table class="nk-portfolio-details">
                                         <tr>
                                             <td><strong>Location:</strong></td>
-                                            <td>{{Place}}</td>
+                                            <td>{{Place_eng}}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Address:</strong></td>
-                                            <td>{{Address}}</td>
+                                            <td>{{Address_eng}}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Where:</strong></td>
@@ -96,14 +94,14 @@
                                                 <script>
                                                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                                                         mapOption = { 
-                                                            center: new kakao.maps.LatLng("{{LatitudeValue}}", "{{LongitudeValue}}"), // 지도의 중심좌표
+                                                            center: new kakao.maps.LatLng("{{LatitudeValue_eng}}", "{{LongitudeValue_eng}}"), // 지도의 중심좌표
                                                             level: 5 // 지도의 확대 레벨
                                                         };
                                                     
                                                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
                                                     
                                                     // 마커가 표시될 위치입니다 
-                                                    var markerPosition  = new kakao.maps.LatLng("{{LatitudeValue}}", "{{LongitudeValue}}");
+                                                    var markerPosition  = new kakao.maps.LatLng("{{LatitudeValue_eng}}", "{{LongitudeValue_eng}}");
                                                     
                                                     // 마커를 생성합니다
                                                     var marker = new kakao.maps.Marker({
@@ -124,7 +122,7 @@
                         </div>
                         <div class="col-lg-6 pull-lg-6">
                             <div class="nk-portfolio-images">
-                                {% for SingleSubImage in SubImage.values[0].split(',') %}
+                                {% for SingleSubImage in SubImage_eng.values[0].split(',') %}
                                 <img src = "{{ url_for('static', filename='assets/2521/')}}{{SingleSubImage}}" alt="">
                                 {% endfor %}
                             </div>
