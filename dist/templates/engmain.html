@@ -60,36 +60,37 @@
                 <div class="container">
                     <div class="nk-nav-table">
                         <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                            <li>
-                                <a href="/about">About</a>
-                            </li>
                             <li class=" nk-drop-item">
-                                <a>코스 소개</a>
+                                <a href="/about"> About </a>
+                            </li>
+                            
+                            <li class=" nk-drop-item">
+                                <a>Course</a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="/coursejj">전주</a>
+                                        <a href="/coursejj">JEONJU</a>
                                     </li>
                                     <li>
-                                        <a href="/coursegj">경주</a>
+                                        <a href="/coursegj">GYEONGJU</a>
                                     </li>
                                     <li>
-                                        <a href="/coursegw">강원</a>
+                                        <a href="/coursegw">GANGWON-DO</a>
                                     </li>
                                     <li>
-                                        <a href="/coursesu">서울</a>
+                                        <a href="/coursesu">SEOUL</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                        <a href="/" class="nk-nav-logo">
+                        <a href="/engmain" class="nk-nav-logo">
                             <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
                         </a>
                         <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
                             <li>
-                                <a href="/engmain">ENG</a>
+                                <a href="/"> 한국어 </a>
                             </li>
                             <li>
-                                <a href="/jpnmain">日本語</a>
+                                <a href="/jpnmain"> 日本語 </a>
                             </li>
                         </ul>
                         <ul class="nk-nav nk-nav-right nk-nav-icons">
@@ -152,7 +153,7 @@
                                     <h1 class="nk-title text-white"> <br> </h1>
                                     <div class="lead-sm"> </div>
                                     <div class="nk-gap-1"></div>
-                                    <a href="/map" class="nk-btn nk-btn-long">지도 보기</a>
+                                    <a href="/map" class="nk-btn nk-btn-long">map</a>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +163,7 @@
                             <div class="nk-vertical-center">
                                 <div>
                                     <h1 class="nk-title text-white"> <br> </h1>
-                                    <div class="lead-sm"> 보문단지길 </div>
+                                    <div class="lead-sm"> Bomun Tourist Complex </div>
                                     <div class="nk-gap-1"></div>
                                 </div>
                             </div>
@@ -173,7 +174,7 @@
                             <div class="nk-vertical-center">
                                 <div>
                                     <h1 class="nk-title text-white"> <br> </h1>
-                                    <div class="lead-sm"> 광화문광장 </div>
+                                    <div class="lead-sm"> Gwanghwamun Square </div>
                                     <div class="nk-gap-1"></div>
                                 </div>
                             </div>
@@ -187,25 +188,25 @@
                 <!-- START: Filter -->
                 <ul class="nk-isotope-filter nk-isotope-filter-active">
                     <li class="active" data-filter="*">ALL</li>
-                    <li data-filter="1">전주</li>
-                    <li data-filter="2">서울</li>
-                    <li data-filter="3">강원</li>
+                    <li data-filter="1">JEONJU</li>
+                    <li data-filter="2">SEOUL</li>
+                    <li data-filter="3">GANGWON-DO</li>
                     <li data-filter="4">ETC</li>
                 </ul>
                 <!-- END: Filter -->
                 <div class="nk-portfolio-list nk-isotope nk-isotope-3-cols nk-isotope-gap">
                     
                     {% for i in range(0, len) %}
-                    <div class="nk-isotope-item" data-filter={{DataFilter[i]}}>
+                    <div class="nk-isotope-item" data-filter={{DataFilter_eng[i]}}>
                         <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-4">
-                            <a href="{{ url_for('LocatePage', Place=Place[i]) }}" class="nk-portfolio-item-link"></a>
+                            <a href="{{ url_for('EngSub', Place=Place_eng[i]) }}" class="nk-portfolio-item-link"></a>
                             <div class="nk-portfolio-item-image">
-                                <div style="background-image: url('static/assets/2521/{{MainImage[i]}}')"></div>
+                                <div style="background-image: url('static/assets/2521/{{MainImage_eng[i]}}')"></div>
                             </div>
                             <div class="nk-portfolio-item-info">
                                 <div>
-                                    <h2 class="portfolio-item-title h5">{{Title[i]}}</h2>
-                                    <div class="portfolio-item-category">{{Subtitle[i]}}</div>
+                                    <h2 class="portfolio-item-title h5">{{Title_eng[i]}}</h2>
+                                    <div class="portfolio-item-category">{{Subtitle_eng[i]}}</div>
                                 </div>
                             </div>
                         </div>
@@ -220,26 +221,23 @@
             <footer class="nk-footer">
                 <div class="container">
                     <div class="row vertical-gap">
-                        <div class="col-lg-3">
-                            <h3 class="h5 mb-20">Drip : DramaTrip</h3>
-                            <a>드라마 촬영지 정보 제공 웹 서비스</a>
+                        <div class="col-lg-2">
+                            <h3 class="h5 mb-20">Team10 Project</h3>
+                        </div>
+                        <div class="col-lg-7">
+                            MEMBER
+                            <br>이름1</td>
+                            <td><a href="#">메일주소1</a>
+                            <br> 이름2</td>
+                            <td><a href="#">메일주소2</a>
+                            <br> 이름3</td>
+                            <td><a href="#">메일주소3</a>
+                            <br> 이름4</td>
+                            <td><a href="#">메일주소4</a>
                         </div>
                         <div class="col-lg-3">
-                            <h3 class="h5 mb-20">MEMBER</h3>
-                            <a>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                        </div>
-                        <div class="col-lg-6">
-                            <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
-                            <a>연출 : 정지현</a>
-                            <a><br>극본 : 권도은</a>
-                            <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
-                            <a><br>채널정보 : tvN, Netflix</a>
-                            <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
+                            <h3 class="h5 mb-20">Piroll Design, Inc.</h3>
+                            <p class="mb-0">&copy; 2017 Piroll. All rights reserved. <br> Design by robirurk. Code by nK.</p>
                         </div>
                     </div>
                 </div>

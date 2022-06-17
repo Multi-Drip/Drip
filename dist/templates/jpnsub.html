@@ -13,7 +13,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{Place}}</title>
+        <title>{{Place_jpn}}</title>
         <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
         <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
         <meta name="author" content="robirurk">
@@ -42,58 +42,57 @@
         <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
     </head>
     <body>
-        <header class="nk-header nk-header-opaque">
-            <nav class="nk-navbar nk-navbar-top">
-                <div class="container">
-                    <div class="nk-nav-table">
-                        <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                            <li>
-                                <a href="/about">About</a>
-                            </li>
-                            <li class=" nk-drop-item">
-                                <a>코스 소개</a>
-                                <ul class="dropdown">
-                                    <li>
-                                        <a href="/coursejj">전주</a>
-                                    </li>
-                                    <li>
-                                        <a href="/coursegj">경주</a>
-                                    </li>
-                                    <li>
-                                        <a href="/coursegw">강원</a>
-                                    </li>
-                                    <li>
-                                        <a href="/coursesu">서울</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href="/" class="nk-nav-logo">
-                            <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
-                        </a>
-                        <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                            <li>
-                                <a href="/engmain">ENG</a>
-                            </li>
-                            <li>
-                                <a href="/jpnmain">日本語</a>
-                            </li>
-                        </ul>
-                        <ul class="nk-nav nk-nav-right nk-nav-icons">
-                            <li class="single-icon hidden-lg-up">
-                                <a href="#" class="nk-navbar-full-toggle">
-                                    <span class="nk-icon-burger">
-                                        <span class="nk-t-1"></span>
-                                        <span class="nk-t-2"></span>
-                                        <span class="nk-t-3"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+        <nav class="nk-navbar nk-navbar-top">
+            <div class="container">
+                <div class="nk-nav-table">
+                    <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li class=" nk-drop-item">
+                            <a href="/about"> Dripについて </a>
+                        </li>
+                        <li class=" nk-drop-item">
+                            <a> 観光コース </a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="/coursejj"> チョンジュ </a>
+                                </li>
+                                <li>
+                                    <a href="/coursegj"> キョンジュ </a>
+                                </li>
+                                <li>
+                                    <a href="/coursegw"> カンウォン </a>
+                                </li>
+                                <li>
+                                    <a href="/coursesu"> ソウル </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="/jpnmain" class="nk-nav-logo">
+                        <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
+                    </a>
+                    <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                            <a href="/"> 한국어 </a>
+                        </li>
+                        <li>
+                            <a href="/engmain"> ENG </a>
+                        </li>
+                    </ul>
+                    <ul class="nk-nav nk-nav-right nk-nav-icons">
+                        <li class="single-icon hidden-lg-up">
+                            <a href="#" class="nk-navbar-full-toggle">
+                                <span class="nk-icon-burger">
+                                    <span class="nk-t-1"></span>
+                                    <span class="nk-t-2"></span>
+                                    <span class="nk-t-3"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-            <!-- END: Navbar -->
+            </div>
+        </nav>
+        <!-- END: Navbar -->
         </header>
         <div class="nk-main">
             <div class="container-fluid">
@@ -102,37 +101,35 @@
                         <div class="col-lg-6 push-lg-6">
                             <div class="nk-sidebar-sticky" data-offset-top="0">
                                 <div class="nk-portfolio-info">
-                                    <h1 class="nk-portfolio-title">{{DramaPlace}}</h1>
+                                    <h1 class="nk-portfolio-title">{{DramaPlace_jpn}}</h1>
                                     <div class="nk-portfolio-text">
-                                        <p>{{ Dialogue }}</p>
-                                        <!--<p>-EP.{{ Episode }}</p>-->
+                                        <p>{{ Dialogue_jpn }}</p>
                                     </div>
                                     <table class="nk-portfolio-details">
                                         <tr>
-                                            <td><strong>Location:</strong></td>
-                                            <td>{{Place}}</td>
+                                            <td><strong>場所:</strong></td>
+                                            <td>{{Place_jpn}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Address:</strong></td>
-                                            <td>{{Address}}</td>
+                                            <td><strong>住所:</strong></td>
+                                            <td>{{Address_jpn}}</td>
                                         </tr>
-                                        
                                         <tr>
-                                            <td><strong>Where:</strong></td>
+                                            <td><strong>地図:</strong></td>
                                             <td>
                                                 <div id="map" style="width:400px;height:300px;"></div>
                                                 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
                                                 <script>
                                                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                                                         mapOption = { 
-                                                            center: new kakao.maps.LatLng("{{LatitudeValue}}", "{{LongitudeValue}}"), // 지도의 중심좌표
+                                                            center: new kakao.maps.LatLng("{{LatitudeValue_eng}}", "{{LongitudeValue_eng}}"), // 지도의 중심좌표
                                                             level: 5 // 지도의 확대 레벨
                                                         };
                                                     
                                                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
                                                     
                                                     // 마커가 표시될 위치입니다 
-                                                    var markerPosition  = new kakao.maps.LatLng("{{LatitudeValue}}", "{{LongitudeValue}}");
+                                                    var markerPosition  = new kakao.maps.LatLng("{{LatitudeValue_eng}}", "{{LongitudeValue_eng}}");
                                                     
                                                     // 마커를 생성합니다
                                                     var marker = new kakao.maps.Marker({
@@ -144,38 +141,16 @@
                                                     
                                                     // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
                                                     // marker.setMap(null);    
-                                                </script>
+                                                    </script>
                                             </td>
                                         </tr>
-                                        <!--로드뷰 시작 -->
-                                        <tr>
-                                            <td><strong>View:</strong></td>
-                                            <td>
-                                                <div id="roadview" style="width:100%;height:300px;"></div>
-
-                                                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
-                                                <script>
-                                                var roadviewContainer = document.getElementById('roadview'); //로드뷰를 표시할 div
-                                                var roadview = new kakao.maps.Roadview(roadviewContainer); //로드뷰 객체
-                                                var roadviewClient = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
-
-                                                var position = new kakao.maps.LatLng("{{LatitudeValue}}","{{LongitudeValue}}");
-
-                                                // 특정 위치의 좌표와 가까운 로드뷰의 panoId를 추출하여 로드뷰를 띄운다.
-                                                roadviewClient.getNearestPanoId(position, 50, function(panoId) {
-                                                    roadview.setPanoId(panoId, position); //panoId와 중심좌표를 통해 로드뷰 실행
-                                                });
-                                                </script>
-                                            </td>
-                                        </tr>
-                                        <!--로드뷰 끝 -->
                                     </table>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 pull-lg-6">
                             <div class="nk-portfolio-images">
-                                {% for SingleSubImage in SubImage.values[0].split(',') %}
+                                {% for SingleSubImage in SubImage_jpn.values[0].split(',') %}
                                 <img src = "{{ url_for('static', filename='assets/2521/')}}{{SingleSubImage}}" alt="">
                                 {% endfor %}
                             </div>
@@ -187,26 +162,23 @@
             <footer class="nk-footer">
                 <div class="container">
                     <div class="row vertical-gap">
-                        <div class="col-lg-3">
-                            <h3 class="h5 mb-20">Drip : DramaTrip</h3>
-                            <a>드라마 촬영지 정보 제공 웹 서비스</a>
+                        <div class="col-lg-2">
+                            <h3 class="h5 mb-20">Team10 Project</h3>
+                        </div>
+                        <div class="col-lg-7">
+                            メンバー
+                            <br>이름1</td>
+                            <td><a href="#">github@1</a>
+                            <br> 이름2</td>
+                            <td><a href="#">github@2</a>
+                            <br> 이름3</td>
+                            <td><a href="#">github@3</a>
+                            <br> 이름4</td>
+                            <td><a href="#">github@4</a>
                         </div>
                         <div class="col-lg-3">
-                            <h3 class="h5 mb-20">MEMBER</h3>
-                            <a>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                            <a><br>이름 GitHub @</a>
-                        </div>
-                        <div class="col-lg-6">
-                            <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
-                            <a>연출 : 정지현</a>
-                            <a><br>극본 : 권도은</a>
-                            <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
-                            <a><br>채널정보 : tvN, Netflix</a>
-                            <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
+                            <h3 class="h5 mb-20">Piroll Design, Inc.</h3>
+                            <p class="mb-0">&copy; 2017 Piroll. All rights reserved. <br> Design by robirurk. Code by nK.</p>
                         </div>
                     </div>
                 </div>

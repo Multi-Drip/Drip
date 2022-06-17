@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>경주 코스 소개</title>
+    <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+    <meta name="author" content="robirurk">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
+    <!-- Stroke 7 -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
+    <!-- Flickity -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
+    <!-- Photoswipe -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+    <!-- Piroll -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
+    <!-- END: Styles -->
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
+    <!-- Demo styles -->
+    <style>
+      html, body {
+        position: relative; height: 100%;
+      }
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        color: #fff;
+      }
+      a {
+        color: #fff;
+      }
+      .swiper {
+        width: 100%; height: 100%;
+      }
+      .swiper-slide {
+        text-align: center; font-size: 18px; background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .swiper-slide img {
+        display: block; width: 90%; height: 100%; object-fit: cover;
+      }
+      .swiper {
+        width: 90%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .swiper-slide {
+        background-size: cover; background-position: center;
+      }
+      .mySwiper {
+        height: 150px; box-sizing: border-box; padding: 10px 0;
+      }
+      .mySwiper2 {
+        height: 700px; width: 75%;
+      }
+      .mySwiper .swiper-slide {
+        width: 25%; height: 100%; opacity: 0.4;
+      }
+      .mySwiper .swiper-slide-thumb-active {
+        opacity: 0.4;
+      }
+      .nk-icon-burger {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 18px;
+          color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="nk-header nk-header-opaque">
+      <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
+          <div class="container">
+              <div class="nk-nav-table">
+                  <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                      <li>
+                      <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
+                          <a href="/about">About</a>
+                      </li>
+                      <li class=" nk-drop-item">
+                          <a>코스 소개</a>
+                          <ul class="dropdown">
+                              <li>
+                                  <a href="/coursejj">전주</a>
+                              </li>
+                              <li>
+                                  <a href="/coursegj">경주</a>
+                              </li>
+                              <li>
+                                  <a href="/coursegw">강원</a>
+                              </li>
+                              <li>
+                                <a href="/coursesu">서울</a>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <a href="/" class="nk-nav-logo">
+                      <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
+                  </a>
+                  <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                      <li>
+                          <a href="/eng">ENG</a>
+                      </li>
+                      <li>
+                          <a href="/jpn">日本語</a>
+                      </li>
+                  </ul>
+                  <ul class="nk-nav nk-nav-right nk-nav-icons">
+                      <li class="single-icon hidden-lg-up">
+                          <a href="#" class="nk-navbar-full-toggle">
+                              <span class="nk-icon-burger">
+                                  <span class="nk-t-1"></span>
+                                  <span class="nk-t-2"></span>
+                                  <span class="nk-t-3"></span>
+                              </span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+      <!-- END: Navbar -->
+  </header>
+  <!-- START: Navbar Mobile -->
+  <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+      <div class="nk-nav-table">
+          <div class="nk-nav-row">
+              <div class="container">
+                  <div class="nk-nav-header">
+                      <div class="nk-nav-logo">
+                          <a href="/" class="nk-nav-logo">
+                              <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
+                          </a>
+                      </div>
+                      <div class="nk-nav-close nk-navbar-full-toggle">
+                          <span class="nk-icon-close"></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nk-nav-row-full nk-nav-row">
+              <div class="nano">
+                  <div class="nano-content">
+                      <div class="nk-nav-table">
+                          <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                              <ul class="nk-nav">
+                                  <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+  <!-- END: Navbar Mobile -->
+  <div class="pb-50 nk-main bg-white">
+    <div class="pt-50" style="color:black; text-align:center;">
+      <h4><span style="background-color: #f59696">경주 코스</span></h4>
+      <h4>역사와 함께하는 희도의 아시안게임</h4>
+      <h5 style="color:grey"> (자가용 기준) 총 거리 : 33.5km / 총 이동시간 : 55분</h5>
+      <img src = "/static/assets/2521/경주.png" style="width: 60%; height: 60%;">
+      <img src = "/static/assets/2521/경주2.jpg" style="width: 60%; height: 60%;">
+      <div class="pt-50"></div>
+    </div>
+    <!-- Swiper -->
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+      class="swiper mySwiper2">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/4_07_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
+            <br>영천역<br><br><a href="/locatesingle?Place=건천역">건천역</a></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/4_08_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
+            <br>경주역<br><br><a href="/locatesingle?Place=경주역">경주역</a></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/4_09_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">3</em>
+            <br>아시안게임 경기장 가는 길<br><br><a href="/locatesingle?Place=보문관광단지">보문관광단지</a></div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/4_17_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
+            <br>경주 아시안 게임 경기장 주변<br><br><a href="/locatesingle?Place=불국사공영주차장">불국사공영주차장</a></div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/4_07_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/4_08_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/4_09_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/4_17_01.jpg')}}" />
+        </div>
+      </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        observer: true,
+        observeParents: true,
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        loop: true,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+    </script>
+  </div>
+      <div class="container">
+        <!---->
+        <ul class="nk-isotope-filter">
+          <br>
+        </ul>
+        <!---->
+        <!-- START: Posts List -->
+        <div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">
+            <!-- START: Post -->
+            <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=b046dbdc-67db-49f0-acca-fffa75befdf9">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/16/2563916.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=b046dbdc-67db-49f0-acca-fffa75befdf9">동궁과 월지</a></h2>
+                    <div class="nk-post-meta"> 경주역(폐역)에서 도보 30분 차량 8분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>신라 왕궁의 별궁터이다. 왕자가 거처하는 동궁으로 사용되면서, 나라의 경사가 있을 때나 귀한 손님을 맞을 때 연회를 베풀었다고 한다. </p>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Post -->
+            <!-- START: Post -->
+            <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=9acbd5d3-91c6-40c3-b148-62b15dce9687&big_category=A02&mid_category=A0202&big_area=35">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/85/2585685.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=9acbd5d3-91c6-40c3-b148-62b15dce9687&big_category=A02&mid_category=A0202&big_area=35">경주 세계 엑스포 문화 공원</a></h2>
+                    <div class="nk-post-meta"> 보문관광단지에서 도보 29분 차량 4분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>1998년 세계 최초로 문화예술을 주제로 한 국제문화박람회로 출범해 지난 2019년까지 10회의 글로벌 행사를 개최한 곳</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Post -->
+            <!-- START: Post -->
+            <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=96166686-8e42-41c0-a9f0-a0d505c0643f&big_category=A01&mid_category=A0101&big_area=35">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/29/2761529.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=96166686-8e42-41c0-a9f0-a0d505c0643f&big_category=A01&mid_category=A0101&big_area=35">보문정</a></h2>
+                    <div class="nk-post-meta"> 보문관광단지에서 도보 11분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>CNN에서 ‘한국의 비경’으로 소개된 적이 있을 정도로 아름다운 풍광을 자랑한다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Post -->
+            <!-- START: Post -->
+            <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=9d506d09-62ec-40d4-87a2-a0fd35b25b80&big_category=A02&mid_category=A0201&big_area=35">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/97/2595997.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=9d506d09-62ec-40d4-87a2-a0fd35b25b80&big_category=A02&mid_category=A0201&big_area=35">첨성대</a></h2>
+                    <div class="nk-post-meta"> 경주역(폐역)에서 도보 26분 차량 5분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>신라 제27대 선덕여왕 때 건립된 것으로 추정되며 경주를 상징하는 랜드마크 중 하나</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ec28bc85-95ba-4b58-a36d-3f02988eeae1&big_category=A02&mid_category=A0201&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/58/2563758.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ec28bc85-95ba-4b58-a36d-3f02988eeae1&big_category=A02&mid_category=A0201&big_area=35">월정교</a></h2>
+                  <div class="nk-post-meta"> 경주역(폐역)에서 도보 35분 차량 8분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>통일신라시대에 지어졌던 교량으로, 조선시대에 유실된 것을 2018년 4월 국내 최대 규모의 목조 교량으로 복원하였다.</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=6da54421-9ab9-4853-80d6-1eadbf0ad73b&big_category=A02&mid_category=A0201&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/98/2620298.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=6da54421-9ab9-4853-80d6-1eadbf0ad73b&big_category=A02&mid_category=A0201&big_area=35">경주대릉원</a></h2>
+                  <div class="nk-post-meta"> 경주역(폐역)에서 도보 22분 차량 5분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>경주 중심부인 노동동 일대에 자리하고 있는 고신라시대 무덤들로, 봉황대/식리총/금령총등이 포함되어 있다. </p>
+                  </div>
+              </div>
+            </div>
+
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a53cb548-05a0-40b9-bf70-68958c997cca&big_category=A02&mid_category=A0202&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/93/2760993.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a53cb548-05a0-40b9-bf70-68958c997cca&big_category=A02&mid_category=A0202&big_area=35">황성공원(맥문동)</a></h2>
+                  <div class="nk-post-meta"> 경주역(폐역)에서 도보 31분 차량 4분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>경주시 북쪽에 있는 공원으로 신라시대에는 화랑들의 훈련장으로 쓰였던 곳</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=00c25dce-f9c6-4da9-9431-3b153aeac22f&big_category=A02&mid_category=A0201&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/02/1310002.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=00c25dce-f9c6-4da9-9431-3b153aeac22f&big_category=A02&mid_category=A0201&big_area=35">분황사</a></h2>
+                  <div class="nk-post-meta"> 경주역(폐역)에서 도보 42분 차량 8분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>대한불교조계종 제11교구 본사 불국사의 말사이다. 분황사는 황룡사지와 잇닿아 있으면서 국보로 지정돼 있는 모전석탑으로도 유명하다.</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=64129126-fd44-41a8-8dae-bdadae1f1cb4&big_category=A01&mid_category=A0101&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/77/2005377.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=64129126-fd44-41a8-8dae-bdadae1f1cb4&big_category=A01&mid_category=A0101&big_area=35">보문호</a></h2>
+                  <div class="nk-post-meta"> 보문관광단지에서 도보 1분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>경주보문관광단지 개발 계획에 따라 경주시 동쪽 명활산 옛 성터 아래 만들어진 50만 평 규모의 인공호수</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=158b5695-9c71-47ef-a2b3-939856efaae0&big_category=A02&mid_category=A0202&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/16/2545716.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=158b5695-9c71-47ef-a2b3-939856efaae0&big_category=A02&mid_category=A0202&big_area=35">경주월드&캘리포니아비치</a></h2>
+                  <div class="nk-post-meta"> 보문관광단지에서 도보 20분 차량 2분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>경주월드 어뮤즈먼트는 여름에는 인기 워터파크 ‘캘리포니아비치’도 함께 즐기고, 겨울에는 대규모 스노우파크를 편리하게 즐길 수 있다.</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=18557f22-35b1-4d00-8307-eca3207dd5d0&big_category=A02&mid_category=A0201&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/07/2483407.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=18557f22-35b1-4d00-8307-eca3207dd5d0&big_category=A02&mid_category=A0201&big_area=35">최부자댁(교촌마을)</a></h2>
+                  <div class="nk-post-meta"> 경주역(폐역)에서 도보 35분 차량 8분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>만석꾼 경주최씨의 가옥.<br>경주최부자는 12대 400년동안 부와 명예를 이어오면서 한국적 자본주의의 모범을 보여 주었다.</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=051815f6-9d68-4901-8c2d-a9ce81a49fac&big_category=A02&mid_category=A0205&big_area=35">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/12/2492612.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=051815f6-9d68-4901-8c2d-a9ce81a49fac&big_category=A02&mid_category=A0205&big_area=35">주상절리(양남면)</a></h2>
+                  <div class="nk-post-meta"> 불국사에서 차량 36분</a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>양남면 읍천리의 해안을 따라 발달한 주상절리군</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=620f89b3-9d43-46ca-bc9b-356f732d1718&big_category=A02&mid_category=A0201&big_area=35">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/41/2513241.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=620f89b3-9d43-46ca-bc9b-356f732d1718&big_category=A02&mid_category=A0201&big_area=35">남산 신선암 마애보살반가상</a></h2>
+                    <div class="nk-post-meta"> 불국사에서 차량 23분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>높이 1.4m의 마애보살반가상은 칠불암(七佛庵) 위에 곧바로 선 남쪽바위에 새겨져 있다.</p>
+                    </div>
+                </div>
+              </div>
+              <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=507a7086-fab6-4f76-bb3a-dbc8b791a590&big_category=A02&mid_category=A0201&big_area=35">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/19/2029219.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=507a7086-fab6-4f76-bb3a-dbc8b791a590&big_category=A02&mid_category=A0201&big_area=35">양동마을</a></h2>
+                    <div class="nk-post-meta"> 건천역(폐역)에서 차량 31분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>조선시대 전통문화와 자연을 고스란히 간직하고 있는 한국 최대 규모의 집성촌으로 월성 손 씨와 여강 이 씨에 의해 형성되었다.</p>
+                    </div>
+                </div>
+              </div>
+              <div class="nk-isotope-item" data-filter="Design">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1a1bb352-ac1c-46d4-8ac6-dd7aa5abac6c&big_category=A05&mid_category=A0502&big_area=35">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/69/2485769.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=1a1bb352-ac1c-46d4-8ac6-dd7aa5abac6c&big_category=A05&mid_category=A0502&big_area=35">교리김밥 봉황대점</a></h2>
+                    <div class="nk-post-meta"> 경주역(폐역)에서  도보 19분 차량 6분</a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>대표메뉴 : 김밥, 잔치국수<br>본점 : 불국사에서 차량 22분<br>보문점 : 보문관광단지에서 도보 2분</p>
+                    </div>
+                </div>
+              </div>
+            <!-- END: Post -->
+
+        </div>
+        <!-- END: Posts List -->
+        <div class="nk-gap-5"></div>
+    </div>
+    <!-- START: Pagination -->
+    <div class="nk-pagination nk-pagination-center bg-gray-2">
+        <a href="#">Load More Posts</a>
+    </div>
+
+
+
+        <!-- START: Footer -->
+        <footer class="nk-footer">
+          <div class="container">
+              <div class="row vertical-gap">
+                  <div class="col-lg-3">
+                      <h3 class="h5 mb-20">Drip : DramaTrip</h3>
+                      <a>드라마 촬영지 정보 제공 웹 서비스</a>
+                  </div>
+                  <div class="col-lg-3">
+                      <h3 class="h5 mb-20">MEMBER</h3>
+                      <a>김건국 GitHub @</a>
+                      <a><br>김예진 GitHub @</a>
+                      <a><br>김지우 GitHub @</a>
+                      <a><br>이화정 GitHub @</a>
+                      <a><br>장연정 GitHub @</a>
+                      <a><br>장연화 GitHub @</a>
+                  </div>
+                  <div class="col-lg-6">
+                      <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
+                      <a>연출 : 정지현</a>
+                      <a><br>극본 : 권도은</a>
+                      <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
+                      <a><br>채널정보 : tvN, Netflix</a>
+                      <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <!-- END: Footer -->
+  </div>
+  <!-- START: Scripts -->
+  <!-- GSAP -->
+  <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+  <!-- Bootstrap -->
+  <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+  <!-- nK Share -->
+  <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
+  <!-- Sticky Kit -->
+  <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
+  <!-- Jarallax -->
+  <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
+  <!-- Flickity -->
+  <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
+  <!-- Isotope -->
+  <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
+  <!-- Photoswipe -->
+  <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+  <!-- Jquery Form -->
+  <script src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
+  <!-- Jquery Validation -->
+  <script src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+  <!-- Hammer.js -->
+  <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
+  <!-- Social Likes -->
+  <script src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
+  <!-- NanoSroller -->
+  <script src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
+  <!-- Keymaster -->
+  <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
+  <!-- Piroll -->
+  <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
+  <!-- Demo -->
+  <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
+  <!-- END: Scripts -->
+  </body>
+</html>

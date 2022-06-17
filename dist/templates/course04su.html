@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>서울 코스 소개</title>
+    <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+    <meta name="author" content="robirurk">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
+    <!-- Stroke 7 -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
+    <!-- Flickity -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
+    <!-- Photoswipe -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+    <!-- Piroll -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
+    <!-- END: Styles -->
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
+
+    <!-- Demo styles -->
+    <style>
+      html, body {
+        position: relative; height: 100%;
+      }
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        color: #fff;
+      }
+      a {
+        color: #fff;
+      }
+      .swiper {
+        width: 100%; height: 100%;
+      }
+      .swiper-slide {
+        text-align: center; font-size: 18px; background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .swiper-slide img {
+        display: block; width: 90%; height: 100%; object-fit: cover;
+      }
+      .swiper {
+        width: 90%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .swiper-slide {
+        background-size: cover; background-position: center;
+      }
+      .mySwiper {
+        height: 150px; box-sizing: border-box; padding: 10px 0;
+      }
+      .mySwiper2 {
+        height: 700px; width: 75%;
+      }
+      .mySwiper .swiper-slide {
+        width: 25%; height: 100%; opacity: 0.4;
+      }
+      .mySwiper .swiper-slide-thumb-active {
+        opacity: 0.4;
+      }
+      .nk-icon-burger {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 18px;
+          color: #fff;
+      }
+    </style>
+  </head>
+
+  
+  
+
+  <body>
+    <header class="nk-header nk-header-opaque">
+        <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
+            <div class="container">
+                <div class="nk-nav-table">
+                    <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                        <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
+                            <a href="/about">About</a>
+                        </li>
+                        <li class=" nk-drop-item">
+                            <a>코스 소개</a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="/coursejj">전주</a>
+                                </li>
+                                <li>
+                                    <a href="/coursegj">경주</a>
+                                </li>
+                                <li>
+                                    <a href="/coursegw">강원</a>
+                                </li>
+                                <li>
+                                  <a href="/coursesu">서울</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="/" class="nk-nav-logo">
+                        <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
+                    </a>
+                    <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                            <a href="/eng">ENG</a>
+                        </li>
+                        <li>
+                            <a href="/jpn">日本語</a>
+                        </li>
+                    </ul>
+                    <ul class="nk-nav nk-nav-right nk-nav-icons">
+                        <li class="single-icon hidden-lg-up">
+                            <a href="#" class="nk-navbar-full-toggle">
+                                <span class="nk-icon-burger">
+                                    <span class="nk-t-1"></span>
+                                    <span class="nk-t-2"></span>
+                                    <span class="nk-t-3"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END: Navbar -->
+    </header>
+      <!-- START: Navbar Mobile -->
+      <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+          <div class="nk-nav-table">
+              <div class="nk-nav-row">
+                  <div class="container">
+                      <div class="nk-nav-header">
+                          <div class="nk-nav-logo">
+                              <a href="/" class="nk-nav-logo">
+                                  <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
+                              </a>
+                          </div>
+                          <div class="nk-nav-close nk-navbar-full-toggle">
+                              <span class="nk-icon-close"></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="nk-nav-row-full nk-nav-row">
+                  <div class="nano">
+                      <div class="nano-content">
+                          <div class="nk-nav-table">
+                              <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                                  <ul class="nk-nav">
+                                      <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </nav>
+      <!-- END: Navbar Mobile -->
+      <div class="pb-50 nk-main bg-white">
+        <div class="pt-50" style="color:black; text-align:center;">
+          <h4><span style="background-color: #f59696">서울 코스</span></h4>
+          <h4>종로구 2521 투어 코스</h4>
+          <h5 style="color:grey"> 총 거리 : 9.5km / 총 이동시간 : 1시간 22분</h5>
+          <img src = "/static/assets/2521/서울.png" style="width: 60%; height: 60%;">
+          <img src = "/static/assets/2521/서울2.jpg" style="width: 60%; height: 60%;">
+        </div>
+        <!-- Swiper -->
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+          class="pt-50 swiper mySwiper2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_04_02.jpg');">
+              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
+                <br>희도 훈련ver.약수터<br><br><a href="/locatesingle?Place=와룡공원">와룡공원</a></div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_01_01.jpg');">
+              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
+                <br>코끼리분식(유림이네)<br><br><a href="/locatesingle?Place=효자분식">효자분식</a></div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_06_01.jpg');">
+              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">3</em>
+                <br>반년만의 재회<br><br><a href="/locatesingle?Place=광화문광장">광화문광장</a></div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_07_01.jpg');">
+              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
+                <br>새해맞이<br><br><a href="/locatesingle?Place=보신각">보신각</a></div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_02_01.jpg');">
+              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">5</em>
+                <br>라이더37&인절미 첫만남<br><br><a href="/locatesingle?Place=마로니에공원">마로니에공원</a></div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="{{ url_for('static', filename='assets/2521/2_04_02.jpg')}}" />
+            </div>
+            <div class="swiper-slide">
+              <img src="{{ url_for('static', filename='assets/2521/2_01_01.jpg')}}" />
+            </div>
+            <div class="swiper-slide">
+              <img src="{{ url_for('static', filename='assets/2521/2_06_01.jpg')}}" />
+            </div>
+            <div class="swiper-slide">
+              <img src="{{ url_for('static', filename='assets/2521/2_07_01.jpg')}}" />
+            </div>
+            <div class="swiper-slide">
+              <img src="{{ url_for('static', filename='assets/2521/2_02_01.jpg')}}" />
+            </div>
+          </div>
+        </div>
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!-- Initialize Swiper -->
+        <script>
+          var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+            observer: true,
+            observeParents: true,
+          });
+          var swiper2 = new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            observer: true,
+            observeParents: true,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+              swiper: swiper,
+            },
+          });
+        </script>
+      </div>
+      <div class="container">
+        <!---->
+        <ul class="nk-isotope-filter">
+          <br>
+        </ul>
+        <!---->
+        <!-- START: Posts List -->
+        <div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">
+            <!-- START: Post -->
+            <div class="nk-isotope-item">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="http://tong.visitkorea.or.kr/cms2/website/37/2469137.jpg"><!--이미지클릭시이동하는링크-->
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/37/2469137.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=395d0087-0bd2-42a1-a051-49c4c46d8821&big_category=A02&mid_category=A0201&big_area=1"><!--텍스트클릭링크-->북촌한옥마을</a></h2>
+                    <div class="nk-post-meta">효자분식에서 도보로 33분 차량으로 15분 </a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>경복궁과 창덕궁, 종묘 사이에 위치한 곳으로 전통한옥이 밀집되어 있는 서울의 대표적인 전통 주거지역이다</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-isotope-item">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=08632d88-1fe7-40c4-8815-fceaa6ae6416&big_category=A03&mid_category=A0301&big_area=1">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/30/2504330.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=08632d88-1fe7-40c4-8815-fceaa6ae6416&big_category=A03&mid_category=A0301&big_area=1">한양도성길</a></h2>
+                    <div class="nk-post-meta">와룡공원에서 도보로 9분 차량으로 2분 </a>
+                    </div>
+  
+                    <div class="nk-post-text">
+                        <p>서울의 주위를 둘러싸고 있는 조선시대의 도성</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-isotope-item">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=443caffd-74a6-4713-ba02-4b5520ef7e62&big_category=A02&mid_category=A0201&big_area=1">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/07/2029207.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=443caffd-74a6-4713-ba02-4b5520ef7e62&big_category=A02&mid_category=A0201&big_area=1">경복궁</a></h2>
+                    <div class="nk-post-meta">광화문광장에서 도보로 10분 차량으로 9분 </a>
+                    </div>
+  
+                    <div class="nk-post-text">
+                        <p>조선시대 궁궐 중 가장 중심이 되는 궁궐로 태조 4년(1395)에 한양으로 수도를 옮긴 후 처음으로 세운 왕조 제일의 궁궐이다</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-isotope-item">
+                <div class="nk-blog-post">
+                    <div class="nk-post-thumb">
+                        <a href="http://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=yGMWWl0iFSZaQ8Xj9GfYJ8oEEuQf3K0TTwgbRzAMWNgqVcgZ701Kof5EVqYRjo13.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1111102230000">
+                            <img src="http://tong.visitkorea.or.kr/cms2/website/22/2029222.jpg" alt="" class="nk-img-stretch">
+                        </a>
+                    </div>
+                    <h2 class="nk-post-title h5"><a href="http://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=yGMWWl0iFSZaQ8Xj9GfYJ8oEEuQf3K0TTwgbRzAMWNgqVcgZ701Kof5EVqYRjo13.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1111102230000">근정전</a></h2>
+                    <div class="nk-post-meta">광화문광장에서 도보로 14분 차량으로 7분 </a>
+                    </div>
+                    <div class="nk-post-text">
+                        <p>조선시대 법궁인 경복궁의 중심 건물로, 신하들이 임금에게 새해 인사를 드리거나 국가의식을 거행하고 외국 사신을 맞이하던 곳</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-isotope-item">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=382d5823-16f0-4793-aea7-3e77451bd68e&big_category=A02&mid_category=A0202&big_area=1">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/52/2586952.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=382d5823-16f0-4793-aea7-3e77451bd68e&big_category=A02&mid_category=A0202&big_area=1">청계천</a></h2>
+                  <div class="nk-post-meta">보신각에서 도보로 5분 차량으로 5분 </a>
+                  </div>  
+                  <div class="nk-post-text">
+                      <p>서울 한복판 종로구와 중구 사이를 가르는 10.84km의 하천</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ffe68eb4-5071-49ea-aa7c-4fb07b8f4392&big_category=A02&mid_category=A0201&big_area=1">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/35/2029135.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ffe68eb4-5071-49ea-aa7c-4fb07b8f4392&big_category=A02&mid_category=A0201&big_area=1">흥인지문</a></h2>
+                  <div class="nk-post-meta">마로니에공원 도보로 24분 차량으로 17분 </a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>서울 성곽은 옛날 중요한 국가시설이 있는 한성부를 보호하기 위해 만든 도성으로, 흥인지문은 성곽 8개의 문 가운데 동쪽에 있는 문이다</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3259a90d-1924-43c6-b333-df502374b491&big_category=A02&mid_category=A0203&big_area=1">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/62/2570162.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3259a90d-1924-43c6-b333-df502374b491&big_category=A02&mid_category=A0203&big_area=1">인사동 문화거리</a></h2>
+                  <div class="nk-post-meta">보신각에서 도보로 17분 차량으로 10분 </a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>서울 종로구 종로2가와 송현동 및 안국동 사이를 잇는 길로 우리나라의 전통문화를 접할 수 있는 서울의 대표 거리 중 하나이다</p>
+                  </div>
+              </div>
+            </div>
+            <div class="nk-isotope-item">
+              <div class="nk-blog-post">
+                  <div class="nk-post-thumb">
+                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=242c556a-2365-47b9-be5c-ea36d8db3663&big_category=A04&mid_category=A0401&big_area=1">
+                          <img src="http://tong.visitkorea.or.kr/cms2/website/71/2540171.jpg" alt="" class="nk-img-stretch">
+                      </a>
+                  </div>
+                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=242c556a-2365-47b9-be5c-ea36d8db3663&big_category=A04&mid_category=A0401&big_area=1">광장시장</a></h2>
+                  <div class="nk-post-meta">보신각에서 도보로 26분 차량으로 12분 </a>
+                  </div>
+                  <div class="nk-post-text">
+                      <p>서울특별시 종로구 예지동 종로5가에 위치한 서울 최대 규모의 재래시장이자, 대한민국 최초의 전통 거래 시장</p>
+                  </div>
+              </div>
+        </div><!--<div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">-->
+      </div><!--      <div class="pt-50 container">-->
+                <!-- END: Post -->
+  
+        </div>
+        <!-- END: Posts List -->
+        <div class="nk-gap-5"></div>
+    </div>
+    <!-- START: Pagination -->
+    <div class="nk-pagination nk-pagination-center bg-gray-2">
+        <a href="#">Load More Posts</a>
+    </div>
+
+            <!-- START: Footer -->
+            <footer class="nk-footer">
+              <div class="container">
+                  <div class="row vertical-gap">
+                      <div class="col-lg-3">
+                          <h3 class="h5 mb-20">Drip : DramaTrip</h3>
+                          <a>드라마 촬영지 정보 제공 웹 서비스</a>
+                      </div>
+                      <div class="col-lg-3">
+                          <h3 class="h5 mb-20">MEMBER</h3>
+                          <a>이름 GitHub @</a>
+                          <a><br>이름 GitHub @</a>
+                          <a><br>이름 GitHub @</a>
+                          <a><br>이름 GitHub @</a>
+                          <a><br>이름 GitHub @</a>
+                          <a><br>이름 GitHub @</a>
+                      </div>
+                      <div class="col-lg-6">
+                          <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
+                          <a>연출 : 정지현</a>
+                          <a><br>극본 : 권도은</a>
+                          <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
+                          <a><br>채널정보 : tvN, Netflix</a>
+                          <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+          <!-- END: Footer -->
+      </div>
+      <!-- START: Scripts -->
+      <!-- GSAP -->
+      <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
+      <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+      <!-- Bootstrap -->
+      <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
+      <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+      <!-- nK Share -->
+      <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
+      <!-- Sticky Kit -->
+      <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
+      <!-- Jarallax -->
+      <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
+      <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
+      <!-- Flickity -->
+      <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
+      <!-- Isotope -->
+      <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
+      <!-- Photoswipe -->
+      <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
+      <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+      <!-- Jquery Form -->
+      <script src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
+      <!-- Jquery Validation -->
+      <script src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+      <!-- Hammer.js -->
+      <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
+      <!-- Social Likes -->
+      <script src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
+      <!-- NanoSroller -->
+      <script src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
+      <!-- Keymaster -->
+      <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
+      <!-- Piroll -->
+      <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
+      <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
+      <!-- Demo -->
+      <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
+      <!-- END: Scripts -->
+  </body>
+</html>
