@@ -1617,6 +1617,8 @@ function initFullPage() {
 
   var $image1 = Object(_utility__WEBPACK_IMPORTED_MODULE_0__["$"])('<div class="nk-fullpage-bg-image">').appendTo($fullPage);
   var $image2 = Object(_utility__WEBPACK_IMPORTED_MODULE_0__["$"])('<div class="nk-fullpage-bg-image">').appendTo($fullPage); // content
+  var $image1 = Object(_utility__WEBPACK_IMPORTED_MODULE_0__["$"])('<div class="nk-fullpage-bg-image1">').appendTo($fullPage);
+  var $image2 = Object(_utility__WEBPACK_IMPORTED_MODULE_0__["$"])('<div class="nk-fullpage-bg-image1">').appendTo($fullPage); // content
 
   var $content = Object(_utility__WEBPACK_IMPORTED_MODULE_0__["$"])('<div class="nk-fullpage-content">');
   var $content2 = Object(_utility__WEBPACK_IMPORTED_MODULE_0__["$"])('<div class="nk-fullpage-content">');

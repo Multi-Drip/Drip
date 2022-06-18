@@ -42,57 +42,29 @@
         <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
     </head>
     <body>
-        <nav class="nk-navbar nk-navbar-top">
-            <div class="container">
-                <div class="nk-nav-table">
-                    <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                        <li class=" nk-drop-item">
-                            <a href="/about"> Dripについて </a>
-                        </li>
-                        <li class=" nk-drop-item">
-                            <a> 観光コース </a>
-                            <ul class="dropdown">
-                                <li>
-                                    <a href="/coursejj"> チョンジュ </a>
-                                </li>
-                                <li>
-                                    <a href="/coursegj"> キョンジュ </a>
-                                </li>
-                                <li>
-                                    <a href="/coursegw"> カンウォン </a>
-                                </li>
-                                <li>
-                                    <a href="/coursesu"> ソウル </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <a href="/jpnmain" class="nk-nav-logo">
-                        <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
-                    </a>
-                    <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                        <li>
-                            <a href="/"> 한국어 </a>
-                        </li>
-                        <li>
-                            <a href="/engmain"> ENG </a>
-                        </li>
-                    </ul>
-                    <ul class="nk-nav nk-nav-right nk-nav-icons">
-                        <li class="single-icon hidden-lg-up">
-                            <a href="#" class="nk-navbar-full-toggle">
-                                <span class="nk-icon-burger">
-                                    <span class="nk-t-1"></span>
-                                    <span class="nk-t-2"></span>
-                                    <span class="nk-t-3"></span>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
+        <header class="nk-header nk-header-opaque">
+            <!-- START: Navbar
+        Additional Classes:
+            .nk-navbar-lg
+            .nk-navbar-sticky
+            .nk-navbar-autohide
+            .nk-navbar-transparent
+            .nk-navbar-transparent-always
+            .nk-navbar-white-text-on-top
+            .nk-navbar-dark
+    -->
+            <nav class="nk-navbar nk-navbar-top">
+                <div class="container">
+                    <div class="nk-nav-table">
+                        <a href="/10PJ" class="nk-nav-logo">
+                            <img src="static/assets/2521/2521logo.png" alt="" width="150">
+                        </a>
+                        <ul class="nk-nav nk-nav-right nk-nav-icons">
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        <!-- END: Navbar -->
+            </nav>
+            <!-- END: Navbar -->
         </header>
         <div class="nk-main">
             <div class="container-fluid">
@@ -167,14 +139,14 @@
                         </div>
                         <div class="col-lg-7">
                             メンバー
-                            <br>이름1</td>
-                            <td><a href="#">github@1</a>
-                            <br> 이름2</td>
-                            <td><a href="#">github@2</a>
-                            <br> 이름3</td>
-                            <td><a href="#">github@3</a>
-                            <br> 이름4</td>
-                            <td><a href="#">github@4</a>
+                            <br>名前1</td>
+                            <td><a href="#">メールアドレス1</a>
+                            <br>名前2</td>
+                            <td><a href="#">メールアドレス2</a>
+                            <br>名前3</td>
+                            <td><a href="#">メールアドレス3</a>
+                            <br>名前4</td>
+                            <td><a href="#">メールアドレス4</a>
                         </div>
                         <div class="col-lg-3">
                             <h3 class="h5 mb-20">Piroll Design, Inc.</h3>

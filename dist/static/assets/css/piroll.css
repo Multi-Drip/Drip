@@ -76,7 +76,7 @@ html {
 }
 
 body {
-    color: #5f5f5f;
+    color: #000000;
     background-color: #f6f6f6;
 }
 
@@ -479,7 +479,7 @@ h6,
 .display-4 {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    color: #171717;
+    color: #aaaaaa;
 }
 
 .display-1 {
@@ -3609,7 +3609,7 @@ img.rounded {
 }
 
 .nk-navbar, .nk-navbar.nk-navbar-solid {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .nk-navbar.nk-navbar-transparent-always {
@@ -3685,7 +3685,7 @@ img.rounded {
 }
 
 .nk-navbar a {
-    color: inherit;
+    color: #000000;
     transition: .2s color;
 }
 
@@ -3848,7 +3848,7 @@ img.rounded {
 }
 
 .nk-navbar.nk-navbar-dark {
-    background-color: #252525;
+    background-color: rgb(60, 60, 60);
 }
 
 .nk-navbar.nk-navbar-dark a {
@@ -5636,7 +5636,7 @@ div.nk-error {
     display: inline-block;
     width: 20px;
     height: 18px;
-    color: #252525;
+    color: #000000;
 }
 
 .nk-icon-burger > span {
@@ -6284,6 +6284,26 @@ a.active > .nk-icon-search::after {
     background-color: #000;
     opacity: .5;
 }
+.nk-fullpage-portfolio .nk-fullpage-bg-image1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 0;
+}
+
+.nk-fullpage-portfolio .nk-fullpage-bg-image1::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
 
 .nk-fullpage-portfolio a {
     color: inherit;
@@ -6299,7 +6319,7 @@ a.active > .nk-icon-search::after {
 .nk-fullpage-portfolio .nk-fullpage-nav > li,
 .nk-fullpage-portfolio .nk-fullpage-item-category a {
     font-family: "Montserrat", sans-serif;
-    font-size: .8rem;
+    font-size: .99rem;
     letter-spacing: .07em;
     opacity: .5;
     transition: .3s opacity;
@@ -6334,7 +6354,7 @@ a.active > .nk-icon-search::after {
     margin-bottom: 10px;
     font-size: .848rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.5;
     text-transform: uppercase;
 }
 
