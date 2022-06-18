@@ -1,3 +1,1 @@
 # Drip
-
-## GitHub Test
