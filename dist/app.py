@@ -16,7 +16,7 @@ Data_eng=Data_eng.dropna()
 Data_jpn=Data_jpn.dropna()
 cwd = os.getcwd()
 files = os.listdir(cwd)
-# 이런 주석을 임의로추가했다고 쳐봅시다
+# 김지우 오후5:42
 
 CORS(app)
 
