@@ -114,11 +114,9 @@ def JpnMain():
 def About():
     return render_template('about.html')
 
-
 @app.route("/jpnabout", methods=['GET', 'POST'])
 def JPNAbout():
     return render_template('jpnabout.html')
-
 
 @app.route("/engabout", methods=['GET', 'POST'])
 def ENGAbout():
@@ -129,14 +127,29 @@ def ENGAbout():
 def coursejj():
     return render_template('course01jj.html')
 
-
 @app.route("/coursegj", methods=['GET', 'POST'])
 def Coursegj():
     return render_template('course02gj.html')
 
-
-
-
+Gw = pd.read_csv("gangwon_place.csv", encoding="cp949")
+#Gw = pd.read_csv("gangwon_place.csv")
+Gw = Gw.dropna()
+GwFilter = Gw['filter']
+GwName = Gw['name']
+GwDistance = Gw['distance']
+GwImg = Gw['img']
+GwLink = Gw['link']
+GwDetail = Gw['detail']          
+@app.route("/coursegw", methods=['GET','POST'])
+def Coursegw():
+    return render_template('course03gw.html',
+                           lengw = len(GwName),
+                           GwFilter = GwFilter,
+                           GwName = GwName,
+                           GwDistance = GwDistance,
+                           GwImg = GwImg,
+                           GwLink = GwLink,
+                           GwDetail = GwDetail)
 
 @app.route("/coursesu", methods=['GET', 'POST'])
 def Coursesu():
@@ -157,7 +170,6 @@ def LocatePage():
                            Address=Address[IDX].values[0],
                            SubImage=SubImage[IDX])
 
-
 @app.route("/engsub", methods=['GET', 'POST'])
 def EngSub():
     InputPlace_eng = request.args.get('Place')
@@ -171,7 +183,6 @@ def EngSub():
                            Place_eng=Place_eng[IDX].values[0],
                            Address_eng=Address_eng[IDX].values[0],
                            SubImage_eng=SubImage_eng[IDX])
-
 
 @app.route("/jpngub", methods=['GET', 'POST'])
 def JpnSub():
