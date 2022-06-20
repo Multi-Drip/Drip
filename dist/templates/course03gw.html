@@ -287,177 +287,37 @@
   <div class="container">
     <!-- START: Filter -->
     <ul class="nk-isotope-filter">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter="삼척">삼척</li>
-        <li data-filter="강릉">강릉</li>
-        <li data-filter="양양">양양</li>
+        <li class="active" data-filter="강릉">강릉</li>
         <li data-filter="고성">고성</li>
+        <li data-filter="동해">동해</li>
+        <li data-filter="삼척">삼척</li>
+        <li data-filter="속초">속초</li>
+        <li data-filter="양양">양양</li>
     </ul>
     <!-- END: Filter -->
+
     <!-- START: Posts List -->
     <div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="강릉">
+        {% for i in range(0, lengw) %}
+        <div class="nk-isotope-item" data-filter={{GwFilter[i]}}>
             <div class="nk-blog-post">
                 <div class="nk-post-thumb">
-                    <a href="https://www.gn.go.kr/tour/prog/lod/Sights/S0101/sub02_02_02/view.do?cid=437">
-                        <img src="http://tong.visitkorea.or.kr/cms2/website/57/1691557.jpg" alt="" class="nk-img-stretch">
+                    <a href="{{GwLink[i]}}">
+                        <img src="{{GwImg[i]}}" alt="" class="nk-img-stretch">
                     </a>
                 </div>
-                <h2 class="nk-post-title h5"><a href="https://www.gn.go.kr/tour/prog/lod/Sights/S0101/sub02_02_02/view.do?cid=437">강릉 송정해수욕장</a></h2>
-                <div class="nk-post-meta"> 강릉 금진해변에서 몇 분 / 강릉</a>
+                <h2 class="nk-post-title h5"><a href="{{GwLink[i]}}">{{GwName[i]}}</a></h2>
+                <div class="nk-post-meta"><a>{{GwDistance[i]}}</a>
                 </div>
-                <div class="nk-post-text">
-                    <p>고려 충숙왕의 부마 최문한(崔文漢)이 송도에서 강릉에 올 때 소나무 8그루를 가지고 와 이곳에 심어 팔송정이라 하다가 그후 송정이라 했다고 전한다.</p>
+                <div class="nk-post-text"><p>{{GwDetail[i]}}</p>
                 </div>
             </div>
         </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Creative">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-2-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">Here&#39;s a Simple Trick</a></h2>
-                <div class="nk-post-meta"> September 5, 2017 / <a href="#">Creative</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Dominion open saw. Without living first second one fly void light divide bring, us you'll in created deep.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Food">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-3-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">The History of Nature</a></h2>
-                <div class="nk-post-meta"> August 27, 2017 / <a href="#">Food</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Hath can't god our midst don't said unto darkness forth seed she'd years bearing moveth saying air i form behold.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Design">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-4-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">Are you doing the Right Way?</a></h2>
-                <div class="nk-post-meta"> August 14, 2017 / <a href="#">Design</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Face creature fowl him they're above fifth divide hath divide midst kind. Lesser together sixth was creature their.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Creative">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-5-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">Ten things about Photography</a></h2>
-                <div class="nk-post-meta"> August 14, 2017 / <a href="#">Creative</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Sea face brought fruitful won't appear multiply replenish. Creepeth Spirit fruit, from replenish she'd stars creature.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Food">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-6-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">Why you should Always First</a></h2>
-                <div class="nk-post-meta"> August 14, 2017 / <a href="#">Food</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Their subdue let blessed kind beast. Waters saying for. Us of gathered after it male place.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Design">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-9-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">My Favorite Place on earth is...</a></h2>
-                <div class="nk-post-meta"> June 21, 2017 / <a href="#">Design</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Whales so heaven fowl seas. Rule were subdue. Saw tree place dominion. Image him air bearing.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Creative">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-7-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">Five things about Nature</a></h2>
-                <div class="nk-post-meta"> Jule 3, 2017 / <a href="#">Creative</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>And thing don't bring us evening very fish isn't lights is for good. You'll the in good. Beast in fill.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
-        <!-- START: Post -->
-        <div class="nk-isotope-item" data-filter="Inspiration">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="blog-single.html">
-                        <img src="assets/images/post-8-mid.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="blog-single.html">The History of Branding</a></h2>
-                <div class="nk-post-meta"> June 26, 2017 / <a href="#">Inspiration</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>Make. Above sea image the blessed him male day seasons under male fourth The light their saying, our second.</p>
-                </div>
-            </div>
-        </div>
-        <!-- END: Post -->
+        {% endfor %}
     </div>
     <!-- END: Posts List -->
     <div class="nk-gap-5"></div>
 </div>
-<!-- START: Pagination -->
-<div class="nk-pagination nk-pagination-center bg-gray-2">
-    <a href="#">Load More Posts</a>
-</div>
-<!-- END: Pagination -->
 
         <!-- START: Footer -->
         <footer class="nk-footer">
@@ -469,12 +329,11 @@
                   </div>
                   <div class="col-lg-3">
                       <h3 class="h5 mb-20">MEMBER</h3>
-                      <a>이름 GitHub @</a>
-                      <a><br>이름 GitHub @</a>
-                      <a><br>이름 GitHub @</a>
-                      <a><br>이름 GitHub @</a>
-                      <a><br>이름 GitHub @</a>
-                      <a><br>이름 GitHub @</a>
+                      <a>김예진 GitHub @yjj8</a>
+                      <a><br>김지우 GitHub @jiwnon</a>
+                      <a><br>이화정 GitHub @applemint97</a>
+                      <a><br>장연정 GitHub @yjungs2</a>
+                      <a><br>장연화 GitHub @hwas2</a>
                   </div>
                   <div class="col-lg-6">
                       <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
