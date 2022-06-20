@@ -117,8 +117,7 @@ def Coursegj():
     return render_template('course02gj.html')
 
 
-Gw = pd.read_csv("강원_수정본.csv", encoding="cp949")
-#Gw = pd.read_csv("강원_수정본.csv")
+Gw = pd.read_csv("gangwon_place.csv", encoding="cp949")
 Gw = Gw.dropna()
 GwFilter = Gw['filter']
 GwName = Gw['name']
