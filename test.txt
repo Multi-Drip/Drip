@@ -1,9 +1,5 @@
 Test merge branch
 
 김지우 오전11:19
-<<<<<<< HEAD
 asdasd
 asd
-=======
-abcd
->>>>>>> 5177f2d04db9bb6ef6f5cd349b3fce7996f03caf
