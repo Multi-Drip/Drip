@@ -119,9 +119,25 @@ def Coursegj():
     return render_template('course02gj.html')
 
 
-@app.route("/coursegw", methods=['GET', 'POST'])
+Gw = pd.read_csv("강원_수정본.csv", encoding="cp949")
+#Gw = pd.read_csv("강원_수정본.csv")
+Gw = Gw.dropna()
+GwFilter = Gw['filter']
+GwName = Gw['name']
+GwDistance = Gw['distance']
+GwImg = Gw['img']
+GwLink = Gw['link']
+GwDetail = Gw['detail']          
+@app.route("/coursegw", methods=['GET','POST'])
 def Coursegw():
-    return render_template('course03gw.html')
+    return render_template('course03gw.html',
+                           lengw = len(GwName),
+                           GwFilter = GwFilter,
+                           GwName = GwName,
+                           GwDistance = GwDistance,
+                           GwImg = GwImg,
+                           GwLink = GwLink,
+                           GwDetail = GwDetail)
 
 
 @app.route("/coursesu", methods=['GET', 'POST'])
