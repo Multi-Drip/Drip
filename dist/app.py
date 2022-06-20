@@ -14,10 +14,8 @@ Data_jpn = pd.read_csv("Data_jpn.csv")
 Data = Data.dropna()
 Data_eng = Data_eng.dropna()
 Data_jpn = Data_jpn.dropna()
-cwd = os.getcwd()
-files = os.listdir(cwd)
-# 김지우 오후5:42
-# 김예진 오후5:42
+#cwd = os.getcwd()
+#files = os.listdir(cwd)
 
 CORS(app)
 
