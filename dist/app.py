@@ -14,8 +14,8 @@ Data_jpn = pd.read_csv("Data_jpn.csv")
 Data = Data.dropna()
 Data_eng = Data_eng.dropna()
 Data_jpn = Data_jpn.dropna()
-cwd = os.getcwd()
-files = os.listdir(cwd)
+#cwd = os.getcwd()
+#files = os.listdir(cwd)
 
 CORS(app)
 
