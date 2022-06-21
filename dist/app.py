@@ -134,6 +134,14 @@ def coursejj():
 def Coursegj():
     return render_template('course02gj.html')
 
+@app.route("/coursegj_jpn", methods=['GET', 'POST'])
+def Coursegj_jpn():
+    return render_template('course02gj_jpn.html')
+
+@app.route("/coursegj_eng", methods=['GET', 'POST'])
+def Coursegj_eng():
+    return render_template('course02gj_eng.html')
+
 
 
 
