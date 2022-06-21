@@ -195,7 +195,7 @@ def EngSub():
                            SubImage_eng=SubImage_eng[IDX])
 
 
-@app.route("/jpngub", methods=['GET', 'POST'])
+@app.route("/jpnsub", methods=['GET', 'POST'])
 def JpnSub():
     InputPlace_jpn = request.args.get('Place')
     IDX = np.where(Place_jpn == InputPlace_jpn)[0]
