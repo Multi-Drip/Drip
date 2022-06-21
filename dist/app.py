@@ -124,12 +124,20 @@ def JPNAbout():
 def ENGAbout():
     return render_template('engabout.html')
 
-
+# 1. 전주
 @app.route("/coursejj", methods=['GET', 'POST'])
 def coursejj():
     return render_template('course01jj.html')
 
+@app.route("/coursejj_jpn", methods=['GET', 'POST'])
+def coursejj_jpn():
+    return render_template('course01jj_jpn.html')
 
+@app.route("/coursejj_eng", methods=['GET', 'POST'])
+def coursejj_eng():
+    return render_template('course01jj_eng.html')
+
+# 2. 경주
 @app.route("/coursegj", methods=['GET', 'POST'])
 def Coursegj():
     return render_template('course02gj.html')
@@ -142,7 +150,7 @@ def Coursegj_jpn():
 def Coursegj_eng():
     return render_template('course02gj_eng.html')
 
-
+# 4. 서울
 @app.route("/coursesu", methods=['GET', 'POST'])
 def Coursesu():
     return render_template('course04su.html')
