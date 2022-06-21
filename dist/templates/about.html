@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>스물다섯 스물하나 | 드라마 속 장소 여행</title>
-        <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
-        <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
-        <meta name="author" content="robirurk">
-        <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- START: Styles -->
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css')}}">
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
-        <!-- Stroke 7 -->
-        <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
-        <!-- Flickity -->
-        <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
-        <!-- Photoswipe -->
-        <link rel="stylesheet" type="text/css')}}" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
-        <link rel="stylesheet" type="text/css')}}" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
-        <!-- Piroll -->
-        <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
-        <!-- Custom Styles -->
-        <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
-        <!-- END: Styles -->
-        <!-- jQuery -->
-        <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
-        <style>  
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>스물다섯 스물하나 | 드라마 속 장소 여행</title>
+    <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+    <meta name="author" content="robirurk">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- START: Styles -->
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i"
+        rel="stylesheet" type="text/css')}}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
+    <!-- Stroke 7 -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
+    <!-- Flickity -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
+    <!-- Photoswipe -->
+    <link rel="stylesheet" type="text/css')}}"
+        href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+    <link rel="stylesheet" type="text/css')}}"
+        href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+    <!-- Piroll -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
+    <!-- END: Styles -->
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <style>
         .nk-fullpage-portfolio .nk-fullpage-image {
             content: "";
             display: block;
@@ -38,155 +47,176 @@
         }
 
         .a .p {
-            color:rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
             text-align: right;
             margin-bottom: 1.6rem;
             display: block;
             margin-block-end: 1em;
             margin-inline-end: 0px;
         }
-        </style>
+    </style>
 
-    </head>
-    <body>
-        <header class="nk-header nk-header-opaque">
-            <nav class="nk-navbar nk-navbar-top">
-                <div class="container">
-                    <div class="nk-nav-table">
-                        <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                            <li>
-                                <a href="/about">About</a>
-                            </li>
-                            <li class=" nk-drop-item">
-                                <a>코스 소개</a>
-                                <ul class="dropdown">
-                                    <li>
-                                        <a href="/coursejj">전주</a>
-                                    </li>
-                                    <li>
-                                        <a href="/coursegj">경주</a>
-                                    </li>
-                                    <li>
-                                        <a href="/coursegw">강원</a>
-                                    </li>
-                                    <li>
-                                        <a href="/coursesu">서울</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href="/" class="nk-nav-logo">
-                            <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
-                        </a>
-                        <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                            <li>
-                                <a href="/engabout">ENG</a>
-                            </li>
-                            <li>
-                                <a href="/jpnabout">日本語</a>
-                            </li>
-                        </ul>
-                        <ul class="nk-nav nk-nav-right nk-nav-icons">
-                            <li class="single-icon hidden-lg-up">
-                                <a href="#" class="nk-navbar-full-toggle">
-                                    <span class="nk-icon-burger">
-                                        <span class="nk-t-1"></span>
-                                        <span class="nk-t-2"></span>
-                                        <span class="nk-t-3"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+</head>
+
+<body>
+    <header class="nk-header nk-header-opaque">
+        <nav class="nk-navbar nk-navbar-top">
+            <div class="container">
+                <div class="nk-nav-table">
+                    <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li class=" nk-drop-item">
+                            <a>코스 소개</a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="/coursejj">전주</a>
+                                </li>
+                                <li>
+                                    <a href="/coursegj">경주</a>
+                                </li>
+                                <li>
+                                    <a href="/coursegw">강원</a>
+                                </li>
+                                <li>
+                                    <a href="/coursesu">서울</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="/" class="nk-nav-logo">
+                        <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
+                    </a>
+                    <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                            <a href="/engabout">ENG</a>
+                        </li>
+                        <li>
+                            <a href="/jpnabout">日本語</a>
+                        </li>
+                    </ul>
+                    <ul class="nk-nav nk-nav-right nk-nav-icons">
+                        <li class="single-icon hidden-lg-up">
+                            <a href="#" class="nk-navbar-full-toggle">
+                                <span class="nk-icon-burger">
+                                    <span class="nk-t-1"></span>
+                                    <span class="nk-t-2"></span>
+                                    <span class="nk-t-3"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-            <!-- END: Navbar -->
-        </header>
-        <!-- END: Fullscreen Navbar -->
-        <div class="nk-main">
-            <div class="nk-fullpage-portfolio">
-                <div class="nk-fullpage-item">
-                    <img src="{{url_for('static', filename='assets/2521/about1.jpg')}}" alt="" class="nk-fullpage-image" style="opacity: .5;">
-                    <div class="nk-fullpage-content">
-                        <div class="container">
-                            <h2 class="nk-fullpage-title display-4"><a>드라마 속 주인공과 함께 떠나는 여행</a></h2>
-                            <div class="nk-fullpage-item-category">
-                                <h5 style="color:rgb(231, 231, 231)"><br>Dramatrip은 국내 드라마 촬영지 위치와 주변 업체 소개를 통해<br>
-                                    지역경제 발전과 더불어 문화적 경쟁력 확보에 앞장섭니다</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="nk-fullpage-item">
-                    <img src="{{url_for('static', filename='assets/2521/about2.jpg')}}" alt="" class="nk-fullpage-image" style="opacity: .5;">
-                    <div class="nk-fullpage-content">
-                        <div class="container">
-                            <h2 class="nk-fullpage-title display-4"><a>전 세계로 뻗어나가는 한국 드라마</a></h2>
-                            <div class="nk-fullpage-item-category">
-                                <h5 style="color:rgb(231, 231, 231)"><br>K콘텐츠가 세계인들의 주목을 받고 있는 상황에 맞춰<br>
-                                    관련 장소를 안내함으로써 국내 관광산업 활성화에 앞장섭니다.</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--member start-->
-                <div class="nk-fullpage-item" style="opacity: 1.0;">
-                    <img src="{{url_for('static', filename='assets/2521/about5.jpg')}}" alt="" class="nk-fullpage-image">
-                    <div class="nk-fullpage-content">
-                        <div class="container" style="text-align: right;">
-                            <h2 class="nk-fullpage-title display-4" ><a>MEMBER</a></h2>
-                            <div class="nk-fullpage-item-category">
-                                <a href="https://github.com/yjj8"><p>github @김예진</p></a>
-                                <a href="https://github.com/jiwnon"><p>github @김지우</p></a>
-                                <a href="https://github.com/applemint97"><p>github @이화정</p></a>
-                                <a href="https://github.com/yjungs2"><p>github @장연정</p></a>
-                                <a href="https://github.com/hwas2"><p>github @장연화</p></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--member end-->
             </div>
+        </nav>
+        <!-- END: Navbar -->
+    </header>
+    <!-- END: Fullscreen Navbar -->
+    <div class="nk-main">
+        <div class="nk-fullpage-portfolio">
+            <div class="nk-fullpage-item">
+                <img src="{{url_for('static', filename='assets/2521/about1.jpg')}}" alt="" class="nk-fullpage-image"
+                    style="opacity: .5;">
+                <div class="nk-fullpage-content">
+                    <div class="container">
+                        <h2 class="nk-fullpage-title display-4"><a>드라마 속 주인공과 함께 떠나는 여행</a></h2>
+                        <div class="nk-fullpage-item-category">
+                            <h5 style="color:rgb(231, 231, 231)"><br>Dramatrip은 국내 드라마 촬영지 위치와 주변 업체 소개를 통해<br>
+                                지역경제 발전과 더불어 문화적 경쟁력 확보에 앞장섭니다</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-fullpage-item">
+                <img src="{{url_for('static', filename='assets/2521/about2.jpg')}}" alt="" class="nk-fullpage-image"
+                    style="opacity: .5;">
+                <div class="nk-fullpage-content">
+                    <div class="container">
+                        <h2 class="nk-fullpage-title display-4"><a>전 세계로 뻗어나가는 한국 드라마</a></h2>
+                        <div class="nk-fullpage-item-category">
+                            <h5 style="color:rgb(231, 231, 231)"><br>K콘텐츠가 세계인들의 주목을 받고 있는 상황에 맞춰<br>
+                                관련 장소를 안내함으로써 국내 관광산업 활성화에 앞장섭니다.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--member start-->
+            <div class="nk-fullpage-item" style="opacity: 1.0;">
+                <img src="{{url_for('static', filename='assets/2521/about5.jpg')}}" alt="" class="nk-fullpage-image">
+                <div class="nk-fullpage-content">
+                    <div class="container" style="text-align: right;">
+                        <h2 class="nk-fullpage-title display-4"><a>MEMBER</a></h2>
+                        <div class="nk-fullpage-item-category">
+                            <a href="https://github.com/yjj8">
+                                <p>github @김예진</p>
+                            </a>
+                            <a href="https://github.com/jiwnon">
+                                <p>github @김지우</p>
+                            </a>
+                            <a href="https://github.com/applemint97">
+                                <p>github @이화정</p>
+                            </a>
+                            <a href="https://github.com/yjungs2">
+                                <p>github @장연정</p>
+                            </a>
+                            <a href="https://github.com/hwas2">
+                                <p>github @장연화</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--member end-->
         </div>
+    </div>
 
-        <!-- START: Scripts -->
-        <!-- GSAP -->
-        <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
-        <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
-        <!-- Bootstrap -->
-        <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
-        <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-        <!-- nK Share -->
-        <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
-        <!-- Sticky Kit -->
-        <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
-        <!-- Jarallax -->
-        <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
-        <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
-        <!-- Flickity -->
-        <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
-        <!-- Isotope -->
-        <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
-        <!-- Photoswipe -->
-        <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
-        <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
-        <!-- Jquery Form -->
-        <script src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
-        <!-- Jquery Validation -->
-        <script src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
-        <!-- Hammer.js -->
-        <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
-        <!-- Social Likes -->
-        <script src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
-        <!-- NanoSroller -->
-        <script src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
-        <!-- Keymaster -->
-        <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
-        <!-- Piroll -->
-        <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
-        <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
-        <!-- Demo -->
-        <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
-        <!-- END: Scripts -->
-    </body>
+    <!-- START: Scripts -->
+    <!-- GSAP -->
+    <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
+    <script
+        src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- nK Share -->
+    <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
+    <!-- Sticky Kit -->
+    <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
+    <!-- Jarallax -->
+    <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
+    <script
+        src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
+    <!-- Flickity -->
+    <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
+    <!-- Isotope -->
+    <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
+    <!-- Photoswipe -->
+    <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
+    <script
+        src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+    <!-- Jquery Form -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
+    <!-- Jquery Validation -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+    <!-- Hammer.js -->
+    <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
+    <!-- Social Likes -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
+    <!-- NanoSroller -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
+    <!-- Keymaster -->
+    <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
+    <!-- Piroll -->
+    <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
+    <!-- Demo -->
+    <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
+    <!-- END: Scripts -->
+</body>
+
 </html>

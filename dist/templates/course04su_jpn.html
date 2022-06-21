@@ -1,484 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ソウルコース</title>
-    <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
-    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
-    <meta name="author" content="robirurk">
-    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
-    <!-- Stroke 7 -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
-    <!-- Flickity -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
-    <!-- Photoswipe -->
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
-    <!-- Piroll -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
-    <!-- END: Styles -->
-    <!-- jQuery -->
-    <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ソウルコース</title>
+  <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+  <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+  <meta name="author" content="robirurk">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i"
+    rel="stylesheet" type="text/css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
+  <!-- Stroke 7 -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
+  <!-- Flickity -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
+  <!-- Photoswipe -->
+  <link rel="stylesheet" type="text/css"
+    href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+  <link rel="stylesheet" type="text/css"
+    href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+  <!-- Piroll -->
+  <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
+  <!-- END: Styles -->
+  <!-- jQuery -->
+  <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
 
-    <!-- Demo styles -->
-    <style>
-      html, body {
-        position: relative; height: 100%;
-      }
-      body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      }
-      div {
-        color: #fff;
-      }
-      a {
-        color: #fff;
-      }
-      .swiper {
-        width: 100%; height: 100%;
-      }
-      .swiper-slide {
-        text-align: center; font-size: 18px; background: #fff;
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-      .swiper-slide img {
-        display: block; width: 90%; height: 100%; object-fit: cover;
-      }
-      .swiper {
-        width: 90%;
-        height: 300px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .swiper-slide {
-        background-size: cover; background-position: center;
-      }
-      .mySwiper {
-        height: 150px; box-sizing: border-box; padding: 10px 0;
-      }
-      .mySwiper2 {
-        height: 700px; width: 75%;
-      }
-      .mySwiper .swiper-slide {
-        width: 25%; height: 100%; opacity: 0.4;
-      }
-      .mySwiper .swiper-slide-thumb-active {
-        opacity: 0.4;
-      }
-      .nk-icon-burger {
-          position: relative;
-          display: inline-block;
-          width: 20px;
-          height: 18px;
-          color: #fff;
-      }
-    </style>
-  </head>
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      color: #fff;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 90%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .mySwiper {
+      height: 150px;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .mySwiper2 {
+      height: 700px;
+      width: 75%;
+    }
+
+    .mySwiper .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .mySwiper .swiper-slide-thumb-active {
+      opacity: 0.4;
+    }
+
+    .nk-icon-burger {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 18px;
+      color: #fff;
+    }
+  </style>
+</head>
 
 
-  <body>
-      <header class="nk-header nk-header-opaque">
-          <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
-              <div class="container">
-                  <div class="nk-nav-table">
-                      <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                          <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
-                            <li class=" nk-drop-item">
-                              <a href="/jpnabout"> Dripについて </a>
-                          </li>
-                          <li class=" nk-drop-item">
-                              <a> 観光コース </a>
-                              <ul class="dropdown">
-                                  <li>
-                                      <a href="/coursejj_jpn"> チョンジュ </a>
-                                  </li>
-                                  <li>
-                                      <a href="/coursegj_jpn"> キョンジュ </a>
-                                  </li>
-                                  <li>
-                                      <a href="/coursegw_jpn"> カンウォン </a>
-                                  </li>
-                                  <li>
-                                      <a href="/coursesu_jpn"> ソウル </a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
-                      <a href="/jpnmain" class="nk-nav-logo">
-                          <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
-                      </a>
-                      <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                          <li>
-                              <a href="/coursesu">한국어</a>
-                          </li>
-                          <li>
-                              <a href="/coursesu_eng">ENG</a>
-                          </li>
-                      </ul>
-                      <ul class="nk-nav nk-nav-right nk-nav-icons">
-                          <li class="single-icon hidden-lg-up">
-                              <a href="#" class="nk-navbar-full-toggle">
-                                  <span class="nk-icon-burger">
-                                      <span class="nk-t-1"></span>
-                                      <span class="nk-t-2"></span>
-                                      <span class="nk-t-3"></span>
-                                  </span>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
-          <!-- END: Navbar -->
-      </header>
-      <!-- START: Navbar Mobile -->
-      <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
-          <div class="nk-nav-table">
-              <div class="nk-nav-row">
-                  <div class="container">
-                      <div class="nk-nav-header">
-                          <div class="nk-nav-logo">
-                              <a href="/" class="nk-nav-logo">
-                                  <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
-                              </a>
-                          </div>
-                          <div class="nk-nav-close nk-navbar-full-toggle">
-                              <span class="nk-icon-close"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="nk-nav-row-full nk-nav-row">
-                  <div class="nano">
-                      <div class="nano-content">
-                          <div class="nk-nav-table">
-                              <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
-                                  <ul class="nk-nav">
-                                      <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </nav>
-      <!-- END: Navbar Mobile -->
-      <div class="pb-50 nk-main bg-white">
-        <div class="pt-50" style="color:black; text-align:center;">
-          <h4><span style="background-color: #f59696">ソウルコース</span></h4>
-          <h4>ソウル鍾路(チョンノ) 2521 ツアーコース</h4>
-          <h5 style="color:grey"> 総距離 : 9.5km / 総移動時間 : 1時間22分</h5>
-          <img src = "/static/assets/2521/서울.png" style="width: 60%; height: 60%;">
-          <img src = "/static/assets/2521/서울2.jpg" style="width: 60%; height: 60%;">
-        </div>
-        <!-- Swiper -->
-        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-          class="pt-50 swiper mySwiper2">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_04_02.jpg');">
-              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
-                <br>ヒド 訓練ver.湧き水の出るところ<br><br><a href="/locatesingle?Place=와룡공원">臥龍(ワリョン)公園</a></div>
-            </div>
-            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_01_01.jpg');">
-              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
-                <br>ユリム家の軽食店<br><br><a href="/locatesingle?Place=효자분식">孝子粉食</a></div>
-            </div>
-            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_06_01.jpg');">
-              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">3</em>
-                <br>ヒドとイジンの半年ぶりの再会<br><br><a href="/locatesingle?Place=광화문광장">光化門（クァンファムン）</a></div>
-            </div>
-            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_07_01.jpg');">
-              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
-                <br>新年行事の取材<br><br><a href="/locatesingle?Place=보신각">普信閣(ポシンカク)</a></div>
-            </div>
-            <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_02_01.jpg');">
-              <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">5</em>
-                <br>ライダー37とインジョルミの初の出会い<br><br><a href="/locatesingle?Place=마로니에공원">マロニエ公園</a></div>
-            </div>
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-        <div thumbsSlider="" class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="{{ url_for('static', filename='assets/2521/2_04_02.jpg')}}" />
-            </div>
-            <div class="swiper-slide">
-              <img src="{{ url_for('static', filename='assets/2521/2_01_01.jpg')}}" />
-            </div>
-            <div class="swiper-slide">
-              <img src="{{ url_for('static', filename='assets/2521/2_06_01.jpg')}}" />
-            </div>
-            <div class="swiper-slide">
-              <img src="{{ url_for('static', filename='assets/2521/2_07_01.jpg')}}" />
-            </div>
-            <div class="swiper-slide">
-              <img src="{{ url_for('static', filename='assets/2521/2_02_01.jpg')}}" />
-            </div>
-          </div>
-        </div>
-        <!-- Swiper JS -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <!-- Initialize Swiper -->
-        <script>
-          var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            spaceBetween: 10,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true,
-            observer: true,
-            observeParents: true,
-          });
-          var swiper2 = new Swiper(".mySwiper2", {
-            loop: true,
-            spaceBetween: 10,
-            observer: true,
-            observeParents: true,
-            navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            },
-            thumbs: {
-              swiper: swiper,
-            },
-          });
-        </script>
-      </div>
-
+<body>
+  <header class="nk-header nk-header-opaque">
+    <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
       <div class="container">
-        <h4 class="pt-50 pb-30" style="text-align: center;">ソウルでおすすめの観光スポット</h4>
-        <!-- START: Posts List -->
-        <div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">
-            <!-- START: Post -->
-            <div class="nk-isotope-item">
-              <div class="nk-blog-post">
-                  <div class="nk-post-thumb">
-                      <a href="http://tong.visitkorea.or.kr/cms2/website/37/2469137.jpg"><!--이미지클릭시이동하는링크-->
-                          <img src="http://tong.visitkorea.or.kr/cms2/website/37/2469137.jpg" alt="" class="nk-img-stretch">
-                      </a>
-                  </div>
-                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=395d0087-0bd2-42a1-a051-49c4c46d8821&big_category=A02&mid_category=A0201&big_area=1"><!--텍스트클릭링크-->北村韓屋村</a></h2>
-                  <div class="nk-post-meta">『孝子粉食』から徒歩約33分、車で約15分</a>
-                  </div>
-                  <div class="nk-post-text">
-                      <p>景福宮と昌徳宮、宗廟(ジョンミョ)の間に位置したもので、伝統韓屋が密集されているソウルの代表的な伝統住居地域</p>
-                  </div>
-              </div>
-          </div>
-          <div class="nk-isotope-item">
-              <div class="nk-blog-post">
-                  <div class="nk-post-thumb">
-                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=08632d88-1fe7-40c4-8815-fceaa6ae6416&big_category=A03&mid_category=A0301&big_area=1">
-                          <img src="http://tong.visitkorea.or.kr/cms2/website/30/2504330.jpg" alt="" class="nk-img-stretch">
-                      </a>
-                  </div>
-                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=08632d88-1fe7-40c4-8815-fceaa6ae6416&big_category=A03&mid_category=A0301&big_area=1">ソウル漢陽都城</a></h2>
-                  <div class="nk-post-meta">『臥龍公園(ワリョン)』から徒歩約9分、車で約2分</a>
-                  </div>
-
-                  <div class="nk-post-text">
-                      <p>ソウルの周りを取り囲んでいる朝鮮時代の都城</p>
-                  </div>
-              </div>
-          </div>
-          <div class="nk-isotope-item">
-              <div class="nk-blog-post">
-                  <div class="nk-post-thumb">
-                      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=443caffd-74a6-4713-ba02-4b5520ef7e62&big_category=A02&mid_category=A0201&big_area=1">
-                          <img src="http://tong.visitkorea.or.kr/cms2/website/07/2029207.jpg" alt="" class="nk-img-stretch">
-                      </a>
-                  </div>
-                  <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=443caffd-74a6-4713-ba02-4b5520ef7e62&big_category=A02&mid_category=A0201&big_area=1">景福宮</a></h2>
-                  <div class="nk-post-meta">『光化門(クァンファムン)』から徒歩約10分</a>
-                  </div>
-
-                  <div class="nk-post-text">
-                      <p>朝鮮時代の宮殿の中で最も中心となる宮殿で、太祖4年(1395年)に漢陽に首都を移した後、初めて建てられた王朝第一の宮殿。</p>
-                  </div>
-              </div>
-          </div>
-          <div class="nk-isotope-item">
-              <div class="nk-blog-post">
-                  <div class="nk-post-thumb">
-                      <a href="http://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=yGMWWl0iFSZaQ8Xj9GfYJ8oEEuQf3K0TTwgbRzAMWNgqVcgZ701Kof5EVqYRjo13.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1111102230000">
-                          <img src="http://tong.visitkorea.or.kr/cms2/website/22/2029222.jpg" alt="" class="nk-img-stretch">
-                      </a>
-                  </div>
-                  <h2 class="nk-post-title h5"><a href="http://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=yGMWWl0iFSZaQ8Xj9GfYJ8oEEuQf3K0TTwgbRzAMWNgqVcgZ701Kof5EVqYRjo13.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1111102230000">勤政殿</a></h2>
-                  <div class="nk-post-meta">『光化門(クァンファムン)』から徒歩約14分、車で約7分</a>
-                  </div>
-                  <div class="nk-post-text">
-                      <p>朝鮮時代の法宮である景福宮の中心建物に、臣下たちが賃金に新年の挨拶をあげたり、国家意識を挙行して外国の使者を迎えたところ</p>
-                  </div>
-              </div>
-          </div>
-          <div class="nk-isotope-item">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=382d5823-16f0-4793-aea7-3e77451bd68e&big_category=A02&mid_category=A0202&big_area=1">
-                        <img src="http://tong.visitkorea.or.kr/cms2/website/52/2586952.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=382d5823-16f0-4793-aea7-3e77451bd68e&big_category=A02&mid_category=A0202&big_area=1">清渓川(チョンゲチョン)</a></h2>
-                <div class="nk-post-meta">『普信閣(ポシンカク)』から徒歩約5分、車で約5分</a>
-                </div>  
-                <div class="nk-post-text">
-                    <p>ソウルのど真ん中鍾路区と中区の間を分ける10.84kmの河川</p>
-                </div>
-            </div>
-          </div>
-          <div class="nk-isotope-item">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ffe68eb4-5071-49ea-aa7c-4fb07b8f4392&big_category=A02&mid_category=A0201&big_area=1">
-                        <img src="http://tong.visitkorea.or.kr/cms2/website/35/2029135.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ffe68eb4-5071-49ea-aa7c-4fb07b8f4392&big_category=A02&mid_category=A0201&big_area=1">興仁之門(フンインジムン、トンデムン)</a></h2>
-                <div class="nk-post-meta">『マロニエ公園』から徒歩約24分、車で約17分</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>ソウル城郭は昔、重要な国家施設がある漢城府を保護するために作られた都城で、興仁之門は城郭8つの門のうち東にある門。</p>
-                </div>
-            </div>
-          </div>
-          <div class="nk-isotope-item">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3259a90d-1924-43c6-b333-df502374b491&big_category=A02&mid_category=A0203&big_area=1">
-                        <img src="http://tong.visitkorea.or.kr/cms2/website/62/2570162.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3259a90d-1924-43c6-b333-df502374b491&big_category=A02&mid_category=A0203&big_area=1">仁寺洞(インサドン)</a></h2>
-                <div class="nk-post-meta">『普信閣(ポシンカク)』から徒歩約17分、車で約10分</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>ソウル鍾路区鍾路2街と松峴洞及び安国洞の間を結ぶ道で、韓国の伝統文化に接することができるソウルの代表的な通りの一つである。</p>
-                </div>
-            </div>
-          </div>
-          <div class="nk-isotope-item">
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=242c556a-2365-47b9-be5c-ea36d8db3663&big_category=A04&mid_category=A0401&big_area=1">
-                        <img src="http://tong.visitkorea.or.kr/cms2/website/71/2540171.jpg" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=242c556a-2365-47b9-be5c-ea36d8db3663&big_category=A04&mid_category=A0401&big_area=1">広蔵市場(クァンジャンシジャン)</a></h2>
-                <div class="nk-post-meta">『普信閣(ポシンカク)』から徒歩約26分、車で約12分</a>
-                </div>
-                <div class="nk-post-text">
-                    <p>ソウル特別市鍾路区礼芝洞鍾路5街に位置するソウル最大規模の在来市場であり、大韓民国初の伝統取引市場である。</p>
-                </div>
-              </div>
-            </div>
-          <!-- END: Post -->
+        <div class="nk-nav-table">
+          <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+            <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
+            <li class=" nk-drop-item">
+              <a href="/jpnabout"> Dripについて </a>
+            </li>
+            <li class=" nk-drop-item">
+              <a> 観光コース </a>
+              <ul class="dropdown">
+                <li>
+                  <a href="/coursejj_jpn"> チョンジュ </a>
+                </li>
+                <li>
+                  <a href="/coursegj_jpn"> キョンジュ </a>
+                </li>
+                <li>
+                  <a href="/coursegw_jpn"> カンウォン </a>
+                </li>
+                <li>
+                  <a href="/coursesu_jpn"> ソウル </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <a href="/jpnmain" class="nk-nav-logo">
+            <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
+          </a>
+          <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+            <li>
+              <a href="/coursesu">한국어</a>
+            </li>
+            <li>
+              <a href="/coursesu_eng">ENG</a>
+            </li>
+          </ul>
+          <ul class="nk-nav nk-nav-right nk-nav-icons">
+            <li class="single-icon hidden-lg-up">
+              <a href="#" class="nk-navbar-full-toggle">
+                <span class="nk-icon-burger">
+                  <span class="nk-t-1"></span>
+                  <span class="nk-t-2"></span>
+                  <span class="nk-t-3"></span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <!-- END: Posts List -->
-      <div class="nk-gap-5"></div>
+    </nav>
+    <!-- END: Navbar -->
+  </header>
+  <!-- START: Navbar Mobile -->
+  <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+    <div class="nk-nav-table">
+      <div class="nk-nav-row">
+        <div class="container">
+          <div class="nk-nav-header">
+            <div class="nk-nav-logo">
+              <a href="/" class="nk-nav-logo">
+                <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
+              </a>
+            </div>
+            <div class="nk-nav-close nk-navbar-full-toggle">
+              <span class="nk-icon-close"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nk-nav-row-full nk-nav-row">
+        <div class="nano">
+          <div class="nano-content">
+            <div class="nk-nav-table">
+              <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                <ul class="nk-nav">
+                  <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END: Navbar Mobile -->
+  <div class="pb-50 nk-main bg-white">
+    <div class="pt-50" style="color:black; text-align:center;">
+      <h4><span style="background-color: #f59696">ソウルコース</span></h4>
+      <h4>ソウル鍾路(チョンノ) 2521 ツアーコース</h4>
+      <h5 style="color:grey"> 総距離 : 9.5km / 総移動時間 : 1時間22分</h5>
+      <img src="/static/assets/2521/서울.png" style="width: 60%; height: 60%;">
+      <img src="/static/assets/2521/서울2.jpg" style="width: 60%; height: 60%;">
+    </div>
+    <!-- Swiper -->
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="pt-50 swiper mySwiper2">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_04_02.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
+            <br>ヒド 訓練ver.湧き水の出るところ<br><br><a href="/locatesingle?Place=와룡공원">臥龍(ワリョン)公園</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_01_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
+            <br>ユリム家の軽食店<br><br><a href="/locatesingle?Place=효자분식">孝子粉食</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_06_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">3</em>
+            <br>ヒドとイジンの半年ぶりの再会<br><br><a href="/locatesingle?Place=광화문광장">光化門（クァンファムン）</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_07_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
+            <br>新年行事の取材<br><br><a href="/locatesingle?Place=보신각">普信閣(ポシンカク)</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_02_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">5</em>
+            <br>ライダー37とインジョルミの初の出会い<br><br><a href="/locatesingle?Place=마로니에공원">マロニエ公園</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_04_02.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_01_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_06_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_07_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_02_01.jpg')}}" />
+        </div>
+      </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        observer: true,
+        observeParents: true,
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        loop: true,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+    </script>
+  </div>
+
+  <div class="container">
+    <h4 class="pt-50 pb-30" style="text-align: center;">ソウルでおすすめの観光スポット</h4>
+    <!-- START: Posts List -->
+    <div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">
+      <!-- START: Post -->
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a href="http://tong.visitkorea.or.kr/cms2/website/37/2469137.jpg">
+              <!--이미지클릭시이동하는링크-->
+              <img src="http://tong.visitkorea.or.kr/cms2/website/37/2469137.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=395d0087-0bd2-42a1-a051-49c4c46d8821&big_category=A02&mid_category=A0201&big_area=1">
+              <!--텍스트클릭링크-->北村韓屋村
+            </a></h2>
+          <div class="nk-post-meta">『孝子粉食』から徒歩約33分、車で約15分</a>
+          </div>
+          <div class="nk-post-text">
+            <p>景福宮と昌徳宮、宗廟(ジョンミョ)の間に位置したもので、伝統韓屋が密集されているソウルの代表的な伝統住居地域</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=08632d88-1fe7-40c4-8815-fceaa6ae6416&big_category=A03&mid_category=A0301&big_area=1">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/30/2504330.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=08632d88-1fe7-40c4-8815-fceaa6ae6416&big_category=A03&mid_category=A0301&big_area=1">ソウル漢陽都城</a>
+          </h2>
+          <div class="nk-post-meta">『臥龍公園(ワリョン)』から徒歩約9分、車で約2分</a>
+          </div>
+
+          <div class="nk-post-text">
+            <p>ソウルの周りを取り囲んでいる朝鮮時代の都城</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=443caffd-74a6-4713-ba02-4b5520ef7e62&big_category=A02&mid_category=A0201&big_area=1">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/07/2029207.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=443caffd-74a6-4713-ba02-4b5520ef7e62&big_category=A02&mid_category=A0201&big_area=1">景福宮</a>
+          </h2>
+          <div class="nk-post-meta">『光化門(クァンファムン)』から徒歩約10分</a>
+          </div>
+
+          <div class="nk-post-text">
+            <p>朝鮮時代の宮殿の中で最も中心となる宮殿で、太祖4年(1395年)に漢陽に首都を移した後、初めて建てられた王朝第一の宮殿。</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="http://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=yGMWWl0iFSZaQ8Xj9GfYJ8oEEuQf3K0TTwgbRzAMWNgqVcgZ701Kof5EVqYRjo13.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1111102230000">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/22/2029222.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="http://www.heritage.go.kr/heri/cul/culSelectDetail.do;jsessionid=yGMWWl0iFSZaQ8Xj9GfYJ8oEEuQf3K0TTwgbRzAMWNgqVcgZ701Kof5EVqYRjo13.cpawas2_servlet_engine1?pageNo=1_1_2_0&ccbaCpno=1111102230000">勤政殿</a>
+          </h2>
+          <div class="nk-post-meta">『光化門(クァンファムン)』から徒歩約14分、車で約7分</a>
+          </div>
+          <div class="nk-post-text">
+            <p>朝鮮時代の法宮である景福宮の中心建物に、臣下たちが賃金に新年の挨拶をあげたり、国家意識を挙行して外国の使者を迎えたところ</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=382d5823-16f0-4793-aea7-3e77451bd68e&big_category=A02&mid_category=A0202&big_area=1">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/52/2586952.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=382d5823-16f0-4793-aea7-3e77451bd68e&big_category=A02&mid_category=A0202&big_area=1">清渓川(チョンゲチョン)</a>
+          </h2>
+          <div class="nk-post-meta">『普信閣(ポシンカク)』から徒歩約5分、車で約5分</a>
+          </div>
+          <div class="nk-post-text">
+            <p>ソウルのど真ん中鍾路区と中区の間を分ける10.84kmの河川</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ffe68eb4-5071-49ea-aa7c-4fb07b8f4392&big_category=A02&mid_category=A0201&big_area=1">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/35/2029135.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=ffe68eb4-5071-49ea-aa7c-4fb07b8f4392&big_category=A02&mid_category=A0201&big_area=1">興仁之門(フンインジムン、トンデムン)</a>
+          </h2>
+          <div class="nk-post-meta">『マロニエ公園』から徒歩約24分、車で約17分</a>
+          </div>
+          <div class="nk-post-text">
+            <p>ソウル城郭は昔、重要な国家施設がある漢城府を保護するために作られた都城で、興仁之門は城郭8つの門のうち東にある門。</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3259a90d-1924-43c6-b333-df502374b491&big_category=A02&mid_category=A0203&big_area=1">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/62/2570162.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=3259a90d-1924-43c6-b333-df502374b491&big_category=A02&mid_category=A0203&big_area=1">仁寺洞(インサドン)</a>
+          </h2>
+          <div class="nk-post-meta">『普信閣(ポシンカク)』から徒歩約17分、車で約10分</a>
+          </div>
+          <div class="nk-post-text">
+            <p>ソウル鍾路区鍾路2街と松峴洞及び安国洞の間を結ぶ道で、韓国の伝統文化に接することができるソウルの代表的な通りの一つである。</p>
+          </div>
+        </div>
+      </div>
+      <div class="nk-isotope-item">
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=242c556a-2365-47b9-be5c-ea36d8db3663&big_category=A04&mid_category=A0401&big_area=1">
+              <img src="http://tong.visitkorea.or.kr/cms2/website/71/2540171.jpg" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a
+              href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=242c556a-2365-47b9-be5c-ea36d8db3663&big_category=A04&mid_category=A0401&big_area=1">広蔵市場(クァンジャンシジャン)</a>
+          </h2>
+          <div class="nk-post-meta">『普信閣(ポシンカク)』から徒歩約26分、車で約12分</a>
+          </div>
+          <div class="nk-post-text">
+            <p>ソウル特別市鍾路区礼芝洞鍾路5街に位置するソウル最大規模の在来市場であり、大韓民国初の伝統取引市場である。</p>
+          </div>
+        </div>
+      </div>
+      <!-- END: Post -->
+    </div>
+    <!-- END: Posts List -->
+    <div class="nk-gap-5"></div>
   </div>
 
 
-            <!-- START: Footer -->
-            <footer class="nk-footer">
-              <div class="container">
-                  <div class="row vertical-gap">
-                    <div class="col-lg-3">
-                      <h3 class="h5 mb-20">Drip : DramaTrip</h3>
-                      <a>ドラマの主人公と一緒に旅立つ旅</a>
-                  </div>
-                  <div class="col-lg-3">
-                      <h3 class="h5 mb-20">MEMBER</h3>
-                      <a>Yejin Kim </a><a href="https://github.com/yjj8">GitHub</a>
-                      <a><br>Jiwoo Kim </a><a href="https://github.com/jiwnon">GitHub</a>
-                      <a><br>Hwajung Lee </a><a href="https://github.com/applemint97">GitHub</a>
-                      <a><br>Yeonjung Jang </a><a href="https://github.com/yjungs2">GitHub</a>
-                      <a><br>Yeonhwa Jang </a><a href="https://github.com/hwas2">GitHub</a>
-                  </div>
-                  <div class="col-lg-6">
-                      <h3 class="h5 mb-20">『二十五、二十一』（朝: 스물다섯 스물하나）</h3>
-                      <a>監督 : チョン・ジヒョン</a>
-                      <a><br>脚本 : クォン・ドウン</a>
-                      <a><br>製作 : ファ&ダムピクチャーズ、スタジオドラゴン</a>
-                      <a><br>放送チャンネル : tvN、Netflix</a>
-                      <a><br>放送期間 : 2022.02.12 ~ 2022.04.03 (全16話)</a>
-                      </div>
-                  </div>
-              </div>
-          </footer>
-          <!-- END: Footer -->
+  <!-- START: Footer -->
+  <footer class="nk-footer">
+    <div class="container">
+      <div class="row vertical-gap">
+        <div class="col-lg-3">
+          <h3 class="h5 mb-20">Drip : DramaTrip</h3>
+          <a>ドラマの主人公と一緒に旅立つ旅</a>
+        </div>
+        <div class="col-lg-3">
+          <h3 class="h5 mb-20">MEMBER</h3>
+          <a>Yejin Kim </a><a href="https://github.com/yjj8">GitHub</a>
+          <a><br>Jiwoo Kim </a><a href="https://github.com/jiwnon">GitHub</a>
+          <a><br>Hwajung Lee </a><a href="https://github.com/applemint97">GitHub</a>
+          <a><br>Yeonjung Jang </a><a href="https://github.com/yjungs2">GitHub</a>
+          <a><br>Yeonhwa Jang </a><a href="https://github.com/hwas2">GitHub</a>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="h5 mb-20">『二十五、二十一』（朝: 스물다섯 스물하나）</h3>
+          <a>監督 : チョン・ジヒョン</a>
+          <a><br>脚本 : クォン・ドウン</a>
+          <a><br>製作 : ファ&ダムピクチャーズ、スタジオドラゴン</a>
+          <a><br>放送チャンネル : tvN、Netflix</a>
+          <a><br>放送期間 : 2022.02.12 ~ 2022.04.03 (全16話)</a>
+        </div>
       </div>
-      <!-- START: Scripts -->
-      <!-- GSAP -->
-      <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
-      <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
-      <!-- Bootstrap -->
-      <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
-      <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-      <!-- nK Share -->
-      <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
-      <!-- Sticky Kit -->
-      <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
-      <!-- Jarallax -->
-      <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
-      <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
-      <!-- Flickity -->
-      <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
-      <!-- Isotope -->
-      <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
-      <!-- Photoswipe -->
-      <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
-      <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
-      <!-- Jquery Form -->
-      <script src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
-      <!-- Jquery Validation -->
-      <script src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
-      <!-- Hammer.js -->
-      <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
-      <!-- Social Likes -->
-      <script src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
-      <!-- NanoSroller -->
-      <script src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
-      <!-- Keymaster -->
-      <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
-      <!-- Piroll -->
-      <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
-      <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
-      <!-- Demo -->
-      <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
-      <!-- END: Scripts -->
-  </body>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+  </div>
+  <!-- START: Scripts -->
+  <!-- GSAP -->
+  <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+  <!-- Bootstrap -->
+  <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+  <!-- nK Share -->
+  <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
+  <!-- Sticky Kit -->
+  <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
+  <!-- Jarallax -->
+  <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
+  <!-- Flickity -->
+  <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
+  <!-- Isotope -->
+  <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
+  <!-- Photoswipe -->
+  <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+  <!-- Jquery Form -->
+  <script src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
+  <!-- Jquery Validation -->
+  <script
+    src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+  <!-- Hammer.js -->
+  <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
+  <!-- Social Likes -->
+  <script
+    src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
+  <!-- NanoSroller -->
+  <script
+    src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
+  <!-- Keymaster -->
+  <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
+  <!-- Piroll -->
+  <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
+  <!-- Demo -->
+  <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
+  <!-- END: Scripts -->
+</body>
+
 </html>

@@ -1,195 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>강원도 코스 소개</title>
-    <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
-    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
-    <meta name="author" content="robirurk">
-    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
-    <!-- Stroke 7 -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
-    <!-- Flickity -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
-    <!-- Photoswipe -->
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
-    <!-- Piroll -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
-    <!-- END: Styles -->
-    <!-- jQuery -->
-    <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
-    <!-- Demo styles -->
-    <style>
-      html, body {
-        position: relative; height: 100%;
-      }
-      body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      }
-      div {
-        color: #fff;
-      }
-      a {
-        color: #fff;
-      }
-      .swiper {
-        width: 100%; height: 100%;
-      }
-      .swiper-slide {
-        text-align: center; font-size: 18px; background: #fff;
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-      .swiper-slide img {
-        display: block; width: 90%; height: 100%; object-fit: cover;
-      }
-      .swiper {
-        width: 90%;
-        height: 300px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .swiper-slide {
-        background-size: cover; background-position: center;
-      }
-      .mySwiper {
-        height: 150px; box-sizing: border-box; padding: 10px 0;
-      }
-      .mySwiper2 {
-        height: 700px; width: 75%;
-      }
-      .mySwiper .swiper-slide {
-        width: 25%; height: 100%; opacity: 0.4;
-      }
-      .mySwiper .swiper-slide-thumb-active {
-        opacity: 0.4;
-      }
-      .nk-icon-burger {
-          position: relative;
-          display: inline-block;
-          width: 20px;
-          height: 18px;
-          color: #fff;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>강원도 코스 소개</title>
+  <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+  <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+  <meta name="author" content="robirurk">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i"
+    rel="stylesheet" type="text/css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
+  <!-- Stroke 7 -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
+  <!-- Flickity -->
+  <link rel="stylesheet"
+    href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
+  <!-- Photoswipe -->
+  <link rel="stylesheet" type="text/css"
+    href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+  <link rel="stylesheet" type="text/css"
+    href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+  <!-- Piroll -->
+  <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
+  <!-- END: Styles -->
+  <!-- jQuery -->
+  <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
-  <body>
-    <header class="nk-header nk-header-opaque">
-      <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
-          <div class="container">
-              <div class="nk-nav-table">
-                  <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                      <li>
-                      <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
-                          <a href="/about">About</a>
-                      </li>
-                      <li class=" nk-drop-item">
-                          <a>코스 소개</a>
-                          <ul class="dropdown">
-                              <li>
-                                  <a href="/coursejj">전주</a>
-                              </li>
-                              <li>
-                                  <a href="/coursegj">경주</a>
-                              </li>
-                              <li>
-                                  <a href="/coursegw">강원</a>
-                              </li>
-                              <li>
-                                <a href="/coursesu">서울</a>
-                              </li>
-                          </ul>
-                      </li>
-                  </ul>
-                  <a href="/" class="nk-nav-logo">
-                      <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
-                  </a>
-                  <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                      <li>
-                          <a href="/coursegw_eng">ENG</a>
-                      </li>
-                      <li>
-                          <a href="/coursegw_jpn">日本語</a>
-                      </li>
-                  </ul>
-                  <ul class="nk-nav nk-nav-right nk-nav-icons">
-                      <li class="single-icon hidden-lg-up">
-                          <a href="#" class="nk-navbar-full-toggle">
-                              <span class="nk-icon-burger">
-                                  <span class="nk-t-1"></span>
-                                  <span class="nk-t-2"></span>
-                                  <span class="nk-t-3"></span>
-                              </span>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-      <!-- END: Navbar -->
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      color: #fff;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 90%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .mySwiper {
+      height: 150px;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .mySwiper2 {
+      height: 700px;
+      width: 75%;
+    }
+
+    .mySwiper .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .mySwiper .swiper-slide-thumb-active {
+      opacity: 0.4;
+    }
+
+    .nk-icon-burger {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 18px;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nk-header nk-header-opaque">
+    <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
+      <div class="container">
+        <div class="nk-nav-table">
+          <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+            <li>
+              <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
+              <a href="/about">About</a>
+            </li>
+            <li class=" nk-drop-item">
+              <a>코스 소개</a>
+              <ul class="dropdown">
+                <li>
+                  <a href="/coursejj">전주</a>
+                </li>
+                <li>
+                  <a href="/coursegj">경주</a>
+                </li>
+                <li>
+                  <a href="/coursegw">강원</a>
+                </li>
+                <li>
+                  <a href="/coursesu">서울</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <a href="/" class="nk-nav-logo">
+            <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
+          </a>
+          <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+            <li>
+              <a href="/coursegw_eng">ENG</a>
+            </li>
+            <li>
+              <a href="/coursegw_jpn">日本語</a>
+            </li>
+          </ul>
+          <ul class="nk-nav nk-nav-right nk-nav-icons">
+            <li class="single-icon hidden-lg-up">
+              <a href="#" class="nk-navbar-full-toggle">
+                <span class="nk-icon-burger">
+                  <span class="nk-t-1"></span>
+                  <span class="nk-t-2"></span>
+                  <span class="nk-t-3"></span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END: Navbar -->
   </header>
   <!-- START: Navbar Mobile -->
   <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
-      <div class="nk-nav-table">
-          <div class="nk-nav-row">
-              <div class="container">
-                  <div class="nk-nav-header">
-                      <div class="nk-nav-logo">
-                          <a href="/" class="nk-nav-logo">
-                              <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
-                          </a>
-                      </div>
-                      <div class="nk-nav-close nk-navbar-full-toggle">
-                          <span class="nk-icon-close"></span>
-                      </div>
-                  </div>
-              </div>
+    <div class="nk-nav-table">
+      <div class="nk-nav-row">
+        <div class="container">
+          <div class="nk-nav-header">
+            <div class="nk-nav-logo">
+              <a href="/" class="nk-nav-logo">
+                <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
+              </a>
+            </div>
+            <div class="nk-nav-close nk-navbar-full-toggle">
+              <span class="nk-icon-close"></span>
+            </div>
           </div>
-          <div class="nk-nav-row-full nk-nav-row">
-              <div class="nano">
-                  <div class="nano-content">
-                      <div class="nk-nav-table">
-                          <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
-                              <ul class="nk-nav">
-                                  <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
+      <div class="nk-nav-row-full nk-nav-row">
+        <div class="nano">
+          <div class="nano-content">
+            <div class="nk-nav-table">
+              <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                <ul class="nk-nav">
+                  <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
   <!-- END: Navbar Mobile -->
   <div class="pb-50 nk-main bg-white">
@@ -197,37 +232,42 @@
       <h4><span style="background-color: #f59696">강원도 코스</span></h4>
       <h4>강원도 해안 코스 (ft. 태양고 5인방)</h4>
       <h5 style="color:grey"> (자가용 기준) 총 거리 : 191.1km / 총 이동시간 : 3시간 25분</h5>
-      <img src = "/static/assets/2521/강원.png" style="width: 60%; height: 60%;">
-      <img src = "/static/assets/2521/강원2.jpg" style="width: 60%; height: 60%;">
+      <img src="/static/assets/2521/강원.png" style="width: 60%; height: 60%;">
+      <img src="/static/assets/2521/강원2.jpg" style="width: 60%; height: 60%;">
       <div class="pt-50"></div>
     </div>
     <!-- Swiper -->
-    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-      class="swiper mySwiper2">
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
       <div class="swiper-wrapper">
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/3_05_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
-            <br>응원이 닿기를<br><br><a href="/locatesingle?Place=신남항">신남항</a></div>
+            <br>응원이 닿기를<br><br><a href="/locatesingle?Place=신남항">신남항</a>
+          </div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/3_04_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
-            <br>이진 삼촌네<br><br><a href="/locatesingle?Place=묵호논골담길">묵호논골담길</a></div>
+            <br>이진 삼촌네<br><br><a href="/locatesingle?Place=묵호논골담길">묵호논골담길</a>
+          </div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/3_03_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">3</em>
-            <br>수학여행 이튿날<br><br><a href="/locatesingle?Place=금진해변">금진해변</a></div>
+            <br>수학여행 이튿날<br><br><a href="/locatesingle?Place=금진해변">금진해변</a>
+          </div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/3_01_02.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
-            <br>수학여행 숙소<br><br><a href="/locatesingle?Place=강릉가이택펜션">강릉가이택펜션</a></div>
+            <br>수학여행 숙소<br><br><a href="/locatesingle?Place=강릉가이택펜션">강릉가이택펜션</a>
+          </div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/3_06_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">5</em>
-            <br>이진&이진엄마 바다 데이트<br><br><a href="/locatesingle?Place=하조대해수욕장">하조대해수욕장</a></div>
+            <br>이진&이진엄마 바다 데이트<br><br><a href="/locatesingle?Place=하조대해수욕장">하조대해수욕장</a>
+          </div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/3_02_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">6</em>
-            <br>수학여행 바다<br><br><a href="/locatesingle?Place=삼포해수욕장">삼포해수욕장</a></div>
+            <br>수학여행 바다<br><br><a href="/locatesingle?Place=삼포해수욕장">삼포해수욕장</a>
+          </div>
         </div>
       </div>
       <div class="swiper-button-next"></div>
@@ -288,71 +328,73 @@
     <h4 class="pt-40" style="text-align: center;">함께 둘러보면 좋은 관광지</h4>
     <!-- START: Filter -->
     <ul class="nk-isotope-filter">
-        <li class="active" data-filter="강릉">강릉</li>
-        <li data-filter="고성">고성</li>
-        <li data-filter="동해">동해</li>
-        <li data-filter="삼척">삼척</li>
-        <li data-filter="속초">속초</li>
-        <li data-filter="양양">양양</li>
+      <li class="active" data-filter="강릉">강릉</li>
+      <li data-filter="고성">고성</li>
+      <li data-filter="동해">동해</li>
+      <li data-filter="삼척">삼척</li>
+      <li data-filter="속초">속초</li>
+      <li data-filter="양양">양양</li>
     </ul>
     <!-- END: Filter -->
 
     <div class="nk-blog-isotope nk-isotope nk-isotope-gap nk-isotope-3-cols">
-        <!-- START: Post -->
-        {% for i in range(0, lengw) %}
-        <div class="nk-isotope-item" data-filter={{GwFilter[i]}}>
-            <div class="nk-blog-post">
-                <div class="nk-post-thumb">
-                    <a href="{{GwLink[i]}}">
-                        <img src="{{GwImg[i]}}" alt="" class="nk-img-stretch">
-                    </a>
-                </div>
-                <h2 class="nk-post-title h5"><a href="{{GwLink[i]}}">{{GwName[i]}}</a></h2>
-                <div class="nk-post-meta"><a>{{GwDistance[i]}}</a>
-                </div>
-                <div class="nk-post-text"><p>{{GwDetail[i]}}</p>
-                </div>
-            </div>
+      <!-- START: Post -->
+      {% for i in range(0, lengw) %}
+      <div class="nk-isotope-item" data-filter={{GwFilter[i]}}>
+        <div class="nk-blog-post">
+          <div class="nk-post-thumb">
+            <a href="{{GwLink[i]}}">
+              <img src="{{GwImg[i]}}" alt="" class="nk-img-stretch">
+            </a>
+          </div>
+          <h2 class="nk-post-title h5"><a href="{{GwLink[i]}}">{{GwName[i]}}</a></h2>
+          <div class="nk-post-meta"><a>{{GwDistance[i]}}</a>
+          </div>
+          <div class="nk-post-text">
+            <p>{{GwDetail[i]}}</p>
+          </div>
         </div>
-        {% endfor %}
-        <!-- END: Post -->
+      </div>
+      {% endfor %}
+      <!-- END: Post -->
     </div>
-      <div class="nk-gap-5"></div>
+    <div class="nk-gap-5"></div>
   </div>
 
-        <!-- START: Footer -->
-        <footer class="nk-footer">
-          <div class="container">
-              <div class="row vertical-gap">
-                  <div class="col-lg-3">
-                      <h3 class="h5 mb-20">Drip : DramaTrip</h3>
-                      <a>드라마 촬영지 정보 제공 웹 서비스</a>
-                  </div>
-                  <div class="col-lg-3">
-                      <h3 class="h5 mb-20">MEMBER</h3>
-                      <a>김예진 </a><a href="https://github.com/yjj8">GitHub</a>
-                      <a><br>김지우 </a><a href="https://github.com/jiwnon">GitHub</a>
-                      <a><br>이화정 </a><a href="https://github.com/applemint97">GitHub</a>
-                      <a><br>장연정 </a><a href="https://github.com/yjungs2">GitHub</a>
-                      <a><br>장연화 </a><a href="https://github.com/hwas2">GitHub</a>
-                  </div>
-                  <div class="col-lg-6">
-                      <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
-                      <a>연출 : 정지현</a>
-                      <a><br>극본 : 권도은</a>
-                      <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
-                      <a><br>채널정보 : tvN, Netflix</a>
-                      <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
-                  </div>
-              </div>
-          </div>
-      </footer>
-      <!-- END: Footer -->
+  <!-- START: Footer -->
+  <footer class="nk-footer">
+    <div class="container">
+      <div class="row vertical-gap">
+        <div class="col-lg-3">
+          <h3 class="h5 mb-20">Drip : DramaTrip</h3>
+          <a>드라마 촬영지 정보 제공 웹 서비스</a>
+        </div>
+        <div class="col-lg-3">
+          <h3 class="h5 mb-20">MEMBER</h3>
+          <a>김예진 </a><a href="https://github.com/yjj8">GitHub</a>
+          <a><br>김지우 </a><a href="https://github.com/jiwnon">GitHub</a>
+          <a><br>이화정 </a><a href="https://github.com/applemint97">GitHub</a>
+          <a><br>장연정 </a><a href="https://github.com/yjungs2">GitHub</a>
+          <a><br>장연화 </a><a href="https://github.com/hwas2">GitHub</a>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
+          <a>연출 : 정지현</a>
+          <a><br>극본 : 권도은</a>
+          <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
+          <a><br>채널정보 : tvN, Netflix</a>
+          <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
+        </div>
       </div>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+  </div>
   <!-- START: Scripts -->
   <!-- GSAP -->
   <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
-  <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
   <!-- Bootstrap -->
   <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
   <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -369,17 +411,21 @@
   <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
   <!-- Photoswipe -->
   <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
-  <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
   <!-- Jquery Form -->
   <script src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
   <!-- Jquery Validation -->
-  <script src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
   <!-- Hammer.js -->
   <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
   <!-- Social Likes -->
-  <script src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
   <!-- NanoSroller -->
-  <script src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
+  <script
+    src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
   <!-- Keymaster -->
   <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
   <!-- Piroll -->
@@ -388,5 +434,6 @@
   <!-- Demo -->
   <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
   <!-- END: Scripts -->
-  </body>
+</body>
+
 </html>
