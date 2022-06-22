@@ -52,7 +52,7 @@ def MainPage():
 @app.route("/engmain", methods=['GET', 'POST'])
 def EngMain():
     return render_template('engmain.html',
-                            len = len(Place),
+                            len = len(DramaPlace_eng),
                             DataFilter_eng=DataFilter,
                             Place_eng=Place_eng,
                             MainImage_eng=MainImage,
@@ -61,7 +61,7 @@ def EngMain():
 @app.route("/jpnmain", methods=['GET', 'POST'])
 def JpnMain():
     return render_template('jpnmain.html',
-                            len = len(Place),
+                            len = len(DramaPlace_jpn),
                             DataFilter_eng=DataFilter,
                             Place_eng=Place_eng,
                             MainImage_eng=MainImage,
