@@ -268,6 +268,13 @@
                         latlng: new kakao.maps.LatLng(35.786109, 129.328624)
                     }
                 ];
+                var iwContent = ['<a><img src=static/assets/2521/driplogoblack.png; alt=""; width=31;></a>',
+                    '<div style="padding:5px;">content text here <br><a href="https://www.naver.com" style="color:blue" target = "_blank" > link1</a > <a href="https://google.co.kr" style="color:blue" target="_blank">link2</a></div >',
+                    '<div style="padding:5px;">content text here <br><a href="https://www.naver.com" style="color:blue" target = "_blank" > link1</a > <a href="https://google.co.kr" style="color:blue" target="_blank">link2</a></div >',
+                    '<div style="padding:5px;">content text here <br><a href="https://www.naver.com" style="color:blue" target = "_blank" > link1</a > <a href="https://google.co.kr" style="color:blue" target="_blank">link2</a></div >'
+                    ]
+                // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
 
                 for (var i = 0; i < positions.length; i++) {
                     // 마커를 생성합니다
@@ -278,29 +285,14 @@
 
                     // 마커에 표시할 인포윈도우를 생성합니다 
                     var infowindow = new kakao.maps.InfoWindow({
-                        content: positions[i].content // 인포윈도우에 표시할 내용
+                        content: iwContent[i],  // 인포윈도우에 표시할 내용
+                        position: positions[i].latlng  // 인포윈도우의 위치
                     });
 
-                    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-                    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-                    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-                    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-                    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+                    infowindow.open(map, marker);
                 }
 
-                // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-                function makeOverListener(map, marker, infowindow) {
-                    return function () {
-                        infowindow.open(map, marker);
-                    };
-                }
 
-                // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-                function makeOutListener(infowindow) {
-                    return function () {
-                        infowindow.close();
-                    };
-                }
                 // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
                 var linePath = [
                     new kakao.maps.LatLng(35.854174, 129.097301),
