@@ -232,8 +232,82 @@
       <h4><span style="background-color: #f59696">강원도 코스</span></h4>
       <h4>강원도 해안 코스 (ft. 태양고 5인방)</h4>
       <h5 style="color:grey"> (자가용 기준) 총 거리 : 191.1km / 총 이동시간 : 3시간 25분</h5>
-      <img src="/static/assets/2521/강원.png" style="width: 60%; height: 60%;">
-      <img src="/static/assets/2521/강원2.jpg" style="width: 60%; height: 60%;">
+            <!-- 지도 시작 -->
+            <div id="map" style="width:80%;height:700px;margin-left: auto;margin-right: auto;margin-bottom: 20px;">
+            </div>
+
+            <script type="text/javascript"
+                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
+            <script>
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                    mapOption = {
+                        center: new kakao.maps.LatLng(37.819214, 128.890457), // 지도의 중심좌표
+                        level: 6 // 지도의 확대 레벨
+                    };
+
+                var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+                var positions = [
+                    {content: '<div>신남항</div>', latlng: new kakao.maps.LatLng(37.264243, 129.327002)},
+                    {content: '<div>묵호논골담길</div>', latlng: new kakao.maps.LatLng(37.552812, 129.116413)},
+                    {content: '<div>금진해변</div>', latlng: new kakao.maps.LatLng(37.636471, 129.044975)},
+                    {content: '<div>강릉가이택펜션</div>', latlng: new kakao.maps.LatLng(37.819214, 128.890457)},
+                    {content: '<div>하조대해수욕장</div>', latlng: new kakao.maps.LatLng(38.024766, 128.722318)},
+                    {content: '<div>삼포해수욕장</div>', latlng: new kakao.maps.LatLng(38.314963, 128.534746)}
+                ];
+                var iwContent = ['<div style="padding:5px; color:black;">1. 신남항<br>다음 장소까지 차로 49분<br></div >',
+                    '<div style="padding:5px; color:black;">2. 묵호논골담길<br>다음 장소까지 차로 24분<br></div >',
+                    '<div style="padding:5px; color:black;">3. 금진해변<br>다음 장소까지 차로 47분<br></div >',
+                    '<div style="padding:5px; color:black;">4. 강릉가이택펜션<br>다음 장소까지 차로 39분<br></div >',
+                    '<div style="padding:5px; color:black;">5. 하조대해수욕장<br>다음 장소까지 차로 46분<br></div >',
+                    '<div style="padding:5px; color:black;">6. 삼포해수욕장<br></div >'
+
+                    ]
+                // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+
+                for (var i = 0; i < positions.length; i++) {
+                    // 마커를 생성합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map, // 마커를 표시할 지도
+                        position: positions[i].latlng // 마커의 위치
+                    });
+
+                    // 마커에 표시할 인포윈도우를 생성합니다 
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: iwContent[i],  // 인포윈도우에 표시할 내용
+                        position: positions[i].latlng  // 인포윈도우의 위치
+                    });
+
+                    infowindow.open(map, marker);
+                }
+
+
+                // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+                var linePath = [
+                    new kakao.maps.LatLng(37.264243, 129.327002),
+                    new kakao.maps.LatLng(37.552812, 129.116413),
+                    new kakao.maps.LatLng(37.636471, 129.044975),
+                    new kakao.maps.LatLng(37.819214, 128.890457),
+                    new kakao.maps.LatLng(38.024766, 128.722318),
+                    new kakao.maps.LatLng(38.314963, 128.534746)
+                ];
+
+                // 지도에 표시할 선을 생성합니다
+                var polyline = new kakao.maps.Polyline({
+                    path: linePath, // 선을 구성하는 좌표배열 입니다
+                    strokeWeight: 10, // 선의 두께 입니다
+                    strokeColor: '#8A0829', // 선의 색깔입니다
+                    strokeOpacity: 0.6, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                    strokeStyle: 'solid', // 선의 스타일입니다
+                    endArrow: false // 끝에 화살표 유무
+                });
+
+                // 지도에 선을 표시합니다 
+                polyline.setMap(map);  
+            </script>
+            <!-- 지도 끝 -->
       <div class="pt-50"></div>
     </div>
     <!-- Swiper -->
