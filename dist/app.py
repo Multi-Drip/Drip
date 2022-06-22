@@ -119,7 +119,7 @@ def Coursegj_eng():
     return render_template('course02gj_eng.html')
 
 # 3. 강원
-Gw = pd.read_csv("gangwon_place.csv", encoding="cp949")
+Gw = pd.read_csv("gangwon_place.csv")
 Gw = Gw.dropna()
 GwFilter = Gw['filter']
 GwName = Gw['name']
