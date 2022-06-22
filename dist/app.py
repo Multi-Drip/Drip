@@ -58,25 +58,6 @@ LatitudeValue_jpn = Data_jpn['LatitudeValue']
 LongitudeValue_jpn = Data_jpn['LongitudeValue']
 SubImage_jpn = Data_jpn['SubImage']
 
-Gw = pd.read_csv("gangwon_place.csv", encoding="cp949")
-Gw = Gw.dropna()
-GwFilter = Gw['filter']
-GwName = Gw['name']
-GwDistance = Gw['distance']
-GwImg = Gw['img']
-GwLink = Gw['link']
-GwDetail = Gw['detail']          
-@app.route("/coursegw", methods=['GET','POST'])
-def Coursegw():
-    return render_template('course03gw.html',
-                           lengw = len(GwName),
-                           GwFilter = GwFilter,
-                           GwName = GwName,
-                           GwDistance = GwDistance,
-                           GwImg = GwImg,
-                           GwLink = GwLink,
-                           GwDetail = GwDetail)
-
 @app.route("/", methods=['GET', 'POST'])
 def MainPage():
     return render_template('10PJ.html',
@@ -86,8 +67,6 @@ def MainPage():
                            MainImage=MainImage,
                            Title=Title,
                            Subtitle=Subtitle)
-
-
 @app.route("/engmain", methods=['GET', 'POST'])
 def EngMain():
     return render_template('engmain.html',
@@ -97,8 +76,6 @@ def EngMain():
                            MainImage_eng=MainImage_eng,
                            Title_eng=Title_eng,
                            Subtitle_eng=Subtitle_eng)
-
-
 @app.route("/jpnmain", methods=['GET', 'POST'])
 def JpnMain():
     return render_template('jpnmain.html',
@@ -109,17 +86,12 @@ def JpnMain():
                            Title_jpn=Title_jpn,
                            Subtitle_jpn=Subtitle_jpn)
 
-
 @app.route("/about", methods=['GET', 'POST'])
 def About():
     return render_template('about.html')
-
-
 @app.route("/jpnabout", methods=['GET', 'POST'])
 def JPNAbout():
     return render_template('jpnabout.html')
-
-
 @app.route("/engabout", methods=['GET', 'POST'])
 def ENGAbout():
     return render_template('engabout.html')
@@ -128,11 +100,9 @@ def ENGAbout():
 @app.route("/coursejj", methods=['GET', 'POST'])
 def coursejj():
     return render_template('course01jj.html')
-
 @app.route("/coursejj_jpn", methods=['GET', 'POST'])
 def coursejj_jpn():
     return render_template('course01jj_jpn.html')
-
 @app.route("/coursejj_eng", methods=['GET', 'POST'])
 def coursejj_eng():
     return render_template('course01jj_eng.html')
@@ -141,28 +111,69 @@ def coursejj_eng():
 @app.route("/coursegj", methods=['GET', 'POST'])
 def Coursegj():
     return render_template('course02gj.html')
-
 @app.route("/coursegj_jpn", methods=['GET', 'POST'])
 def Coursegj_jpn():
     return render_template('course02gj_jpn.html')
-
 @app.route("/coursegj_eng", methods=['GET', 'POST'])
 def Coursegj_eng():
     return render_template('course02gj_eng.html')
+
+# 3. 강원
+Gw = pd.read_csv("gangwon_place.csv", encoding="cp949")
+Gw = Gw.dropna()
+GwFilter = Gw['filter']
+GwName = Gw['name']
+GwDistance = Gw['distance']
+GwImg = Gw['img']
+GwLink = Gw['link']
+GwDetail = Gw['detail']
+@app.route("/coursegw", methods=['GET','POST'])
+def Coursegw():
+    return render_template('course03gw.html',
+                           lengw = len(GwName),
+                           GwFilter = GwFilter,
+                           GwName = GwName,
+                           GwDistance = GwDistance,
+                           GwImg = GwImg,
+                           GwLink = GwLink,
+                           GwDetail = GwDetail)
+EngGwName = Gw['engname']
+EngGwDistance = Gw['engdistance']
+EngGwDetail = Gw['engdetail']
+@app.route("/coursegw_eng", methods=['GET','POST'])
+def Coursegw_eng():
+    return render_template('course03gw_eng.html',
+                           lengw = len(EngGwName),
+                           GwFilter = GwFilter,
+                           EngGwName = EngGwName,
+                           EngGwDistance = EngGwDistance,
+                           GwImg = GwImg,
+                           GwLink = GwLink,
+                           EngGwDetail = EngGwDetail)
+JpnGwName = Gw['jpnname']
+JpnGwDistance = Gw['jpndistance']
+JpnGwDetail = Gw['jpndetail']
+@app.route("/coursegw_jpn", methods=['GET','POST'])
+def Coursegw_jpn():
+    return render_template('course03gw_jpn.html',
+                           lengw = len(JpnGwName),
+                           GwFilter = GwFilter,
+                           JpnGwName = JpnGwName,
+                           JpnGwDistance = JpnGwDistance,
+                           GwImg = GwImg,
+                           GwLink = GwLink,
+                           JpnGwDetail = JpnGwDetail)
 
 # 4. 서울
 @app.route("/coursesu", methods=['GET', 'POST'])
 def Coursesu():
     return render_template('course04su.html')
-
 @app.route("/coursesu_jpn", methods=['GET', 'POST'])
 def Coursesu_jpn():
     return render_template('course04su_jpn.html')
-
 @app.route("/coursesu_eng", methods=['GET', 'POST'])
 def Coursesu_eng():
     return render_template('course04su_eng.html')
-
 
 
 @app.route("/locatesingle", methods=['GET', 'POST'])
@@ -179,7 +190,6 @@ def LocatePage():
                            Address=Address[IDX].values[0],
                            SubImage=SubImage[IDX])
 
-
 @app.route("/engsub", methods=['GET', 'POST'])
 def EngSub():
     InputPlace_eng = request.args.get('Place')
@@ -193,7 +203,6 @@ def EngSub():
                            Place_eng=Place_eng[IDX].values[0],
                            Address_eng=Address_eng[IDX].values[0],
                            SubImage_eng=SubImage_eng[IDX])
-
 
 @app.route("/jpnsub", methods=['GET', 'POST'])
 def JpnSub():
