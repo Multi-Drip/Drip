@@ -82,12 +82,14 @@
                         <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
                     </a>
                     <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        {% for i in range(0, len) %}
                         <li>
-                            <a href="/engmain">ENG</a>
+                            <a href="{{ url_for('EngSub', Place=Place_eng[i]) }}">ENG</a>
                         </li>
                         <li>
-                            <a href="/jpnmain">日本語</a>
+                            <a href="{{ url_for('JpnSub', Place=Place_jpn[i]) }}">日本語</a>
                         </li>
+                        {% endfor %}
                     </ul>
                     <ul class="nk-nav nk-nav-right nk-nav-icons">
                         <li class="single-icon hidden-lg-up">
