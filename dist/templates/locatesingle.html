@@ -105,6 +105,39 @@
         </nav>
         <!-- END: Navbar -->
     </header>
+    <!-- START: Navbar Mobile -->
+    <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+        <div class="nk-nav-table">
+            <div class="nk-nav-row">
+                <div class="container">
+                    <div class="nk-nav-header">
+                        <div class="nk-nav-logo">
+                            <a href="/" class="nk-nav-logo">
+                                <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="1">
+                            </a>
+                        </div>
+                        <div class="nk-nav-close nk-navbar-full-toggle">
+                            <span class="nk-icon-close"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-nav-row-full nk-nav-row">
+                <div class="nano">
+                    <div class="nano-content">
+                        <div class="nk-nav-table">
+                            <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                                <ul class="nk-nav">
+                                    <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Navbar Mobile -->
     <div class="nk-main">
         <div class="container-fluid">
             <div class="nk-portfolio-single nk-portfolio-single-half">
