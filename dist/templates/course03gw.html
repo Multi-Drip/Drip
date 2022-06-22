@@ -242,7 +242,7 @@
                 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                     mapOption = {
                         center: new kakao.maps.LatLng(37.819214, 128.890457), // 지도의 중심좌표
-                        level: 8 // 지도의 확대 레벨
+                        level: 6 // 지도의 확대 레벨
                     };
 
                 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -256,8 +256,7 @@
                     {content: '<div>하조대해수욕장</div>', latlng: new kakao.maps.LatLng(38.024766, 128.722318)},
                     {content: '<div>삼포해수욕장</div>', latlng: new kakao.maps.LatLng(38.314963, 128.534746)}
                 ];
-                var iwContent = ['<a><img src=static/assets/2521/driplogoblack.png; alt=""; width=31;></a>',
-                    '<div style="padding:5px;">1. 신남항<br>다음장소까지 차로 49분content text here <br></div >',
+                var iwContent = ['<div style="padding:5px; color:black;">1. 신남항<br>다음장소까지 차로 49분<br></div >',
                     '<div style="padding:5px;">content text here <br><a href="https://www.naver.com" style="color:blue" target = "_blank" > link1</a > <a href="https://google.co.kr" style="color:blue" target="_blank">link2</a></div >',
                     '<div style="padding:5px;">content text here <br><a href="https://www.naver.com" style="color:blue" target = "_blank" > link1</a > <a href="https://google.co.kr" style="color:blue" target="_blank">link2</a></div >'
                     ]
