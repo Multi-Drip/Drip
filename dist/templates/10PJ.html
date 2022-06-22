@@ -204,7 +204,7 @@
             <!-- END: Filter -->
             <div class="nk-portfolio-list nk-isotope nk-isotope-3-cols nk-isotope-gap">
 
-                {% for i in range(0, length) %}
+                {% for i in range(0, len) %}
                 <div class="nk-isotope-item" data-filter={{DataFilter[i]}}>
                     <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-4">
                         <a href="{{ url_for('LocatePage', Place=Place[i]) }}" class="nk-portfolio-item-link"></a>
