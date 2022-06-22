@@ -43,12 +43,12 @@ SubImage = Data['SubImage']
 @app.route("/", methods=['GET', 'POST'])
 def MainPage():
     return render_template('10PJ.html',
-                           len=len(Place),
-                           DataFilter=DataFilter,
-                           Place=Place,
-                           MainImage=MainImage,
-                           Title=Title,
-                           Subtitle=Subtitle)
+                        len=len(Place),
+                        DataFilter=DataFilter,
+                        Place=Place,
+                        MainImage=MainImage,
+                        Title=Title,
+                        Subtitle=Subtitle)
 @app.route("/engmain", methods=['GET', 'POST'])
 def EngMain():
     return render_template('engmain.html',
@@ -112,39 +112,39 @@ GwDetail = Gw['detail']
 @app.route("/coursegw", methods=['GET','POST'])
 def Coursegw():
     return render_template('course03gw.html',
-                           lengw = len(GwName),
-                           GwFilter = GwFilter,
-                           GwName = GwName,
-                           GwDistance = GwDistance,
-                           GwImg = GwImg,
-                           GwLink = GwLink,
-                           GwDetail = GwDetail)
+                            lengw = len(GwName),
+                            GwFilter = GwFilter,
+                            GwName = GwName,
+                            GwDistance = GwDistance,
+                            GwImg = GwImg,
+                            GwLink = GwLink,
+                            GwDetail = GwDetail)
 EngGwName = Gw['engname']
 EngGwDistance = Gw['engdistance']
 EngGwDetail = Gw['engdetail']
 @app.route("/coursegw_eng", methods=['GET','POST'])
 def Coursegw_eng():
     return render_template('course03gw_eng.html',
-                           lengw = len(EngGwName),
-                           GwFilter = GwFilter,
-                           EngGwName = EngGwName,
-                           EngGwDistance = EngGwDistance,
-                           GwImg = GwImg,
-                           GwLink = GwLink,
-                           EngGwDetail = EngGwDetail)
+                            lengw = len(EngGwName),
+                            GwFilter = GwFilter,
+                            EngGwName = EngGwName,
+                            EngGwDistance = EngGwDistance,
+                            GwImg = GwImg,
+                            GwLink = GwLink,
+                            EngGwDetail = EngGwDetail)
 JpnGwName = Gw['jpnname']
 JpnGwDistance = Gw['jpndistance']
 JpnGwDetail = Gw['jpndetail']
 @app.route("/coursegw_jpn", methods=['GET','POST'])
 def Coursegw_jpn():
     return render_template('course03gw_jpn.html',
-                           lengw = len(JpnGwName),
-                           GwFilter = GwFilter,
-                           JpnGwName = JpnGwName,
-                           JpnGwDistance = JpnGwDistance,
-                           GwImg = GwImg,
-                           GwLink = GwLink,
-                           JpnGwDetail = JpnGwDetail)
+                            lengw = len(JpnGwName),
+                            GwFilter = GwFilter,
+                            JpnGwName = JpnGwName,
+                            JpnGwDistance = JpnGwDistance,
+                            GwImg = GwImg,
+                            GwLink = GwLink,
+                            JpnGwDetail = JpnGwDetail)
 
 # 4. 서울
 @app.route("/coursesu", methods=['GET', 'POST'])
@@ -163,14 +163,14 @@ def LocatePage():
     InputPlace = request.args.get('Place')
     IDX = np.where(Place == InputPlace)[0]
     return render_template('locatesingle.html',
-                           DramaPlace=DramaPlace[IDX].values[0],
-                           DataFilter=DataFilter[IDX],
-                           LatitudeValue=LatitudeValue[IDX].values[0],
-                           LongitudeValue=LongitudeValue[IDX].values[0],
-                           Dialogue=Markup(Dialogue[IDX].values[0]),
-                           Place=Place[IDX].values[0],
-                           Address=Address[IDX].values[0],
-                           SubImage=SubImage[IDX])
+                        DramaPlace=DramaPlace[IDX].values[0],
+                        DataFilter=DataFilter[IDX],
+                        LatitudeValue=LatitudeValue[IDX].values[0],
+                        LongitudeValue=LongitudeValue[IDX].values[0],
+                        Dialogue=Markup(Dialogue[IDX].values[0]),
+                        Place=Place[IDX].values[0],
+                        Address=Address[IDX].values[0],
+                        SubImage=SubImage[IDX])
 
 @app.route("/engsub", methods=['GET', 'POST'])
 def EngSub():
