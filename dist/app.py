@@ -62,11 +62,11 @@ def EngMain():
 def JpnMain():
     return render_template('jpnmain.html',
                             len = len(DramaPlace_jpn),
-                            DataFilter_eng=DataFilter,
-                            Place_eng=Place_eng,
-                            MainImage_eng=MainImage,
-                            Title_eng=Title_eng,
-                            Subtitle_eng=Subtitle_eng)
+                            DataFilter_jpn=DataFilter,
+                            Place_jpn=Place_jpn,
+                            MainImage_jpn=MainImage,
+                            Title_jpn=Title_jpn,
+                            Subtitle_jpn=Subtitle_jpn)
 
 @app.route("/about", methods=['GET', 'POST'])
 def About():
