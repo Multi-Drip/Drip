@@ -68,43 +68,32 @@
 
 <body>
     <header class="nk-header nk-header-opaque">
-        <!--
-        START: Navbar
-        Additional Classes:
-            .nk-navbar-lg
-            .nk-navbar-sticky
-            .nk-navbar-autohide
-            .nk-navbar-transparent
-            .nk-navbar-transparent-always
-            .nk-navbar-white-text-on-top
-            .nk-navbar-dark
-    -->
         <nav class="nk-navbar nk-navbar-top">
             <div class="container">
                 <div class="nk-nav-table">
                     <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
-                        <li class=" nk-drop-item">
-                            <a href="/jpnabout"> Dripについて </a>
+                        <li>
+                            <a href="/jpnabout">About</a>
                         </li>
                         <li class=" nk-drop-item">
-                            <a> 観光コース </a>
+                            <a>코스 소개</a>
                             <ul class="dropdown">
                                 <li>
-                                    <a href="/coursejj_jpn"> チョンジュ </a>
+                                    <a href="/coursejj_jpn">전주</a>
                                 </li>
                                 <li>
-                                    <a href="/coursegj_jpn"> キョンジュ </a>
+                                    <a href="/coursegj_jpn">경주</a>
                                 </li>
                                 <li>
-                                    <a href="/coursegw_jpn"> カンウォン </a>
+                                    <a href="/coursegw_jpn">강원</a>
                                 </li>
                                 <li>
-                                    <a href="/coursesu_jpn"> ソウル </a>
+                                    <a href="/coursesu_jpn">서울</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <a href="/jpnmain" class="nk-nav-logo">
+                    <a href="/" class="nk-nav-logo">
                         <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="150">
                     </a>
                     <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
@@ -112,7 +101,7 @@
                             <a href="/about">한국어</a>
                         </li>
                         <li>
-                            <a href="/engabout"> ENG </a>
+                            <a href="/engabout">ENG</a>
                         </li>
                     </ul>
                     <ul class="nk-nav nk-nav-right nk-nav-icons">
@@ -131,7 +120,39 @@
         </nav>
         <!-- END: Navbar -->
     </header>
-    <!-- END: Fullscreen Navbar -->
+    <!-- START: Navbar Mobile -->
+    <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+        <div class="nk-nav-table">
+            <div class="nk-nav-row">
+                <div class="container">
+                    <div class="nk-nav-header">
+                        <div class="nk-nav-logo">
+                            <a href="/" class="nk-nav-logo">
+                                <img src="{{ url_for('static', filename='assets/2521/driplogo.png')}}" alt="" width="31">
+                            </a>
+                        </div>
+                        <div class="nk-nav-close nk-navbar-full-toggle">
+                            <span class="nk-icon-close"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-nav-row-full nk-nav-row">
+                <div class="nano">
+                    <div class="nano-content">
+                        <div class="nk-nav-table">
+                            <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                                <ul class="nk-nav">
+                                    <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Navbar Mobile -->
     <div class="nk-main">
         <div class="nk-fullpage-portfolio">
             <div class="nk-fullpage-item">
