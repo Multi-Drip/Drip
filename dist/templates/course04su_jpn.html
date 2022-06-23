@@ -260,23 +260,23 @@
       // 마커를 표시할 위치와 title 객체 배열입니다 
       var positions = [
           {
-              title: '와룡공원',
+              title: '臥龍(ワリョン)公園',
               latlng: new kakao.maps.LatLng(37.588976, 126.986732)
           },
           {
-              title: '효자분식',
+              title: '孝子粉食',
               latlng: new kakao.maps.LatLng(37.583822, 126.969097)
           },
           {
-              title: '광화문광장',
+              title: '光化門(クァンファムン)',
               latlng: new kakao.maps.LatLng(37.571174, 126.977675)
           },
           {
-              title: '보신각',
+              title: '普信閣(ポシンカク)',
               latlng: new kakao.maps.LatLng(37.569930, 126.983583)
           },
           {
-              title: '마로니에공원',
+              title: 'マロニエ公園',
               latlng: new kakao.maps.LatLng(37.580519, 127.002811)
           }
       ];
@@ -388,7 +388,7 @@
               moveLine.setMap(map);
               
               var distance = Math.round(clickLine.getLength() + moveLine.getLength()), // 선의 총 거리를 계산합니다
-                  content = '<div class="dotOverlay distanceInfo" style="color:#000000;">총거리 <span class="number">' + distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
+                  content = '<div class="dotOverlay distanceInfo" style="color:#000000;">総距離 <span class="number">' + distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
               
               // 거리정보를 지도에 표시합니다
               showDistance(content, mousePosition);   
@@ -497,7 +497,7 @@
           if (distance > 0) {
               // 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
               var distanceOverlay = new kakao.maps.CustomOverlay({
-                  content: '<div class="dotOverlay" style="color:#000000;">거리 <span class="number">' + distance + '</span>m</div>',
+                  content: '<div class="dotOverlay" style="color:#000000;">距離 <span class="number">' + distance + '</span>m</div>',
                   position: position,
                   yAnchor: 1,
                   zIndex: 2
@@ -539,9 +539,9 @@
 
           // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
           if (walkkTime > 60) {
-              walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span><a class ="number" style="color:#000000;">시간</a>'
+              walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span><a class ="number" style="color:#000000;">hr</a>'
           }
-          walkMin = '<span class="number">' + walkkTime % 60 + '</span><a class="number" style="color:#000000;">분</a>'
+          walkMin = '<span class="number">' + walkkTime % 60 + '</span><a class="number" style="color:#000000;">min</a>'
 
           // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
           var bycicleTime = distance / 227 | 0;
@@ -549,20 +549,20 @@
 
           // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
           if (bycicleTime > 60) {
-              bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span><a class ="number" style="color:#000000;">시간</a>'
+              bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span><a class ="number" style="color:#000000;">hr</a>'
           }
-          bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span><a class="number" style="color:#000000;">분</a>'
+          bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span><a class="number" style="color:#000000;">min</a>'
 
           // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
           var content = '<ul class="dotOverlay distanceInfo">';
           content += '    <li>';
-          content += '        <span class="label" style="color:#000000;">총거리</span><span class="number">' + distance + '</span><a class="number" style="color:#000000;">m</a>';
+          content += '        <span class="label" style="color:#000000;">総距離</span><span class="number">' + distance + '</span><a class="number" style="color:#000000;">m</a>';
           content += '    </li>';
           content += '    <li>';
-          content += '        <span class="label" style="color:#000000;">도보</span>' + walkHour + walkMin;
+          content += '        <span class="label" style="color:#000000;">徒歩</span>' + walkHour + walkMin;
           content += '    </li>';
           content += '    <li>';
-          content += '        <span class="label" style="color:#000000;">자전거</span>' + bycicleHour + bycicleMin;
+          content += '        <span class="label" style="color:#000000;">自転車</span>' + bycicleHour + bycicleMin;
           content += '    </li>';
           content += '</ul>'
 
