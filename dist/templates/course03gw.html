@@ -233,7 +233,7 @@
       <h4>강원도 해안 코스 (ft. 태양고 5인방)</h4>
       <h5 style="color:grey"> (자가용 기준) 총 거리 : 191.1km / 총 이동시간 : 3시간 25분</h5>
             <!-- 지도 시작 -->
-            <div id="map" style="height:600px; margin-bottom: 20px;">
+            <div id="map" style="height:550px; margin-bottom: 20px;">
             </div>
 
             <script type="text/javascript"
@@ -241,7 +241,7 @@
             <script>
                 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                     mapOption = {
-                        center: new kakao.maps.LatLng(37.819214, 128.890457), // 지도의 중심좌표
+                        center: new kakao.maps.LatLng(37.88, 129.00), // 지도의 중심좌표
                         level: 11 // 지도의 확대 레벨
                     };
 
@@ -256,13 +256,12 @@
                     {content: '<div>하조대해수욕장</div>', latlng: new kakao.maps.LatLng(38.024766, 128.722318)},
                     {content: '<div>삼포해수욕장</div>', latlng: new kakao.maps.LatLng(38.314963, 128.534746)}
                 ];
-                var iwContent = ['<div style="padding:5px; color:black;">1. 신남항<br>다음 장소까지 차로 49분<br></div >',
-                    '<div style="padding:5px; color:black;">2. 묵호논골담길<br>다음 장소까지 차로 24분<br></div >',
-                    '<div style="padding:5px; color:black;">3. 금진해변<br>다음 장소까지 차로 47분<br></div >',
-                    '<div style="padding:5px; color:black;">4. 강릉가이택펜션<br>다음 장소까지 차로 39분<br></div >',
-                    '<div style="padding:5px; color:black;">5. 하조대해수욕장<br>다음 장소까지 차로 46분<br></div >',
-                    '<div style="padding:5px; color:black;">6. 삼포해수욕장<br></div >'
-
+                var iwContent = ['<div style="width:170px; text-align:center; padding:5px; color:black;">1. 신남항<br>다음 장소까지 🚗 49분<br></div >',
+                    '<div style="width:170px; text-align:center; padding:5px; color:black;">2. 묵호논골담길<br>다음 장소까지 🚗 24분<br></div >',
+                    '<div style="width:170px; text-align:center; padding:5px; color:black;">3. 금진해변<br>다음 장소까지 🚗 47분<br></div >',
+                    '<div style="width:170px; text-align:center; padding:5px; color:black;">4. 강릉가이택펜션<br>다음 장소까지 🚗 39분<br></div >',
+                    '<div style="width:170px; text-align:center; padding:5px; color:black;">5. 하조대해수욕장<br>다음 장소까지 🚗 46분<br></div >',
+                    '<div style="width:120px; text-align:center; padding:5px; color:black;">6. 삼포해수욕장</div >'
                     ]
                 // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 
