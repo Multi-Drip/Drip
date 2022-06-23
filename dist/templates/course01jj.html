@@ -237,14 +237,14 @@
             <h5 style="color:grey"> (뚜벅이 기준) 총 거리 : 3km / 총 이동시간 : 47분</h5>
             </div>
             <!-- 지도 시작 -->
-            <div id="map" style="width:80%; height:400px;margin-left: auto;margin-right: auto;margin-bottom:20px;">
+            <div id="map" style="width:60%; height:530px;margin-left: auto;margin-right: auto;margin-bottom:20px;">
                 <script type="text/javascript"
                     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
                 <script>
                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                         mapOption = {
-                            center: new kakao.maps.LatLng(35.812148, 127.155553), // 지도의 중심좌표
-                            level: 5 // 지도의 확대 레벨
+                            center: new kakao.maps.LatLng(35.810483, 127.156302), // 지도의 중심좌표
+                            level: 4 // 지도의 확대 레벨
                         };
 
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -258,10 +258,10 @@
                         {content: '<div>한벽굴</div>', latlng: new kakao.maps.LatLng(35.811977, 127.161041)}
                     ];
                     var iwContent = [
-                        '<div style="width:170px; padding:5px; color: black; text-align:center;">1. 전주크로싱게스트하우스 <br>다음 장소까지 &#128663;15분</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">2. 소리방앗간 <br>다음 장소까지 &#128663;13분</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">3. 동네수퍼 <br>다음 장소까지 &#128663;7분</div>',
-                    '<div style="width:100px; padding:5px; color: black; text-align:center;">4. 국립무형유산원 <br>다음 장소까지 &#128663;12분</div>',
+                        '<div style="width:180px; padding:5px; color: black; text-align:center;">1. 전주크로싱게스트하우스 <br>다음 장소까지 🚶15분</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">2. 소리방앗간 <br>다음 장소까지 🚶13분</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">3. 동네수퍼 <br>다음 장소까지 🚶7분</div>',
+                    '<div style="width:180px; padding:5px; color: black; text-align:center;">4. 국립무형유산원 <br>다음 장소까지 🚶12분</div>',
                     '<div style="width:100px; padding:5px; color: black; text-align:center;">5. 한벽굴<br></div>'
                         ]
                     // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
