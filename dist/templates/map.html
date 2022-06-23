@@ -1,130 +1,438 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>스물다섯 스물하나 지도 API</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>스물다섯 스물하나 촬영지 지도</title>
+    <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+    <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+    <meta name="author" content="robirurk">
     <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i"
+        rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/fontawesome/css/font-awesome.min.css')}}">
+    <!-- Stroke 7 -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')}}">
+    <!-- Flickity -->
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.min.css')}}">
+    <!-- Photoswipe -->
+    <link rel="stylesheet" type="text/css"
+        href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{url_for('static', filename='assets/bower_components/photoswipe/dist/default-skin/default-skin.css')}}">
+    <!-- Piroll -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/piroll.css')}}">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}">
+    <!-- END: Styles -->
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            color: #fff;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 90%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper {
+            width: 90%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mySwiper {
+            height: 150px;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .mySwiper2 {
+            height: 700px;
+            width: 75%;
+        }
+
+        .mySwiper .swiper-slide {
+            width: 25%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .mySwiper .swiper-slide-thumb-active {
+            opacity: 0.4;
+        }
+
+        .nk-icon-burger {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="map" style="width:100%;height:100vh;"></div>
+    <header class="nk-header nk-header-opaque">
+        <nav class="nk-navbar nk-navbar-top nk-navbar-dark">
+            <div class="container">
+                <div class="nk-nav-table">
+                    <ul class="nk-nav nk-nav-left hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                            <!--class에 active 추가하면 글씨 활성화됨 <li class="active nk-drop-item">-->
+                            <a href="/about">About</a>
+                        </li>
+                        <li class=" nk-drop-item">
+                            <a>코스 소개</a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="/coursejj">전주</a>
+                                </li>
+                                <li>
+                                    <a href="/coursegj">경주</a>
+                                </li>
+                                <li>
+                                    <a href="/coursegw">강원</a>
+                                </li>
+                                <li>
+                                    <a href="/coursesu">서울</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="/" class="nk-nav-logo">
+                        <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="150">
+                    </a>
+                    <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                        <li>
+                            <a href="/coursejj_eng">ENG</a>
+                        </li>
+                        <li>
+                            <a href="/coursejj_jpn">日本語</a>
+                        </li>
+                    </ul>
+                    <ul class="nk-nav nk-nav-right nk-nav-icons">
+                        <li class="single-icon hidden-lg-up">
+                            <a href="#" class="nk-navbar-full-toggle">
+                                <span class="nk-icon-burger">
+                                    <span class="nk-t-1"></span>
+                                    <span class="nk-t-2"></span>
+                                    <span class="nk-t-3"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END: Navbar -->
+    </header>
+    <!-- START: Navbar Mobile -->
+    <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+        <div class="nk-nav-table">
+            <div class="nk-nav-row">
+                <div class="container">
+                    <div class="nk-nav-header">
+                        <div class="nk-nav-logo">
+                            <a href="/" class="nk-nav-logo">
+                                <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt=""
+                                    width="31">
+                            </a>
+                        </div>
+                        <div class="nk-nav-close nk-navbar-full-toggle">
+                            <span class="nk-icon-close"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-nav-row-full nk-nav-row">
+                <div class="nano">
+                    <div class="nano-content">
+                        <div class="nk-nav-table">
+                            <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                                <ul class="nk-nav">
+                                    <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Navbar Mobile -->
+            <!-- 지도 시작 -->
+    <div class="pb-50 nk-main bg-white">
+        <div class="pt-50" style="text-align:center;">
+            <h5 style="color:black"> 스물다섯 스물하나 촬영지 전체 지도</h5>
+            </div>
+
+            
+
+        <div id="map" style="width:80%; height:800px;margin-left: auto;margin-right: auto;margin-bottom:3rem; margin-top:3rem"></div>
+        <script
+            src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6&libraries=clusterer"></script>
+        <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = {
+                    center: new kakao.maps.LatLng(36.5, 127.7), // 지도의 중심좌표
+                    level: 12, // 지도의 확대 레벨
+                    mapTypeId: kakao.maps.MapTypeId.ROADMAP // 지도종류
+                };
+    
+            // 지도를 생성한다 
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+    
+            // 마커 클러스터러를 생성합니다 
+            var clusterer = new kakao.maps.MarkerClusterer({
+                map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
+                averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
+                minLevel: 6 // 클러스터 할 최소 지도 레벨 
+            });
+    
+            var data = [
+                [35.814710, 127.152601, '<div style="padding:5px">전주한옥마을</div>'],
+                [35.813167, 127.155306, '<div style="padding:5px">희도네</div>'],
+                [35.808312, 127.151849, '<div style="padding:5px">명진책대여점</div>'],
+                [35.812434, 127.155443, '<div style="padding:5px">이진 신문배달 골목길</div>'],
+                [36.184238, 127.097372, '<div style="padding:5px">태양고등학교</div>'],
+                [35.806452, 127.157873, '<div style="padding:5px">아현슈퍼</div>'],
+                [35.821827, 127.157357, '<div style="padding:5px">선중여고 수돗가</div>'],
+                [35.811977, 127.161041, '<div style="padding:5px">행복 약속과 이별</div>'],
+                [35.809249, 127.158192, '<div style="padding:5px">태양고등학교 버스정류장</div>'],
+                [37.478029, 126.628123, '<div style="padding:5px">유람 서점 문구</div>'],
+                [37.473805, 126.620447, '<div style="padding:5px">슬리퍼 벗겨진 날</div>'],
+                [37.677734, 127.035952, '<div style="padding:5px">희도 훈련ver.모래주머니</div>'],
+                [37.588976, 126.986732, '<div style="padding:5px">희도 훈련ver.약수터</div>'],
+                [36.923166, 126.598114, '<div style="padding:5px">희도 달리기 - 이진 스포츠카</div>'],
+                [37.583965, 126.969072, '<div style="padding:5px">코끼리분식(유림이네)</div>'],
+                [37.552812, 129.116413, '<div style="padding:5px">이진 삼촌네</div>'],
+                [37.544646, 126.951864, '<div style="padding:5px">희도&코치쌤 국가대표 기념 회식</div>'],
+                [37.264243, 129.327002, '<div style="padding:5px">응원이 닿기를</div>'],
+                [38.024766, 128.722318, '<div style="padding:5px">이진&이진엄마 바다 데이트</div>'],
+                [37.571174, 126.977675, '<div style="padding:5px">이진 기자 되고 반 년만의 재회</div>'],
+                [35.881964, 127.244775, '<div style="padding:5px">알콩&달콩&이진 3자대면</div>'],
+                [35.854174, 129.097301, '<div style="padding:5px">펜싱칼 찾으러 간 영천역</div>'],
+                [35.844368, 129.217767, '<div style="padding:5px">펜싱칼 찾으러 간 경주역</div>'],
+                [35.845349, 129.286133, '<div style="padding:5px">희도&이진 경주 아시안 게임 경기장 가는 길</div>'],
+                [35.786109, 129.328624, '<div style="padding:5px">경주 아시안 게임 경기장 주변</div>'],
+                [35.844538, 129.272011, '<div style="padding:5px">경기장 가는 길</div>'],
+                [37.580519, 127.002811, '<div style="padding:5px">라이더37&인절미 첫만남 장소</div>'],
+                [37.888665, 127.70842, '<div style="padding:5px">무지개</div>'],
+                [37.289711, 127.034475, '<div style="padding:5px">유림 다이빙장</div>'],
+                [37.530587, 127.041643, '<div style="padding:5px">지웅 댄스배틀</div>'],
+                [37.819214, 128.890457, '<div style="padding:5px">수학여행 숙소</div>'],
+                [38.314963, 128.534746, '<div style="padding:5px">수학여행 바다</div>'],
+                [37.636471, 129.044975, '<div style="padding:5px">수학여행 이튿날</div>'],
+                [35.525903, 126.553324, '<div style="padding:5px">희도&이진 A코스</div>'],
+                [35.795395, 127.124411, '<div style="padding:5px">뽑기 문구점</div>'],
+                [37.624223, 126.846748, '<div style="padding:5px">UBS 회식 장소</div>'],
+                [35.833144, 127.153414, '<div style="padding:5px">희도의 목공 배움 장소</div>'],
+                [37.853645, 127.68902, '<div style="padding:5px">비오는 대구 프로야구장</div>'],
+                [38.210386, 128.528554, '<div style="padding:5px">99년 펜싱대회 숙소</div>'],
+                [35.819549, 127.153417, '<div style="padding:5px">유림&지웅 오락실 데이트</div>'],
+                [35.8112032, 127.1581252, '<div style="padding:5px">유림&지웅 붕어빵 데이트</div>'],
+                [37.338145, 127.940987, '<div style="padding:5px">이진 파라솔 질투</div>'],
+                [37.56993, 126.983583, '<div style="padding:5px">새해맞이 취재</div>'],
+                [37.609045, 127.043552, '<div style="padding:5px">새해맞이 불꽃구경</div>'],
+                [37.908623, 127.055659, '<div style="padding:5px">영화 데이트</div>'],
+                [37.738258, 127.045292, '<div style="padding:5px">커플 캐리어</div>'],
+                [35.850377, 127.122775, '<div style="padding:5px">기자들의 점심시간</div>'],
+                [37.663052, 126.767687, '<div style="padding:5px">이진 뉴욕 카페</div>'],
+                [37.277444, 127.013549, '<div style="padding:5px">동네 버스정류장</div>'],
+                [36.112786, 127.492222, '<div style="padding:5px">민채 발레 경기장</div>']
+            ]
+    
+            var markers = [];
+    
+            for (var i = 0; i < data.length; i++) {
+                // 지도에 마커를 생성하고 표시한다
+                var marker = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(data[i][0], data[i][1]), // 마커의 좌표
+                    map: map // 마커를 표시할 지도 객체
+                });
+    
+                // 인포윈도우를 생성합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: data[i][2]
+                });
+    
+                // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+                function makeOverListener(map, marker, infowindow) {
+                    return function () {
+                        infowindow.open(map, marker);
+                    };
+                }
+                // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+                function makeOutListener(infowindow) {
+                    return function () {
+                        infowindow.close();
+                    };
+                }
+    
+                // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+                // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    
+                // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+                markers.push(marker);
+            }
+            // 클러스터러에 마커들을 추가합니다
+            clusterer.addMarkers(markers);
+    
+            // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+            var zoomControl = new kakao.maps.ZoomControl();
+            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+        </script>
+        </div>
+    </div>
+            <!-- 지도 끝 -->
+    <!-- START: Footer -->
+    <footer class="nk-footer">
+        <div class="container">
+            <div class="row vertical-gap">
+                <div class="col-lg-3">
+                    <h3 class="h5 mb-20">Drip : DramaTrip</h3>
+                    <a>드라마 촬영지 정보 제공 웹 서비스</a>
+                </div>
+                <div class="col-lg-3">
+                    <h3 class="h5 mb-20">MEMBER</h3>
+                    <a>김예진 </a><a href="https://github.com/yjj8">GitHub</a>
+                    <a><br>김지우 </a><a href="https://github.com/jiwnon">GitHub</a>
+                    <a><br>이화정 </a><a href="https://github.com/applemint97">GitHub</a>
+                    <a><br>장연정 </a><a href="https://github.com/yjungs2">GitHub</a>
+                    <a><br>장연화 </a><a href="https://github.com/hwas2">GitHub</a>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="h5 mb-20">스물다섯 스물하나 (2022)</h3>
+                    <a>연출 : 정지현</a>
+                    <a><br>극본 : 권도은</a>
+                    <a><br>제작사 : 화앤담픽쳐스, 스튜디오드래곤</a>
+                    <a><br>채널정보 : tvN, Netflix</a>
+                    <a><br>방영기간 : 2022.02.12 ~ 2022.04.03 (16부작)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+    </div>
+    <!-- START: Scripts -->
+    <!-- GSAP -->
+    <script src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/TweenMax.min.js')}}"></script>
     <script
-        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6&libraries=clusterer"></script>
-    <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-            mapOption = {
-                center: new kakao.maps.LatLng(36.5, 127.7), // 지도의 중심좌표
-                level: 12, // 지도의 확대 레벨
-                mapTypeId: kakao.maps.MapTypeId.ROADMAP // 지도종류
-            };
-
-        // 지도를 생성한다 
-        var map = new kakao.maps.Map(mapContainer, mapOption);
-
-        // 마커 클러스터러를 생성합니다 
-        var clusterer = new kakao.maps.MarkerClusterer({
-            map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
-            averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
-            minLevel: 6 // 클러스터 할 최소 지도 레벨 
-        });
-
-        var data = [
-            [35.814710, 127.152601, '<div style="padding:5px">전주한옥마을</div>'],
-            [35.813167, 127.155306, '<div style="padding:5px">희도네</div>'],
-            [35.808312, 127.151849, '<div style="padding:5px">명진책대여점</div>'],
-            [35.812434, 127.155443, '<div style="padding:5px">이진 신문배달 골목길</div>'],
-            [36.184238, 127.097372, '<div style="padding:5px">태양고등학교</div>'],
-            [35.806452, 127.157873, '<div style="padding:5px">아현슈퍼</div>'],
-            [35.821827, 127.157357, '<div style="padding:5px">선중여고 수돗가</div>'],
-            [35.811977, 127.161041, '<div style="padding:5px">행복 약속과 이별</div>'],
-            [35.809249, 127.158192, '<div style="padding:5px">태양고등학교 버스정류장</div>'],
-            [37.478029, 126.628123, '<div style="padding:5px">유람 서점 문구</div>'],
-            [37.473805, 126.620447, '<div style="padding:5px">슬리퍼 벗겨진 날</div>'],
-            [37.677734, 127.035952, '<div style="padding:5px">희도 훈련ver.모래주머니</div>'],
-            [37.588976, 126.986732, '<div style="padding:5px">희도 훈련ver.약수터</div>'],
-            [36.923166, 126.598114, '<div style="padding:5px">희도 달리기 - 이진 스포츠카</div>'],
-            [37.583965, 126.969072, '<div style="padding:5px">코끼리분식(유림이네)</div>'],
-            [37.552812, 129.116413, '<div style="padding:5px">이진 삼촌네</div>'],
-            [37.544646, 126.951864, '<div style="padding:5px">희도&코치쌤 국가대표 기념 회식</div>'],
-            [37.264243, 129.327002, '<div style="padding:5px">응원이 닿기를</div>'],
-            [38.024766, 128.722318, '<div style="padding:5px">이진&이진엄마 바다 데이트</div>'],
-            [37.571174, 126.977675, '<div style="padding:5px">이진 기자 되고 반 년만의 재회</div>'],
-            [35.881964, 127.244775, '<div style="padding:5px">알콩&달콩&이진 3자대면</div>'],
-            [35.854174, 129.097301, '<div style="padding:5px">펜싱칼 찾으러 간 영천역</div>'],
-            [35.844368, 129.217767, '<div style="padding:5px">펜싱칼 찾으러 간 경주역</div>'],
-            [35.845349, 129.286133, '<div style="padding:5px">희도&이진 경주 아시안 게임 경기장 가는 길</div>'],
-            [35.786109, 129.328624, '<div style="padding:5px">경주 아시안 게임 경기장 주변</div>'],
-            [35.844538, 129.272011, '<div style="padding:5px">경기장 가는 길</div>'],
-            [37.580519, 127.002811, '<div style="padding:5px">라이더37&인절미 첫만남 장소</div>'],
-            [37.888665, 127.70842, '<div style="padding:5px">무지개</div>'],
-            [37.289711, 127.034475, '<div style="padding:5px">유림 다이빙장</div>'],
-            [37.530587, 127.041643, '<div style="padding:5px">지웅 댄스배틀</div>'],
-            [37.819214, 128.890457, '<div style="padding:5px">수학여행 숙소</div>'],
-            [38.314963, 128.534746, '<div style="padding:5px">수학여행 바다</div>'],
-            [37.636471, 129.044975, '<div style="padding:5px">수학여행 이튿날</div>'],
-            [35.525903, 126.553324, '<div style="padding:5px">희도&이진 A코스</div>'],
-            [35.795395, 127.124411, '<div style="padding:5px">뽑기 문구점</div>'],
-            [37.624223, 126.846748, '<div style="padding:5px">UBS 회식 장소</div>'],
-            [35.833144, 127.153414, '<div style="padding:5px">희도의 목공 배움 장소</div>'],
-            [37.853645, 127.68902, '<div style="padding:5px">비오는 대구 프로야구장</div>'],
-            [38.210386, 128.528554, '<div style="padding:5px">99년 펜싱대회 숙소</div>'],
-            [35.819549, 127.153417, '<div style="padding:5px">유림&지웅 오락실 데이트</div>'],
-            [35.8112032, 127.1581252, '<div style="padding:5px">유림&지웅 붕어빵 데이트</div>'],
-            [37.338145, 127.940987, '<div style="padding:5px">이진 파라솔 질투</div>'],
-            [37.56993, 126.983583, '<div style="padding:5px">새해맞이 취재</div>'],
-            [37.609045, 127.043552, '<div style="padding:5px">새해맞이 불꽃구경</div>'],
-            [37.908623, 127.055659, '<div style="padding:5px">영화 데이트</div>'],
-            [37.738258, 127.045292, '<div style="padding:5px">커플 캐리어</div>'],
-            [35.850377, 127.122775, '<div style="padding:5px">기자들의 점심시간</div>'],
-            [37.663052, 126.767687, '<div style="padding:5px">이진 뉴욕 카페</div>'],
-            [37.277444, 127.013549, '<div style="padding:5px">동네 버스정류장</div>'],
-            [36.112786, 127.492222, '<div style="padding:5px">민채 발레 경기장</div>']
-        ]
-
-        var markers = [];
-
-        for (var i = 0; i < data.length; i++) {
-            // 지도에 마커를 생성하고 표시한다
-            var marker = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(data[i][0], data[i][1]), // 마커의 좌표
-                map: map // 마커를 표시할 지도 객체
-            });
-
-            // 인포윈도우를 생성합니다
-            var infowindow = new kakao.maps.InfoWindow({
-                content: data[i][2]
-            });
-
-            // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-            function makeOverListener(map, marker, infowindow) {
-                return function () {
-                    infowindow.open(map, marker);
-                };
-            }
-            // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-            function makeOutListener(infowindow) {
-                return function () {
-                    infowindow.close();
-                };
-            }
-
-            // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-            // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-            // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-
-            // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-            markers.push(marker);
-        }
-        // 클러스터러에 마커들을 추가합니다
-        clusterer.addMarkers(markers);
-
-        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-        var zoomControl = new kakao.maps.ZoomControl();
-        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-    </script>
+        src="{{url_for('static', filename='assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename='assets/bower_components/tether/dist/js/tether.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- nK Share -->
+    <script src="{{url_for('static', filename='assets/plugins/nk-share/nk-share.js')}}"></script>
+    <!-- Sticky Kit -->
+    <script src="{{url_for('static', filename='assets/bower_components/sticky-kit/dist/sticky-kit.min.js')}}"></script>
+    <!-- Jarallax -->
+    <script src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax.min.js')}}"></script>
+    <script
+        src="{{url_for('static', filename='assets/bower_components/jarallax/dist/jarallax-video.min.js')}}"></script>
+    <!-- Flickity -->
+    <script src="{{url_for('static', filename='assets/bower_components/flickity/dist/flickity.pkgd.min.js')}}"></script>
+    <!-- Isotope -->
+    <script src="{{url_for('static', filename='assets/bower_components/isotope/dist/isotope.pkgd.min.js')}}"></script>
+    <!-- Photoswipe -->
+    <script src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe.min.js')}}"></script>
+    <script
+        src="{{url_for('static', filename='assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
+    <!-- Jquery Form -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/jquery-form/dist/jquery.form.min.js')}}"></script>
+    <!-- Jquery Validation -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+    <!-- Hammer.js -->
+    <script src="{{url_for('static', filename='assets/bower_components/hammer.js/hammer.min.js')}}"></script>
+    <!-- Social Likes -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/social-likes/dist/social-likes.min.js')}}"></script>
+    <!-- NanoSroller -->
+    <script
+        src="{{url_for('static', filename='assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js')}}"></script>
+    <!-- Keymaster -->
+    <script src="{{url_for('static', filename='assets/bower_components/keymaster/keymaster.js')}}"></script>
+    <!-- Piroll -->
+    <script src="{{url_for('static', filename='assets/js/piroll.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/piroll-init.js')}}"></script>
+    <!-- Demo -->
+    <script src="{{url_for('static', filename='assets/js/demo.js')}}"></script>
+    <!-- END: Scripts -->
 </body>
 
 </html>
