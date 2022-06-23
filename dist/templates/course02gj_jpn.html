@@ -235,86 +235,70 @@
             <h4> 歴史とともに歩むヒドのアジア競技大会 </h4>
             <h5 style="color:grey">(自動車基準) 総距離 : 33.5km / 総移動時間 : 55分</h5>
         </div>
-        <!-- 지도 시작 -->
-        <div id="map" style="width:60%;height:400px;margin-left: auto;margin-right: auto;margin-bottom:20px;">
-            <script type="text/javascript"
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
-            <script>
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-                    mapOption = {
-                        center: new kakao.maps.LatLng(35.834331, 129.218911), // 지도의 중심좌표
-                        level: 9 // 지도의 확대 레벨
-                    };
-
-                var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-                // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-                var positions = [
-                    {
-                        content: '<div>건천역(폐역)</div>',
-                        latlng: new kakao.maps.LatLng(35.854174, 129.097301)
-                    },
-                    {
-                        content: '<div>경주역(폐역)</div>',
-                        latlng: new kakao.maps.LatLng(35.844368, 129.217767)
-                    },
-                    {
-                        content: '<div>보문관광단지</div>',
-                        latlng: new kakao.maps.LatLng(35.842679, 129.286341)
-                    },
-                    {
-                        content: '<div>불국사</div>',
-                        latlng: new kakao.maps.LatLng(35.786109, 129.328624)
+            <!-- 지도 시작 -->
+            <div id="map" style="width:80%; height:400px;margin-left: auto;margin-right: auto;margin-bottom:20px;">
+                <script type="text/javascript"
+                    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
+                <script>
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                        mapOption = {
+                            center: new kakao.maps.LatLng(35.834331, 129.218911), // 지도의 중심좌표
+                            level: 8 // 지도의 확대 레벨
+                        };
+    
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    
+                    // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+                    var positions = [
+                        {content: '<div>乾川駅(コンチョン駅)</div>', latlng: new kakao.maps.LatLng(35.854174, 129.097301)},
+                        {content: '<div>慶州駅(キョンジュ駅)</div>', latlng: new kakao.maps.LatLng(35.844368, 129.217767)},
+                        {content: '<div>慶州普門観光団地</div>', latlng: new kakao.maps.LatLng(35.842679, 129.286341)},
+                        {content: '<div>仏国寺</div>', latlng: new kakao.maps.LatLng(35.786109, 129.328624)}
+                    ];
+                    var iwContent = [
+                        '<div style="padding:5px; color: black; text-align:center;">1. 乾川駅(コンチョン駅) <br>&#128663;16分 🚶35分</div>',
+                    '<div style="padding:5px; color: black; text-align:center;">2. 慶州駅(キョンジュ駅) <br>&#128663;16分 🚶35分</div>',
+                    '<div style="padding:5px; color: black; text-align:center;">3. 慶州普門観光団地 <br>&#128663;16分 🚶35分</div>',
+                    '<div style="padding:5px; color: black; text-align:center;">4. 仏国寺 <br>&#128663;16分 🚶35分</div>',
+                        ]
+                    // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    
+                    for (var i = 0; i < positions.length; i++) {
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions[i].latlng // 마커의 위치
+                        });
+                        // 마커에 표시할 인포윈도우를 생성합니다 
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: iwContent[i],  // 인포윈도우에 표시할 내용
+                            position: positions[i].latlng  // 인포윈도우의 위치
+                        });
+                        infowindow.open(map, marker);
                     }
-                ];
-                var iwContent = [
-                '<p style="padding:17px; color: #9d4000">건천역 <br>&#128663;16min 🚶35min</p>',
-                '<p style="padding:17px; color: #9d4000">경주역 <br>&#128663;16min 🚶35min</p>',
-                '<p style="padding:17px; color: #9d4000">보문관광단지 <br>&#128663;16min 🚶35min</p>',
-                '<p style="padding:17px; color: #9d4000">불국사 <br>&#128663;16min 🚶35min</p>',
-                    ]
-                // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
-
-                for (var i = 0; i < positions.length; i++) {
-                    // 마커를 생성합니다
-                    var marker = new kakao.maps.Marker({
-                        map: map, // 마커를 표시할 지도
-                        position: positions[i].latlng // 마커의 위치
+    
+                    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+                    var linePath = [
+                        new kakao.maps.LatLng(35.854174, 129.097301),
+                        new kakao.maps.LatLng(35.844368, 129.217767),
+                        new kakao.maps.LatLng(35.842679, 129.286341),
+                        new kakao.maps.LatLng(35.786109, 129.328624),
+                    ];
+    
+                    // 지도에 표시할 선을 생성합니다
+                    var polyline = new kakao.maps.Polyline({
+                        path: linePath, // 선을 구성하는 좌표배열 입니다
+                        strokeWeight: 17, // 선의 두께 입니다
+                        strokeColor: 'lightgreen', // 선의 색깔입니다
+                        strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                        strokeStyle: 'solid', // 선의 스타일입니다
+                        endArrow: false // 끝에 화살표 유무
                     });
-
-                    // 마커에 표시할 인포윈도우를 생성합니다 
-                    var infowindow = new kakao.maps.InfoWindow({
-                        content: iwContent[i],  // 인포윈도우에 표시할 내용
-                        position: positions[i].latlng  // 인포윈도우의 위치
-                    });
-
-                    infowindow.open(map, marker);
-                }
-
-
-                // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-                var linePath = [
-                    new kakao.maps.LatLng(35.854174, 129.097301),
-                    new kakao.maps.LatLng(35.844368, 129.217767),
-                    new kakao.maps.LatLng(35.842679, 129.286341),
-                    new kakao.maps.LatLng(35.786109, 129.328624),
-                ];
-
-                // 지도에 표시할 선을 생성합니다
-                var polyline = new kakao.maps.Polyline({
-                    path: linePath, // 선을 구성하는 좌표배열 입니다
-                    strokeWeight: 30, // 선의 두께 입니다
-                    strokeColor: '#BFFF00', // 선의 색깔입니다
-                    strokeOpacity: 0.6, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-                    strokeStyle: 'solid', // 선의 스타일입니다
-                    endArrow: false // 끝에 화살표 유무
-                });
-
-                // 지도에 선을 표시합니다 
-                polyline.setMap(map);  
-            </script>
-            <!-- 지도 끝 -->
+    
+                    // 지도에 선을 표시합니다 
+                    polyline.setMap(map);  
+                </script>
+                <!-- 지도 끝 -->
         <!-- Swiper -->
         <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
             <div class="swiper-wrapper">
