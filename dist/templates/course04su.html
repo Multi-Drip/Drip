@@ -390,7 +390,7 @@
                     moveLine.setMap(map);
                     
                     var distance = Math.round(clickLine.getLength() + moveLine.getLength()), // 선의 총 거리를 계산합니다
-                        content = '<div class="dotOverlay distanceInfo" style="color:#000000;">총거리 <span class="number">' + distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
+                        content = '<div class="dotOverlay distanceInfo" style="color:#000000;">&#128204;<span class="number">' + distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
                     
                     // 거리정보를 지도에 표시합니다
                     showDistance(content, mousePosition);   
@@ -499,7 +499,7 @@
                 if (distance > 0) {
                     // 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
                     var distanceOverlay = new kakao.maps.CustomOverlay({
-                        content: '<div class="dotOverlay" style="color:#000000;">거리 <span class="number">' + distance + '</span>m</div>',
+                        content: '<div class="dotOverlay" style="color:#000000;">&#128204;<span class="number">' + distance + '</span>m</div>',
                         position: position,
                         yAnchor: 1,
                         zIndex: 2
@@ -558,13 +558,13 @@
                 // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
                 var content = '<ul class="dotOverlay distanceInfo">';
                 content += '    <li>';
-                content += '        <span class="label" style="color:#000000;">총거리</span><span class="number">' + distance + '</span><a class="number" style="color:#000000;">m</a>';
+                content += '        <span class="label" style="color:#000000;">&#128681;</span><span class="number">' + distance + '</span><a class="number" style="color:#000000;">m</a>';
                 content += '    </li>';
                 content += '    <li>';
-                content += '        <span class="label" style="color:#000000;">도보</span>' + walkHour + walkMin;
+                content += '        <span class="label" style="color:#000000;">&#128694;</span>' + walkHour + walkMin;
                 content += '    </li>';
                 content += '    <li>';
-                content += '        <span class="label" style="color:#000000;">자전거</span>' + bycicleHour + bycicleMin;
+                content += '        <span class="label" style="color:#000000;">&#128690;</span>' + bycicleHour + bycicleMin;
                 content += '    </li>';
                 content += '</ul>'
 
