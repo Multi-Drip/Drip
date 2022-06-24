@@ -593,6 +593,85 @@
       </script>
   </div>
 
+    <!-- Swiper -->
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="pt-50 swiper mySwiper2">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_04_02.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
+            <br>Heedo training ver.a mineral spring<br><br><a href="/locatesingle?Place=와룡공원">Waryong Park</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_01_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
+            <br>Elephant Snacks<br><br><a href="/locatesingle?Place=효자분식">Hyoja snack</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_06_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">3</em>
+            <br>Meet Again<br><br><a href="/locatesingle?Place=광화문광장">Gwanghwamun Square</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_07_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
+            <br>Briefing the new year<br><br><a href="/locatesingle?Place=보신각">Bosingak Pavilion</a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_02_01.jpg');">
+          <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">5</em>
+            <br>First meeting place of RYDER37 and INJEOLMI<br><br><a href="/locatesingle?Place=마로니에공원">Marronnier Park</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_04_02.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_01_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_06_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_07_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_02_01.jpg')}}" />
+        </div>
+      </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        observer: true,
+        observeParents: true,
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        loop: true,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+    </script>  
+
   <div class="container">
     <h4 class="pt-50 pb-30" style="text-align: center;">Tourist attractions that are good to look around together</h4>
     <!-- START: Posts List -->
