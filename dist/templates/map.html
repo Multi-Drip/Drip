@@ -10,8 +10,6 @@
     <meta name="author" content="robirurk">
     <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/2521/2521mini.png')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i"
@@ -57,78 +55,6 @@
             color: #000;
             margin: 0;
             padding: 0;
-        }
-
-        div {
-            color: #fff;
-        }
-
-        a {
-            color: #fff;
-        }
-
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 90%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .swiper {
-            width: 90%;
-            height: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .swiper-slide {
-            background-size: cover;
-            background-position: center;
-        }
-
-        .mySwiper {
-            height: 150px;
-            box-sizing: border-box;
-            padding: 10px 0;
-        }
-
-        .mySwiper2 {
-            height: 700px;
-            width: 75%;
-        }
-
-        .mySwiper .swiper-slide {
-            width: 25%;
-            height: 100%;
-            opacity: 0.4;
-        }
-
-        .mySwiper .swiper-slide-thumb-active {
-            opacity: 0.4;
         }
 
         .nk-icon-burger {
@@ -204,8 +130,7 @@
                     <div class="nk-nav-header">
                         <div class="nk-nav-logo">
                             <a href="/" class="nk-nav-logo">
-                                <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt=""
-                                    width="31">
+                                <img src="{{ url_for('static', filename='assets/2521/driplogoblack.png')}}" alt="" width="31">
                             </a>
                         </div>
                         <div class="nk-nav-close nk-navbar-full-toggle">
@@ -238,7 +163,7 @@
 
             
 
-        <div id="map" style="width:80%; height:800px;margin-left: auto;margin-right: auto;margin-bottom:3rem; margin-top:3rem"></div>
+        <div id="map" style="width:90%; height:800px;margin-left: auto;margin-right: auto;margin-bottom:3rem; margin-top:3rem"></div>
         <script
             src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6&libraries=clusterer"></script>
         <script>
