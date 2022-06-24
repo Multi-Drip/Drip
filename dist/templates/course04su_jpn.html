@@ -252,7 +252,7 @@
 
       var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
           mapOption = {
-              center: new kakao.maps.LatLng(37.588999, 126.986732), // 지도의 중심좌표
+              center: new kakao.maps.LatLng(37.588864, 126.981281), // 지도의 중심좌표
               level: 4 // 지도의 확대 레벨
           };
       var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -285,7 +285,7 @@
                     '<div style="width:170px; padding:5px; color: black; text-align:center;">2. 孝子粉食&#128663;約10分</div>',
                     '<div style="width:170px; padding:5px; color: black; text-align:center;">3. 光化門(クァンファムン)&#128663;約8分 🚶16分</div>',
                     '<div style="width:100px; padding:5px; color: black; text-align:center;">4. 普信閣(ポシンカク)&#128663;約13分</div>',
-                    '<div style="width:100px; padding:5px; color: black; text-align:center;">4. マロニエ公園🚩</div>',
+                    '<div style="width:100px; padding:5px; color: black; text-align:center;">5. マロニエ公園🚩</div>',
                         ]
 
       for (var i = 0; i < positions.length; i++) {
@@ -569,7 +569,7 @@
 
           return content;
       }
-                    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+          // polyline선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
           var linePath = [
             new kakao.maps.LatLng(37.588976, 126.986732),
             new kakao.maps.LatLng(37.583822, 126.969097),
@@ -578,7 +578,7 @@
             new kakao.maps.LatLng(37.580519, 127.002811)
         ];
 
-          // 지도에 표시할 선을 생성합니다
+          // 지도에 표시할 polyline선을 생성합니다
           var polyline = new kakao.maps.Polyline({
               path: linePath, // 선을 구성하는 좌표배열 입니다
               strokeWeight: 17, // 선의 두께 입니다
@@ -588,7 +588,7 @@
               endArrow: false // 끝에 화살표 유무
           });
 
-          // 지도에 선을 표시합니다 
+          // 지도에 polyline선을 표시합니다 
           polyline.setMap(map);  
       </script>
 
