@@ -247,7 +247,7 @@
             .distanceInfo .label {display:inline-block;width:50px;}
             .distanceInfo:after {content:none;}
             </style>
-        <div id="map" style="width:80%;height:400px;margin-left: auto;margin-right: auto;"></div>
+        <div id="map" style="width:80%;height:500px; margin-bottom: 20px; margin-left: auto;margin-right: auto;"></div>
         <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
         <script>
@@ -261,33 +261,18 @@
     
             // 마커를 표시할 위치와 title 객체 배열입니다 
             var positions = [
-                {
-                    title: '와룡공원',
-                    latlng: new kakao.maps.LatLng(37.588976, 126.986732)
-                },
-                {
-                    title: '효자분식',
-                    latlng: new kakao.maps.LatLng(37.583822, 126.969097)
-                },
-                {
-                    title: '광화문광장',
-                    latlng: new kakao.maps.LatLng(37.571174, 126.977675)
-                },
-                {
-                    title: '보신각터',
-                    latlng: new kakao.maps.LatLng(37.569930, 126.983583)
-                },
-                {
-                    title: '마로니에공원',
-                    latlng: new kakao.maps.LatLng(37.580519, 127.002811)
-                }
-            ];
-            var iwContent = [
-                            '<div style="width:170px; padding:5px; color: black; text-align:center;">1️⃣와룡공원<br>&#128663;15분 🚶‍♂️45분</div>',
-                            '<div style="width:170px; padding:5px; color: black; text-align:center;">2️⃣효자분식<br>&#128663;10분 🚶‍♂️29분</div>',
-                            '<div style="width:170px; padding:5px; color: black; text-align:center;">3️⃣광화문광장<br>&#128663;8분 🚶‍♂️16분</div>',
-                            '<div style="width:170px; padding:5px; color: black; text-align:center;">4️⃣보신각터<br>&#128663;13분 🚶‍♂️49분</div>',
-                            '<div style="width:170px; padding:5px; color: black; text-align:center;">5️⃣마로니에공원🚩</div>',
+                    {content: '<div>와룡공원</div>', latlng: new kakao.maps.LatLng(37.588976, 126.986732)},
+                    {content: '<div>효자분식</div>', latlng: new kakao.maps.LatLng(37.583822, 126.969097)},
+                    {content: '<div>광화문광장</div>', latlng: new kakao.maps.LatLng(37.571174, 126.977675)},
+                    {content: '<div>보신각터</div>', latlng: new kakao.maps.LatLng(37.569930, 126.983583)},
+                    {content: '<div>마로니에공원</div>', latlng: new kakao.maps.LatLng(37.580519, 127.002811)}
+                ];
+                var iwContent = [
+                            '<div style="width:140px; padding:5px; color: black; text-align:center;">1️⃣와룡공원<br>&#128663;15분 🚶‍♂️45분</div>',
+                            '<div style="width:140px; padding:5px; color: black; text-align:center;">2️⃣효자분식<br>&#128663;10분 🚶‍♂️29분</div>',
+                            '<div style="width:140px; padding:5px; color: black; text-align:center;">3️⃣광화문광장<br>&#128663;8분 🚶‍♂️16분</div>',
+                            '<div style="width:140px; padding:5px; color: black; text-align:center;">4️⃣보신각터<br>&#128663;13분 🚶‍♂️49분</div>',
+                            '<div style="width:150px; padding:5px; color: black; text-align:center;">5️⃣마로니에공원🚩</div>',
                                 ]
         
             for (var i = 0; i < positions.length; i++) {
@@ -303,9 +288,7 @@
                                 });
                                 infowindow.open(map, marker);
                             }
-        
-        
-        
+                
             // var drawingFlag = false; // 선이 그려지고 있는 상태를 가지고 있을 변수입니다
             // var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체 입니다
             // var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
