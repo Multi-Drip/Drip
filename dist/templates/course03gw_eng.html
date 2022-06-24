@@ -248,15 +248,16 @@
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
         // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-        var position1 = [37.264243, 129.327002];
-        var position2 = [37.552812, 129.116413];
-        var position3 = [37.636471, 129.044975];
-        var position4 = [37.819214, 128.890457];
-        var position5 = [38.024766, 128.722318];
-        var position6 = [38.314963, 128.534746];
-
+        var positions = [
+            new kakao.maps.LatLng(37.264243, 129.327002),
+            new kakao.maps.LatLng(37.552812, 129.116413),
+            new kakao.maps.LatLng(37.636471, 129.044975),
+            new kakao.maps.LatLng(37.819214, 128.890457),
+            new kakao.maps.LatLng(38.024766, 128.722318),
+            new kakao.maps.LatLng(38.314963, 128.534746)
+        ];
         // 커스텀 오버레이에 표시할 내용입니다. HTML 문자열 또는 Dom Element 입니다 
-        var contents = [
+        var iwContent = [
           '<div style="width:170px; padding:5px; color:black;">1️⃣Shinamhang Port<br>next location 🚗 49min</div>',
           '<div style="width:170px; padding:5px; color:black;">2️⃣Mukho Nongoldam-gil Road<br>next location 🚗 24min</div>',
           '<div style="width:170px; padding:5px; color:black;">3️⃣GeumjinBeach<br>next location 🚗 47min</div>',
