@@ -233,110 +233,53 @@
       <h4 style=" text-align:center;">カンウォン道コース (ft. テヤン高校5人組)</h4>
       <h5 style="color:grey; text-align:center;"> (自動車基準) 総距離 : 191.1km / 総移動時間 : 3時間25分</h5>
       <!-- 지도 시작 -->
-      <div id="map" style="width:80%; height:520px; margin-bottom: 20px; margin-right: auto; margin-left:auto"></div>
+      <div id="map" style="width:80%; height:550px; margin-bottom: 20px; margin-right: auto; margin-left:auto"></div>
 
       <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
       <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
           mapOption = {
-            center: new kakao.maps.LatLng(37.83, 129.15), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(37.8, 129.15), // 지도의 중심좌표
             level: 11 // 지도의 확대 레벨
           };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
         // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-        var position1 = [37.264243, 129.327002];
-        var position2 = [37.552812, 129.116413];
-        var position3 = [37.636471, 129.044975];
-        var position4 = [37.819214, 128.890457];
-        var position5 = [38.024766, 128.722318];
-        var position6 = [38.314963, 128.534746];
-
+        var positions = [
+            new kakao.maps.LatLng(37.264243, 129.327002),
+            new kakao.maps.LatLng(37.552812, 129.116413),
+            new kakao.maps.LatLng(37.636471, 129.044975),
+            new kakao.maps.LatLng(37.819214, 128.890457),
+            new kakao.maps.LatLng(38.024766, 128.722318),
+            new kakao.maps.LatLng(38.314963, 128.534746)
+        ];
         // 커스텀 오버레이에 표시할 내용입니다. HTML 문자열 또는 Dom Element 입니다 
-        var contents = [
-          '<div style="width:170px; padding:5px; color:black;">1. 新南港灯台<br>次の場所まで 🚗 約49分</div>',
-          '<div style="width:170px; padding:5px; color:black;">2. 東海ノンゴルダムキル<br>次の場所まで 🚗 約24分</div>',
-          '<div style="width:170px; padding:5px; color:black;">3. グムジン海岸<br>次の場所まで 🚗 約47分</div>',
-          '<div style="width:170px; padding:5px; color:black;">4. カンルンカイテッペンション<br>次の場所まで 🚗 約39分</div>',
-          '<div style="width:170px; padding:5px; color:black;">5. 河趙台(ハジョデ)海水浴場<br>次の場所まで 🚗 約46分</div>',
-          '<div style="width:170px; padding:5px; color:black;">6. 三浦(サンポ)海水浴場 🚩</div>'
+        var iwContent = [
+          '<div style="width:170px; padding:5px; color:black;">1️⃣新南港灯台<br>次の場所まで 🚗 約49分</div>',
+          '<div style="width:170px; padding:5px; color:black;">2️⃣東海ノンゴルダムキル<br>次の場所まで 🚗 約24分</div>',
+          '<div style="width:170px; padding:5px; color:black;">3️⃣グムジン海岸<br>次の場所まで 🚗 約47分</div>',
+          '<div style="width:170px; padding:5px; color:black;">4️⃣カンルンカイテッペンション<br>次の場所まで 🚗 約39分</div>',
+          '<div style="width:170px; padding:5px; color:black;">5️⃣河趙台(ハジョデ)海水浴場<br>次の場所まで 🚗 約46分</div>',
+          '<div style="width:170px; padding:5px; color:black;">6️⃣三浦(サンポ)海水浴場 🚩</div>'
         ];
 
-        // 마커를 생성합니다
-        var marker1 = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: new kakao.maps.LatLng(position1[0], position1[1]) // 마커의 위치
-        });
-        // 커스텀 오버레이를 생성합니다 
-        var customOverlay1 = new kakao.maps.CustomOverlay({
-          content: contents[0],  // 표시할 내용
-          position: new kakao.maps.LatLng(position1[0] + 0.05, position1[1] + 0.32)  // 위치
-        });
+        for (var i = 0; i < positions.length; i++) {
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: positions[i] // 마커의 위치
+            });
 
-        // 마커를 생성합니다
-        var marker2 = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: new kakao.maps.LatLng(position2[0], position2[1]) // 마커의 위치
-        });
-        // 커스텀 오버레이를 생성합니다 
-        var customOverlay2 = new kakao.maps.CustomOverlay({
-          content: contents[1],  // 표시할 내용
-          position: new kakao.maps.LatLng(position2[0] + 0.02, position2[1] + 0.32)  // 위치
-        });
+            // 마커에 표시할 인포윈도우를 생성합니다 
+            var infowindow = new kakao.maps.InfoWindow({
+                content: iwContent[i],  // 인포윈도우에 표시할 내용
+                position: positions[i]  // 인포윈도우의 위치
+            });
 
-        // 마커를 생성합니다
-        var marker3 = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: new kakao.maps.LatLng(position3[0], position3[1]) // 마커의 위치
-        });
-        // 커스텀 오버레이를 생성합니다 
-        var customOverlay3 = new kakao.maps.CustomOverlay({
-          content: contents[2],  // 표시할 내용
-          position: new kakao.maps.LatLng(position3[0] + 0.06, position3[1] + 0.32)  // 위치
-        });
-
-        // 마커를 생성합니다
-        var marker4 = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: new kakao.maps.LatLng(position4[0], position4[1]) // 마커의 위치
-        });
-        // 커스텀 오버레이를 생성합니다 
-        var customOverlay4 = new kakao.maps.CustomOverlay({
-          content: contents[3],  // 표시할 내용
-          position: new kakao.maps.LatLng(position4[0] + 0.05, position4[1] + 0.32)  // 위치
-        });
-
-        // 마커를 생성합니다
-        var marker5 = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: new kakao.maps.LatLng(position5[0], position5[1]) // 마커의 위치
-        });
-        // 커스텀 오버레이를 생성합니다 
-        var customOverlay5 = new kakao.maps.CustomOverlay({
-          content: contents[4],  // 표시할 내용
-          position: new kakao.maps.LatLng(position5[0] + 0.05, position5[1] + 0.32)  // 위치
-        });
-
-        // 마커를 생성합니다
-        var marker6 = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: new kakao.maps.LatLng(position6[0], position6[1]) // 마커의 위치
-        });
-        // 커스텀 오버레이를 생성합니다 
-        var customOverlay6 = new kakao.maps.CustomOverlay({
-          content: contents[5],  // 표시할 내용
-          position: new kakao.maps.LatLng(position6[0] + 0.05, position6[1] + 0.32)  // 위치
-        });
-
-        // 커스텀 오버레이를 지도에 표시합니다
-        customOverlay1.setMap(map);
-        customOverlay2.setMap(map);
-        customOverlay3.setMap(map);
-        customOverlay4.setMap(map);
-        customOverlay5.setMap(map);
-        customOverlay6.setMap(map);
+            infowindow.open(map, marker);
+        }
 
         // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
         var linePath = [
@@ -351,9 +294,9 @@
         // 지도에 표시할 선을 생성합니다
         var polyline = new kakao.maps.Polyline({
           path: linePath, // 선을 구성하는 좌표배열 입니다
-          strokeWeight: 10, // 선의 두께 입니다
-          strokeColor: 'lightgreen', // 선의 색깔입니다
-          strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+          strokeWeight: 17, // 선의 두께 입니다
+          strokeColor: 'mediumpurple', // 선의 색깔입니다
+          strokeOpacity: 0.6, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
           strokeStyle: 'solid', // 선의 스타일입니다
           endArrow: false // 끝에 화살표 유무
         });
