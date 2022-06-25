@@ -3793,7 +3793,7 @@ img.rounded {
     margin-left: -15px;
     font-size: 1rem;
     text-align: left;
-    background-color: #252525;
+    background-color: #f59696;
     opacity: 0;
     z-index: 1;
 }
@@ -3817,7 +3817,7 @@ img.rounded {
     display: block;
     padding: 6px 30px;
     padding-right: 75px;
-    color: #c5c5c5;
+    color: #171717;
     text-decoration: none;
 }
 
