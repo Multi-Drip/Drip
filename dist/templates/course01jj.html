@@ -147,14 +147,11 @@
         #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
         #category li:last-child{margin-right:0;border-right:0;}
         #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-        #category li .category_bg {background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
-        #category li .bank {background-position: -10px 0;}
-        #category li .mart {background-position: -10px -36px;}
-        #category li .pharmacy {background-position: -10px -72px;}
-        #category li .oil {background-position: -10px -108px;}
-        #category li .cafe {background-position: -10px -144px;}
-        #category li .store {background-position: -10px -180px;}
-        #category li.on .category_bg {background-position-x:-46px;}
+        #category li .category_bg {background:url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png) no-repeat 0 0}
+        #category li .accommodation {background-position: -0px -120px;}
+        #category li .food {background-position: -0px 0;}
+        #category li .cafe {background-position: -0px -30px;}
+        #category li.on .category_bg {background-position-x:-30px;}
         .placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
         .placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
         .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
@@ -268,17 +265,17 @@
         <div class="map_wrap">
             <div id="map" style="width:80%; height:500px;margin-left: auto;margin-right: auto;margin-bottom:20px;">
                 <ul id="category">    
-                    <li id="AD5" data-order="1"> 
+                    <li id="AD5" data-order="4"> 
+                        <span class="category_bg accommodation"></span>
+                        accommodation
+                    </li>  
+                    <li id="FD6" data-order="0"> 
+                        <span class="category_bg food"></span>
+                        food
+                    </li>
+                    <li id="CE7" data-order="1"> 
                         <span class="category_bg cafe"></span>
                         cafe
-                    </li>  
-                    <li id="FD6" data-order="2"> 
-                        <span class="category_bg store"></span>
-                        store
-                    </li>
-                    <li id="CE7" data-order="3"> 
-                        <span class="category_bg pharmacy"></span>
-                        pharmacy
                     </li>
                 </ul>
                 <script type="text/javascript"
@@ -412,11 +409,11 @@
 
                     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
                     function addMarker(position, order) {
-                        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+                        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                             imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                             imgOptions =  {
                                 spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
-                                spriteOrigin : new kakao.maps.Point(46, (order*36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+                                spriteOrigin : new kakao.maps.Point(45, (order*30)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
                                 offset: new kakao.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
                             },
                             markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
