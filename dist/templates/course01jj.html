@@ -159,7 +159,7 @@
         .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
         .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
         .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
-        .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+        .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #f59696;background: #f59696 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
         .placeinfo .tel {color:#0f7833;}
         .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
     </style>
@@ -267,15 +267,15 @@
                 <ul id="category">    
                     <li id="AD5" data-order="4"> 
                         <span class="category_bg accommodation"></span>
-                        accommodation
+                        숙박
                     </li>  
                     <li id="FD6" data-order="0"> 
                         <span class="category_bg food"></span>
-                        food
+                        음식점
                     </li>
                     <li id="CE7" data-order="1"> 
                         <span class="category_bg cafe"></span>
-                        cafe
+                        카페
                     </li>
                 </ul>
                 <script type="text/javascript"
@@ -295,7 +295,39 @@
 
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-                                        // 장소 검색 객체를 생성합니다
+                    var positions_around_list = [
+                        {title: '이목대', latlng: new kakao.maps.LatLng(35.814244, 127.156094)},
+                        {title: '동학혁명기념관', latlng: new kakao.maps.LatLng(35.816764, 127.152016)},
+                        {title: '경기전', latlng: new kakao.maps.LatLng(35.815244, 127.149756)},
+                        {title: '전동성당', latlng: new kakao.maps.LatLng(35.813293, 127.149204)},
+                        {title: '풍남문', latlng: new kakao.maps.LatLng(35.813484, 127.147573)},
+                        {title: '아중호수', latlng: new kakao.maps.LatLng(35.821623, 127.177211)},
+                        {title: '완판본문화관', latlng: new kakao.maps.LatLng(35.811959, 127.158007)},
+                        {title: '동고사', latlng: new kakao.maps.LatLng(35.809697, 127.167813)},
+                        {title: '전주한옥마을', latlng: new kakao.maps.LatLng(35.814774, 127.152576)},
+                    ];
+
+                    // 마커 이미지의 이미지 주소입니다
+                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                        
+                    for (var i = 0; i < positions_around_list.length; i ++) {
+                        
+                        // 마커 이미지의 이미지 크기 입니다
+                        var imageSize = new kakao.maps.Size(24, 35); // 24,35 
+                        
+                        // 마커 이미지를 생성합니다    
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                        
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions_around_list[i].latlng, // 마커를 표시할 위치
+                            title : positions_around_list[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                            image : markerImage // 마커 이미지 
+                        });
+                    }
+
+                    // 장소 검색 객체를 생성합니다
                     var ps = new kakao.maps.services.Places(map); 
 
                     // 지도에 idle 이벤트를 등록합니다

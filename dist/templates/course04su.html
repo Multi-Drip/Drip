@@ -138,6 +138,30 @@
             height: 18px;
             color: #fff;
         }
+
+        .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;color: black;}
+        .map_wrap {position:relative;width:100%;height:500px;}
+        #category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
+        #category li {float:left;list-style: none;width:50px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+        #category li.on {background: #eee;}
+        #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
+        #category li:last-child{margin-right:0;border-right:0;}
+        #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
+        #category li .category_bg {background:url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png) no-repeat 0 0}
+        #category li .accommodation {background-position: -0px -120px;}
+        #category li .food {background-position: -0px 0;}
+        #category li .cafe {background-position: -0px -30px;}
+        #category li.on .category_bg {background-position-x:-30px;}
+        .placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+        .placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+        .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+        .placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+        .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+        .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+        .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+        .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #f59696;background: #f59696 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+        .placeinfo .tel {color:#0f7833;}
+        .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
     </style>
 </head>
 
@@ -237,345 +261,308 @@
             <h4>종로구 2521 투어 코스</h4>
             <h5 style="color:grey"> 총 거리 : 9.5km / 총 이동시간 : 1시간 22분</h5>
         </div>
-        <style>
-            .dot {overflow:hidden;float:left;width:12px;height:12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
-            .dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
-            .dotOverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
-            .number {font-weight:bold;color:#ee6152;}
-            .dotOverlay:after {content:'';position:absolute;margin-left:-6px;left:50%;bottom:-8px;width:11px;height:8px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png')}
-            .distanceInfo {position:relative;top:5px;left:5px;list-style:none;margin:0;}
-            .distanceInfo .label {display:inline-block;width:50px;}
-            .distanceInfo:after {content:none;}
-            </style>
-        <div id="map" style="width:80%;height:500px; margin-bottom: 20px; margin-left: auto;margin-right: auto;"></div>
-        <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6"></script>
-        <script>
-    
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-                mapOption = {
-                    center: new kakao.maps.LatLng(37.584, 126.985), // 지도의 중심좌표
-                    level: 5 // 지도의 확대 레벨
-                };
-            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-    
-            // 마커를 표시할 위치와 title 객체 배열입니다 
-            var positions = [
-                    {content: '<div>와룡공원</div>', latlng: new kakao.maps.LatLng(37.588976, 126.986732)},
-                    {content: '<div>효자분식</div>', latlng: new kakao.maps.LatLng(37.583822, 126.969097)},
-                    {content: '<div>광화문광장</div>', latlng: new kakao.maps.LatLng(37.571174, 126.977675)},
-                    {content: '<div>보신각터</div>', latlng: new kakao.maps.LatLng(37.569930, 126.983583)},
-                    {content: '<div>마로니에공원</div>', latlng: new kakao.maps.LatLng(37.580519, 127.002811)}
-                ];
-                var iwContent = [
-                            '<div style="width:220px; padding:5px; color: black; text-align:center;">1️⃣와룡공원<br>다음장소까지 &#128663;15분 🚶‍♂️45분</div>',
-                            '<div style="width:220px; padding:5px; color: black; text-align:center;">2️⃣효자분식<br>다음장소까지 &#128663;10분 🚶‍♂️29분</div>',
-                            '<div style="width:150px; padding:5px; color: black; text-align:center;">3️⃣광화문광장<br>다음장소까지<br> &#128663;8분 🚶‍♂️16분</div>',
-                            '<div style="width:150px; padding:5px; color: black; text-align:center;">4️⃣보신각터<br>다음장소까지<br> &#128663;13분 🚶‍♂️49분</div>',
-                            '<div style="width:150px; padding:5px; color: black; text-align:center;">5️⃣마로니에공원🚩</div>',
-                                ]
-        
-            for (var i = 0; i < positions.length; i++) {
-                              // 마커를 생성합니다 
-                                var marker = new kakao.maps.Marker({
-                                    map: map, // 마커를 표시할 지도
-                                    position: positions[i].latlng // 마커의 위치
-                                });
-                                // 마커에 표시할 인포윈도우를 생성합니다 
-                                var infowindow = new kakao.maps.InfoWindow({
-                                    content: iwContent[i],  // 인포윈도우에 표시할 내용
-                                    position: positions[i].latlng  // 인포윈도우의 위치
-                                });
-                                infowindow.open(map, marker);
-                            }
-                
-            // var drawingFlag = false; // 선이 그려지고 있는 상태를 가지고 있을 변수입니다
-            // var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체 입니다
-            // var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
-            // var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
-            // var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열입니다.
-    
-            // // 지도에 클릭 이벤트를 등록합니다
-            // // 지도를 클릭하면 선 그리기가 시작됩니다 그려진 선이 있으면 지우고 다시 그립니다
-            // kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-    
-            //     // 마우스로 클릭한 위치입니다 
-            //     var clickPosition = mouseEvent.latLng;
-    
-            //     // 지도 클릭이벤트가 발생했는데 선을 그리고있는 상태가 아니면
-            //     if (!drawingFlag) {
-    
-            //         // 상태를 true로, 선이 그리고있는 상태로 변경합니다
-            //         drawingFlag = true;
-                    
-            //         // 지도 위에 선이 표시되고 있다면 지도에서 제거합니다
-            //         deleteClickLine();
-                    
-            //         // 지도 위에 커스텀오버레이가 표시되고 있다면 지도에서 제거합니다
-            //         deleteDistnce();
-    
-            //         // 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
-            //         deleteCircleDot();
-                
-            //         // 클릭한 위치를 기준으로 선을 생성하고 지도위에 표시합니다
-            //         clickLine = new kakao.maps.Polyline({
-            //             map: map, // 선을 표시할 지도입니다 
-            //             path: [clickPosition], // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
-            //             strokeWeight: 3, // 선의 두께입니다 
-            //             strokeColor: '#db4040', // 선의 색깔입니다
-            //             strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-            //             strokeStyle: 'solid' // 선의 스타일입니다
-            //         });
-                    
-            //         // 선이 그려지고 있을 때 마우스 움직임에 따라 선이 그려질 위치를 표시할 선을 생성합니다
-            //         moveLine = new kakao.maps.Polyline({
-            //             strokeWeight: 3, // 선의 두께입니다 
-            //             strokeColor: '#db4040', // 선의 색깔입니다
-            //             strokeOpacity: 0.5, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-            //             strokeStyle: 'solid' // 선의 스타일입니다    
-            //         });
-                
-            //         // 클릭한 지점에 대한 정보를 지도에 표시합니다
-            //         displayCircleDot(clickPosition, 0);
-    
+        <!-- 지도 시작 -->
+        <div class="map_wrap">
+            <div id="map" style="width:80%; height:500px;margin-left: auto;margin-right: auto;margin-bottom:20px;">
+                <ul id="category">    
+                    <li id="AD5" data-order="4"> 
+                        <span class="category_bg accommodation"></span>
+                        숙박
+                    </li>  
+                    <li id="FD6" data-order="0"> 
+                        <span class="category_bg food"></span>
+                        음식점
+                    </li>
+                    <li id="CE7" data-order="1"> 
+                        <span class="category_bg cafe"></span>
+                        카페
+                    </li>
+                </ul>
+                <script type="text/javascript"
+                    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6&libraries=services"></script>
+                <script>
+
+                    var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
+                        contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+                        markers = [], // 마커를 담을 배열입니다
+                        currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
+
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                        mapOption = {
+                            center: new kakao.maps.LatLng(37.584, 126.985), // 지도의 중심좌표
+                            level: 5 // 지도의 확대 레벨
+                        };
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                    var positions_around_list = [
+                        {title: '북촌한옥마을', latlng: new kakao.maps.LatLng(37.582979, 126.983498)}, 
                         
-            //     } else { // 선이 그려지고 있는 상태이면
-    
-            //         // 그려지고 있는 선의 좌표 배열을 얻어옵니다
-            //         var path = clickLine.getPath();
-    
-            //         // 좌표 배열에 클릭한 위치를 추가합니다
-            //         path.push(clickPosition);
-                    
-            //         // 다시 선에 좌표 배열을 설정하여 클릭 위치까지 선을 그리도록 설정합니다
-            //         clickLine.setPath(path);
-    
-            //         var distance = Math.round(clickLine.getLength());
-            //         displayCircleDot(clickPosition, distance);
-            //     }
-            // });
-                
-            // // 지도에 마우스무브 이벤트를 등록합니다
-            // // 선을 그리고있는 상태에서 마우스무브 이벤트가 발생하면 그려질 선의 위치를 동적으로 보여주도록 합니다
-            // kakao.maps.event.addListener(map, 'mousemove', function (mouseEvent) {
-    
-            //     // 지도 마우스무브 이벤트가 발생했는데 선을 그리고있는 상태이면
-            //     if (drawingFlag){
-                    
-            //         // 마우스 커서의 현재 위치를 얻어옵니다 
-            //         var mousePosition = mouseEvent.latLng; 
-    
-            //         // 마우스 클릭으로 그려진 선의 좌표 배열을 얻어옵니다
-            //         var path = clickLine.getPath();
-                    
-            //         // 마우스 클릭으로 그려진 마지막 좌표와 마우스 커서 위치의 좌표로 선을 표시합니다
-            //         var movepath = [path[path.length-1], mousePosition];
-            //         moveLine.setPath(movepath);    
-            //         moveLine.setMap(map);
-                    
-            //         var distance = Math.round(clickLine.getLength() + moveLine.getLength()), // 선의 총 거리를 계산합니다
-            //             content = '<div class="dotOverlay distanceInfo" style="color:#000000;">&#128204;<span class="number">' + distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
-                    
-            //         // 거리정보를 지도에 표시합니다
-            //         showDistance(content, mousePosition);   
-            //     }             
-            // });                 
-    
-            // // 지도에 마우스 오른쪽 클릭 이벤트를 등록합니다
-            // // 선을 그리고있는 상태에서 마우스 오른쪽 클릭 이벤트가 발생하면 선 그리기를 종료합니다
-            // kakao.maps.event.addListener(map, 'rightclick', function (mouseEvent) {
-    
-            //     // 지도 오른쪽 클릭 이벤트가 발생했는데 선을 그리고있는 상태이면
-            //     if (drawingFlag) {
-                    
-            //         // 마우스무브로 그려진 선은 지도에서 제거합니다
-            //         moveLine.setMap(null);
-            //         moveLine = null;  
-                    
-            //         // 마우스 클릭으로 그린 선의 좌표 배열을 얻어옵니다
-            //         var path = clickLine.getPath();
-                
-            //         // 선을 구성하는 좌표의 개수가 2개 이상이면
-            //         if (path.length > 1) {
-    
-            //             // 마지막 클릭 지점에 대한 거리 정보 커스텀 오버레이를 지웁니다
-            //             if (dots[dots.length-1].distance) {
-            //                 dots[dots.length-1].distance.setMap(null);
-            //                 dots[dots.length-1].distance = null;    
-            //             }
-    
-            //             var distance = Math.round(clickLine.getLength()), // 선의 총 거리를 계산합니다
-            //                 content = getTimeHTML(distance); // 커스텀오버레이에 추가될 내용입니다
-                            
-            //             // 그려진 선의 거리정보를 지도에 표시합니다
-            //             showDistance(content, path[path.length-1]);  
+                        {title: '한양도성길', latlng: new kakao.maps.LatLng(37.593377, 126.985931)}, 
                         
-            //         } else {
-    
-            //             // 선을 구성하는 좌표의 개수가 1개 이하이면 
-            //             // 지도에 표시되고 있는 선과 정보들을 지도에서 제거합니다.
-            //             deleteClickLine();
-            //             deleteCircleDot(); 
-            //             deleteDistnce();
-    
-            //         }
+                        {title: '경복궁', latlng: new kakao.maps.LatLng(37.577266, 126.976854)}, 
+                        
+                        {title: '근정전', latlng: new kakao.maps.LatLng(37.578653, 126.977216)}, 
+                        
+                        {title: '청계천', latlng: new kakao.maps.LatLng(37.569184, 126.978713)}, 
+                        
+                        {title: '인사동거리', latlng: new kakao.maps.LatLng(37.571771, 126.985963)}, 
+                        
+                        {title: '광장시장', latlng: new kakao.maps.LatLng(37.570042, 126.999003)}, 
+                        
+                        {title: '흥인지문', latlng: new kakao.maps.LatLng(37.571159, 127.009616)}
+                    ];
+                    // 마커 이미지의 이미지 주소입니다
+                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                        
+                    for (var i = 0; i < positions_around_list.length; i ++) {
+                        
+                        // 마커 이미지의 이미지 크기 입니다
+                        var imageSize = new kakao.maps.Size(24, 35); // 24,35 
+                        
+                        // 마커 이미지를 생성합니다    
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                        
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions_around_list[i].latlng, // 마커를 표시할 위치
+                            title : positions_around_list[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                            image : markerImage // 마커 이미지 
+                        });
+                    }
+
                     
-            //         // 상태를 false로, 그리지 않고 있는 상태로 변경합니다
-            //         drawingFlag = false;          
-            //     }  
-            // });    
-    
-            // // 클릭으로 그려진 선을 지도에서 제거하는 함수입니다
-            // function deleteClickLine() {
-            //     if (clickLine) {
-            //         clickLine.setMap(null);    
-            //         clickLine = null;        
-            //     }
-            // }
-    
-            // // 마우스 드래그로 그려지고 있는 선의 총거리 정보를 표시하거
-            // // 마우스 오른쪽 클릭으로 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 생성하고 지도에 표시하는 함수입니다
-            // function showDistance(content, position) {
+                    // 장소 검색 객체를 생성합니다
+                    var ps = new kakao.maps.services.Places(map); 
+
+                    // 지도에 idle 이벤트를 등록합니다
+                    kakao.maps.event.addListener(map, 'idle', searchPlaces);
+
+                    // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
+                    contentNode.className = 'placeinfo_wrap';
+
+                    // 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
+                    // 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다 
+                    addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
+                    addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
+
+                    // 커스텀 오버레이 컨텐츠를 설정합니다
+                    placeOverlay.setContent(contentNode);  
+
+                    // 각 카테고리에 클릭 이벤트를 등록합니다
+                    addCategoryClickEvent();
+                    // 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
+                    function addEventHandle(target, type, callback) {
+                        if (target.addEventListener) {
+                            target.addEventListener(type, callback);
+                        } else {
+                            target.attachEvent('on' + type, callback);
+                        }
+                    }
+
+                    // 카테고리 검색을 요청하는 함수입니다
+                    function searchPlaces() {
+                        if (!currCategory) {
+                            return;
+                        }
+                        
+                        // 커스텀 오버레이를 숨깁니다 
+                        placeOverlay.setMap(null);
+
+                        // 지도에 표시되고 있는 마커를 제거합니다
+                        removeMarker();
+                        
+                        ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true}); 
+                    }
+            
+                    // 마커를 표시할 위치와 title 객체 배열입니다 
+                    var positions = [
+                            {content: '<div>와룡공원</div>', latlng: new kakao.maps.LatLng(37.588976, 126.986732)},
+                            {content: '<div>효자분식</div>', latlng: new kakao.maps.LatLng(37.583822, 126.969097)},
+                            {content: '<div>광화문광장</div>', latlng: new kakao.maps.LatLng(37.571174, 126.977675)},
+                            {content: '<div>보신각터</div>', latlng: new kakao.maps.LatLng(37.569930, 126.983583)},
+                            {content: '<div>마로니에공원</div>', latlng: new kakao.maps.LatLng(37.580519, 127.002811)}
+                        ];
+                        var iwContent = [
+                                    '<div style="width:220px; padding:5px; color: black; text-align:center;">1️⃣와룡공원<br>다음장소까지 &#128663;15분 🚶‍♂️45분</div>',
+                                    '<div style="width:220px; padding:5px; color: black; text-align:center;">2️⃣효자분식<br>다음장소까지 &#128663;10분 🚶‍♂️29분</div>',
+                                    '<div style="width:150px; padding:5px; color: black; text-align:center;">3️⃣광화문광장<br>다음장소까지<br> &#128663;8분 🚶‍♂️16분</div>',
+                                    '<div style="width:150px; padding:5px; color: black; text-align:center;">4️⃣보신각터<br>다음장소까지<br> &#128663;13분 🚶‍♂️49분</div>',
+                                    '<div style="width:150px; padding:5px; color: black; text-align:center;">5️⃣마로니에공원🚩</div>',
+                                        ]
                 
-            //     if (distanceOverlay) { // 커스텀오버레이가 생성된 상태이면
-                    
-            //         // 커스텀 오버레이의 위치와 표시할 내용을 설정합니다
-            //         distanceOverlay.setPosition(position);
-            //         distanceOverlay.setContent(content);
-                    
-            //     } else { // 커스텀 오버레이가 생성되지 않은 상태이면
-                    
-            //         // 커스텀 오버레이를 생성하고 지도에 표시합니다
-            //         distanceOverlay = new kakao.maps.CustomOverlay({
-            //             map: map, // 커스텀오버레이를 표시할 지도입니다
-            //             content: content,  // 커스텀오버레이에 표시할 내용입니다
-            //             position: position, // 커스텀오버레이를 표시할 위치입니다.
-            //             xAnchor: 0,
-            //             yAnchor: 0,
-            //             zIndex: 3  
-            //         });      
-            //     }
-            // }
+                    for (var i = 0; i < positions.length; i++) {
+                        // 마커를 생성합니다 
+                        var course_marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions[i].latlng // 마커의 위치
+                        });
+                        // 마커에 표시할 인포윈도우를 생성합니다 
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: iwContent[i],  // 인포윈도우에 표시할 내용
+                            position: positions[i].latlng  // 인포윈도우의 위치
+                        });
+                        infowindow.open(map, course_marker);
+                    }
+                                        // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+                                        function placesSearchCB(data, status, pagination) {
+                    if (status === kakao.maps.services.Status.OK) {
+
+                        // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
+                        displayPlaces(data);
+                    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+                        // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
+
+                    } else if (status === kakao.maps.services.Status.ERROR) {
+                        // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
+                        
+                    }
+                    }
+
+                    // 지도에 마커를 표출하는 함수입니다
+                    function displayPlaces(places) {
+
+                        // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
+                        // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
+                    var order = document.getElementById(currCategory).getAttribute('data-order');
+
+                        
+
+                    for ( var i=0; i<places.length; i++ ) {
+
+                        // 마커를 생성하고 지도에 표시합니다
+                        var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
+
+                        // 마커와 검색결과 항목을 클릭 했을 때
+                        // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
+                        (function(marker, place) {
+                            kakao.maps.event.addListener(marker, 'click', function() {
+                                displayPlaceInfo(place);
+                            });
+                        })(marker, places[i]);
+                    }
+                    }
+
+                    // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+                    function addMarker(position, order) {
+                        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+                            imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
+                            imgOptions =  {
+                                spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
+                                spriteOrigin : new kakao.maps.Point(45, (order*30)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+                                offset: new kakao.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+                            },
+                            markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+                                marker = new kakao.maps.Marker({
+                                position: position, // 마커의 위치
+                                image: markerImage 
+                            });
+
+                        marker.setMap(map); // 지도 위에 마커를 표출합니다
+                        markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+                        return marker;
+                    }
+
+                    // 지도 위에 표시되고 있는 마커를 모두 제거합니다
+                    function removeMarker() {
+                        for ( var i = 0; i < markers.length; i++ ) {
+                            markers[i].setMap(null);
+                        }   
+                        markers = [];
+                    }
+
+                    // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
+                    function displayPlaceInfo (place) {
+                        var content = '<div class="placeinfo">' +
+                                        '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';
+
+                        if (place.road_address_name) {
+                            content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
+                                        '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
+                        }  else {
+                            content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
+                        }                
+
+                        content += '    <span class="tel">' + place.phone + '</span>' + 
+                                    '</div>' + 
+                                    '<div class="after"></div>';
+
+                        contentNode.innerHTML = content;
+                        placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
+                        placeOverlay.setMap(map);  
+                    }
+
+
+                    // 각 카테고리에 클릭 이벤트를 등록합니다
+                    function addCategoryClickEvent() {
+                        var category = document.getElementById('category'),
+                            children = category.children;
+
+                        for (var i=0; i<children.length; i++) {
+                            children[i].onclick = onClickCategory;
+                        }
+                    }
+
+                    // 카테고리를 클릭했을 때 호출되는 함수입니다
+                    function onClickCategory() {
+                        var id = this.id,
+                            className = this.className;
+
+                        placeOverlay.setMap(null);
+
+                        if (className === 'on') {
+                            currCategory = '';
+                            changeCategoryClass();
+                            removeMarker();
+                        } else {
+                            currCategory = id;
+                            changeCategoryClass(this);
+                            searchPlaces();
+                        }
+                    }
+
+                    // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
+                    function changeCategoryClass(el) {
+                        var category = document.getElementById('category'),
+                            children = category.children,
+                            i;
+
+                        for ( i=0; i<children.length; i++ ) {
+                            children[i].className = '';
+                        }
+
+                        if (el) {
+                            el.className = 'on';
+                        } 
+                    } 
+
     
-            // // 그려지고 있는 선의 총거리 정보와 
-            // // 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 삭제하는 함수입니다
-            // function deleteDistnce () {
-            //     if (distanceOverlay) {
-            //         distanceOverlay.setMap(null);
-            //         distanceOverlay = null;
-            //     }
-            // }
-    
-            // // 선이 그려지고 있는 상태일 때 지도를 클릭하면 호출하여 
-            // // 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 표출하는 함수입니다
-            // function displayCircleDot(position, distance) {
-    
-            //     // 클릭 지점을 표시할 빨간 동그라미 커스텀오버레이를 생성합니다
-            //     var circleOverlay = new kakao.maps.CustomOverlay({
-            //         content: '<span class="dot"></span>',
-            //         position: position,
-            //         zIndex: 1
-            //     });
-    
-            //     // 지도에 표시합니다
-            //     circleOverlay.setMap(map);
-    
-            //     if (distance > 0) {
-            //         // 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
-            //         var distanceOverlay = new kakao.maps.CustomOverlay({
-            //             content: '<div class="dotOverlay" style="color:#000000;">&#128204;<span class="number">' + distance + '</span>m</div>',
-            //             position: position,
-            //             yAnchor: 1,
-            //             zIndex: 2
-            //         });
-    
-            //         // 지도에 표시합니다
-            //         distanceOverlay.setMap(map);
-            //     }
-    
-            //     // 배열에 추가합니다
-            //     dots.push({circle:circleOverlay, distance: distanceOverlay});
-            // }
-    
-        // // 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 지도에서 모두 제거하는 함수입니다
-        // function deleteCircleDot() {
-        //     var i;
-    
-        //     for ( i = 0; i < dots.length; i++ ){
-        //         if (dots[i].circle) { 
-        //             dots[i].circle.setMap(null);
-        //         }
-    
-        //         if (dots[i].distance) {
-        //             dots[i].distance.setMap(null);
-        //         }
-        //     }
-    
-        //     dots = [];
-        // }
-    
-        // // 마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여 
-        // // 그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
-        // // HTML Content를 만들어 리턴하는 함수입니다
-        // function getTimeHTML(distance) {
-    
-        //     // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
-        //     var walkkTime = distance / 67 | 0;
-        //     var walkHour = '', walkMin = '';
-    
-        //     // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
-        //     if (walkkTime > 60) {
-        //         walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span><a class ="number" style="color:#000000;">時間</a>'
-        //     }
-        //     walkMin = '<span class="number">' + walkkTime % 60 + '</span><a class="number" style="color:#000000;">分</a>'
-    
-        //     // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
-        //     var bycicleTime = distance / 227 | 0;
-        //     var bycicleHour = '', bycicleMin = '';
-    
-        //     // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
-        //     if (bycicleTime > 60) {
-        //         bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span><a class ="number" style="color:#000000;">時間</a>'
-        //     }
-        //     bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span><a class="number" style="color:#000000;">分</a>'
-    
-        //     // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
-        //     var content = '<ul class="dotOverlay distanceInfo">';
-        //     content += '    <li>';
-        //     content += '        <span class="label" style="color:#000000;">&#128681;</span><span class="number">' + distance + '</span><a class="number" style="color:#000000;">m</a>';
-        //     content += '    </li>';
-        //     content += '    <li>';
-        //     content += '        <span class="label" style="color:#000000;">&#128694;</span>' + walkHour + walkMin;
-        //     content += '    </li>';
-        //     content += '    <li>';
-        //     content += '        <span class="label" style="color:#000000;">&#128690;</span>' + bycicleHour + bycicleMin;
-        //     content += '    </li>';
-        //     content += '</ul>'
-    
-        //     return content;
-        // }
-            // polyline선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-            var linePath = [
-                new kakao.maps.LatLng(37.588976, 126.986732),
-                new kakao.maps.LatLng(37.583822, 126.969097),
-                new kakao.maps.LatLng(37.571174, 126.977675),
-                new kakao.maps.LatLng(37.569930, 126.983583),
-                new kakao.maps.LatLng(37.580519, 127.002811)
-            ];
-    
-            // 지도에 표시할 polyline선을 생성합니다
-            var polyline = new kakao.maps.Polyline({
-                path: linePath, // 선을 구성하는 좌표배열 입니다
-                strokeWeight: 17, // 선의 두께 입니다
-                strokeColor: 'IndianRed', // 선의 색깔입니다
-                strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-                strokeStyle: 'solid', // 선의 스타일입니다
-                endArrow: false // 끝에 화살표 유무
-            });
-    
-                // 지도에 polyline선을 표시합니다 
-                polyline.setMap(map);  
-            </script>
+                    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+                    var linePath = [
+                        new kakao.maps.LatLng(37.588976, 126.986732),
+                        new kakao.maps.LatLng(37.583822, 126.969097),
+                        new kakao.maps.LatLng(37.571174, 126.977675),
+                        new kakao.maps.LatLng(37.569930, 126.983583),
+                        new kakao.maps.LatLng(37.580519, 127.002811)
+                    ];
+            
+                    // 지도에 표시할 polyline선을 생성합니다
+                    var polyline = new kakao.maps.Polyline({
+                        path: linePath, // 선을 구성하는 좌표배열 입니다
+                        strokeWeight: 17, // 선의 두께 입니다
+                        strokeColor: 'IndianRed', // 선의 색깔입니다
+                        strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                        strokeStyle: 'solid', // 선의 스타일입니다
+                        endArrow: false // 끝에 화살표 유무
+                    });
+            
+                        // 지도에 polyline선을 표시합니다 
+                        polyline.setMap(map);  
+                </script>
+                <!--지도 끝-->
+            </div>
+        </div>
             
         <!-- Swiper -->
         <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="pt-50 swiper mySwiper2">
