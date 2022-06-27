@@ -295,7 +295,35 @@
 
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-                                        // 장소 검색 객체를 생성합니다
+                    var positions_around_list = [
+                        {title: '카카오', latlng: new kakao.maps.LatLng(35.813136, 127.155752)},
+                        {title: '카카오', latlng: new kakao.maps.LatLng(35.813155, 127.155799)},
+                        {title: '카카오', latlng: new kakao.maps.LatLng(35.813188, 127.155888)},
+                        {title: '카카오', latlng: new kakao.maps.LatLng(35.813299, 127.155999)},
+                        {title: '카카오', latlng: new kakao.maps.LatLng(35.813333, 127.155444)}
+                    ];
+
+                    // 마커 이미지의 이미지 주소입니다
+                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                        
+                    for (var i = 0; i < positions_around_list.length; i ++) {
+                        
+                        // 마커 이미지의 이미지 크기 입니다
+                        var imageSize = new kakao.maps.Size(20, 30); // 24,35 
+                        
+                        // 마커 이미지를 생성합니다    
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                        
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: positions_around_list[i].latlng, // 마커를 표시할 위치
+                            title : positions_around_list[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                            image : markerImage // 마커 이미지 
+                        });
+                    }
+
+                    // 장소 검색 객체를 생성합니다
                     var ps = new kakao.maps.services.Places(map); 
 
                     // 지도에 idle 이벤트를 등록합니다
