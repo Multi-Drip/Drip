@@ -296,15 +296,15 @@
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
                     var positions_around_list = [
-                        {title: '이목대', latlng: new kakao.maps.LatLng(35.814244, 127.156094)},
-                        {title: '동학혁명기념관', latlng: new kakao.maps.LatLng(35.816764, 127.152016)},
-                        {title: '경기전', latlng: new kakao.maps.LatLng(35.815244, 127.149756)},
-                        {title: '전동성당', latlng: new kakao.maps.LatLng(35.813293, 127.149204)},
-                        {title: '풍남문', latlng: new kakao.maps.LatLng(35.813484, 127.147573)},
-                        {title: '아중호수', latlng: new kakao.maps.LatLng(35.821623, 127.177211)},
-                        {title: '완판본문화관', latlng: new kakao.maps.LatLng(35.811959, 127.158007)},
-                        {title: '동고사', latlng: new kakao.maps.LatLng(35.809697, 127.167813)},
-                        {title: '전주한옥마을', latlng: new kakao.maps.LatLng(35.814774, 127.152576)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">이목대</div>', latlng: new kakao.maps.LatLng(35.814244, 127.156094)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">동학혁명기념관</div>', latlng: new kakao.maps.LatLng(35.816764, 127.152016)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">경기전</div>', latlng: new kakao.maps.LatLng(35.815244, 127.149756)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">전동성당</div>', latlng: new kakao.maps.LatLng(35.813293, 127.149204)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">풍남문</div>', latlng: new kakao.maps.LatLng(35.813484, 127.147573)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">아중호수</div>', latlng: new kakao.maps.LatLng(35.821623, 127.177211)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">완판본문화관</div>', latlng: new kakao.maps.LatLng(35.811959, 127.158007)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">동고사</div>', latlng: new kakao.maps.LatLng(35.809697, 127.167813)},
+                        {title: '<div style="width:80px; padding:5px; color: black; text-align:center;">전주한옥마을</div>', latlng: new kakao.maps.LatLng(35.814774, 127.152576)},
                     ];
 
                     // 마커 이미지의 이미지 주소입니다
@@ -322,9 +322,31 @@
                         var marker = new kakao.maps.Marker({
                             map: map, // 마커를 표시할 지도
                             position: positions_around_list[i].latlng, // 마커를 표시할 위치
-                            title : positions_around_list[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                             image : markerImage // 마커 이미지 
                         });
+
+                        // 인포윈도우를 생성합니다
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: positions_around_list[i].title
+                        });
+
+                        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+                        function makeOverListener(map, marker, infowindow) {
+                            return function () {
+                                infowindow.open(map, marker);
+                            };
+                        }
+                        // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+                        function makeOutListener(infowindow) {
+                            return function () {
+                                infowindow.close();
+                            };
+                        }
+                        // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                        // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+                        // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));   
+                        kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
                     }
 
                     // 장소 검색 객체를 생성합니다
@@ -380,10 +402,10 @@
                     ];
                     var iwContent = [
                         '<div style="width:170px; padding:5px; color: black; text-align:center;">1️⃣크로싱게스트하우스 <br>다음 장소까지 &#128694; 15분</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">2️⃣소리방앗간 <br>다음 장소까지 &#128694; 13분</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">3️⃣동네수퍼 <br>다음 장소까지 &#128694; 7분</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">4️⃣국립무형유산원 <br>다음 장소까지 &#128694; 12분</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">5️⃣한벽굴 🚩</div>',
+                        '<div style="width:170px; padding:5px; color: black; text-align:center;">2️⃣소리방앗간 <br>다음 장소까지 &#128694; 13분</div>',
+                        '<div style="width:170px; padding:5px; color: black; text-align:center;">3️⃣동네수퍼 <br>다음 장소까지 &#128694; 7분</div>',
+                        '<div style="width:170px; padding:5px; color: black; text-align:center;">4️⃣국립무형유산원 <br>다음 장소까지 &#128694; 12분</div>',
+                        '<div style="width:170px; padding:5px; color: black; text-align:center;">5️⃣한벽굴 🚩</div>',
                         ]
                     // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 
@@ -394,11 +416,11 @@
                             position: positions[i].latlng // 마커의 위치
                         });
                         // 마커에 표시할 인포윈도우를 생성합니다 
-                        var infowindow = new kakao.maps.InfoWindow({
+                        var course_infowindow = new kakao.maps.InfoWindow({
                             content: iwContent[i],  // 인포윈도우에 표시할 내용
                             position: positions[i].latlng  // 인포윈도우의 위치
                         });
-                        infowindow.open(map, course_marker);
+                        course_infowindow.open(map, course_marker);
                     }
                         // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
                     function placesSearchCB(data, status, pagination) {
