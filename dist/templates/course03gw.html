@@ -296,14 +296,8 @@
                   var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
                       
                   for (var i = 0; i < positions_around_list.length; i ++) {
-                      
-                      // 마커 이미지의 이미지 크기 입니다
                       var imageSize = new kakao.maps.Size(24, 35); // 24,35 
-                      
-                      // 마커 이미지를 생성합니다    
                       var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-                      
-                      // 마커를 생성합니다
                       var marker = new kakao.maps.Marker({
                           map: map, // 마커를 표시할 지도
                           position: positions_around_list[i].latlng, // 마커를 표시할 위치
@@ -312,11 +306,8 @@
                       });
                   }
 
-                  // 장소 검색 객체를 생성합니다
-                  var ps = new kakao.maps.services.Places(map); 
-
-                  // 지도에 idle 이벤트를 등록합니다
-                  kakao.maps.event.addListener(map, 'idle', searchPlaces);
+                  var ps = new kakao.maps.services.Places(map); // 장소 검색 객체를 생성합니다
+                  kakao.maps.event.addListener(map, 'idle', searchPlaces); // 지도에 idle 이벤트를 등록합니다
 
                   // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
                   contentNode.className = 'placeinfo_wrap';
@@ -348,7 +339,6 @@
                       
                       // 커스텀 오버레이를 숨깁니다 
                       placeOverlay.setMap(null);
-
                       // 지도에 표시되고 있는 마커를 제거합니다
                       removeMarker();
                       
@@ -375,14 +365,12 @@
                       ]
                   // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 
-
                   for (var i = 0; i < positions.length; i++) {
                       // 마커를 생성합니다
                       var course_marker = new kakao.maps.Marker({
                           map: map, // 마커를 표시할 지도
                           position: positions[i] // 마커의 위치
                       });
-
                       // 마커에 표시할 인포윈도우를 생성합니다 
                       var infowindow = new kakao.maps.InfoWindow({
                           content: iwContent[i],  // 인포윈도우에 표시할 내용
@@ -402,32 +390,25 @@
 
                       } else if (status === kakao.maps.services.Status.ERROR) {
                           // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
-                          
                       }
                       }
 
                       // 지도에 마커를 표출하는 함수입니다
                       function displayPlaces(places) {
-
                           // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
                           // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
                       var order = document.getElementById(currCategory).getAttribute('data-order');
-
-                          
 
                       for ( var i=0; i<places.length; i++ ) {
 
                           // 마커를 생성하고 지도에 표시합니다
                           var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
 
-                          // 마커와 검색결과 항목을 클릭 했을 때
-                          // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
+                          // 마커와 검색결과 항목을 클릭 했을 때 장소정보를 표출하도록 클릭 이벤트를 등록합니다
                           (function(marker, place) {
                               kakao.maps.event.addListener(marker, 'click', function() {
-                                  displayPlaceInfo(place);
-                              });
-                          })(marker, places[i]);
-                      }
+                                  displayPlaceInfo(place);});
+                          })(marker, places[i]);}
                       }
 
                       // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
@@ -470,22 +451,18 @@
                           }  else {
                               content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
                           }                
-
                           content += '    <span class="tel">' + place.phone + '</span>' + 
                                       '</div>' + 
                                       '<div class="after"></div>';
-
                           contentNode.innerHTML = content;
                           placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
                           placeOverlay.setMap(map);  
                       }
 
-
                       // 각 카테고리에 클릭 이벤트를 등록합니다
                       function addCategoryClickEvent() {
                           var category = document.getElementById('category'),
                               children = category.children;
-
                           for (var i=0; i<children.length; i++) {
                               children[i].onclick = onClickCategory;
                           }
@@ -495,9 +472,7 @@
                       function onClickCategory() {
                           var id = this.id,
                               className = this.className;
-
                           placeOverlay.setMap(null);
-
                           if (className === 'on') {
                               currCategory = '';
                               changeCategoryClass();
@@ -514,11 +489,9 @@
                           var category = document.getElementById('category'),
                               children = category.children,
                               i;
-
                           for ( i=0; i<children.length; i++ ) {
                               children[i].className = '';
                           }
-
                           if (el) {
                               el.className = 'on';
                           } 
