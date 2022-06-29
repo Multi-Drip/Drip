@@ -275,11 +275,6 @@
                   src="//dapi.kakao.com/v2/maps/sdk.js?appkey=86cc501251068d3a4af923c697056fc6&libraries=services"></script>
         
               <script>
-                  var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
-                      contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-                      markers = [], // 마커를 담을 배열입니다
-                      currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
-
                   var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                       mapOption = {
                           center: new kakao.maps.LatLng(37.8, 129.15), // 지도의 중심좌표
@@ -287,29 +282,93 @@
                       };
 
                   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-                  
-                  for  (var i = 0; i < positions_around_list.length; i ++) {
-                    var positions_around_list = [
-                      {title: '{{GwName[i]}}', lating : new kakao.maps.LatLng('{{GwLat[i]}}', '{{GwLong[i]}}')}
-                    ]
+
+                  // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+                  var positions = [
+                      new kakao.maps.LatLng(37.264243, 129.327002),
+                      new kakao.maps.LatLng(37.552812, 129.116413),
+                      new kakao.maps.LatLng(37.636471, 129.044975),
+                      new kakao.maps.LatLng(37.819214, 128.890457),
+                      new kakao.maps.LatLng(38.024766, 128.722318),
+                      new kakao.maps.LatLng(38.314963, 128.534746)
+                  ];
+                  var iwContent = [
+                      '<div style="width:170px; text-align:center; padding:5px; color:black;">1️⃣신남항<br>다음 장소까지 🚗 49분<br></div>',
+                      '<div style="width:170px; text-align:center; padding:5px; color:black;">2️⃣묵호논골담길<br>다음 장소까지 🚗 24분<br></div>',
+                      '<div style="width:170px; text-align:center; padding:5px; color:black;">3️⃣금진해변<br>다음 장소까지 🚗 47분<br></div>',
+                      '<div style="width:170px; text-align:center; padding:5px; color:black;">4️⃣강릉가이택펜션<br>다음 장소까지 🚗 39분<br></div>',
+                      '<div style="width:170px; text-align:center; padding:5px; color:black;">5️⃣하조대해수욕장<br>다음 장소까지 🚗 46분<br></div>',
+                      '<div style="width:170px; text-align:center; padding:5px; color:black;">6️⃣삼포해수욕장 🚩</div >'
+                      ]
+                  // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+                  for (var i = 0; i < positions.length; i++) {
+                      // 마커를 생성합니다
+                      var course_marker = new kakao.maps.Marker({
+                          map: map, // 마커를 표시할 지도
+                          position: positions[i] // 마커의 위치
+                      });
+                      // 마커에 표시할 인포윈도우를 생성합니다 
+                      var infowindow = new kakao.maps.InfoWindow({
+                          content: iwContent[i],  // 인포윈도우에 표시할 내용
+                          position: positions[i]  // 인포윈도우의 위치
+                      });
+                      infowindow.open(map, course_marker);
                   }
 
-                  // 마커 이미지의 이미지 주소입니다
-                  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-                  
-                  var position_around = ["{{GwName.values}}", "{{GwLat}}", "{{GwLong}}"]
+                  // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+                  var linePath = [
+                    new kakao.maps.LatLng(37.264243, 129.327002),
+                    new kakao.maps.LatLng(37.552812, 129.116413),
+                    new kakao.maps.LatLng(37.636471, 129.044975),
+                    new kakao.maps.LatLng(37.819214, 128.890457),
+                    new kakao.maps.LatLng(38.024766, 128.722318),
+                    new kakao.maps.LatLng(38.314963, 128.534746)
+                  ];
+                  // 지도에 표시할 선을 생성합니다
+                  var polyline = new kakao.maps.Polyline({
+                      path: linePath, // 선을 구성하는 좌표배열 입니다
+                      strokeWeight: 17, // 선의 두께 입니다
+                      strokeColor: 'mediumpurple', // 선의 색깔입니다
+                      strokeOpacity: 0.6, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                      strokeStyle: 'solid', // 선의 스타일입니다
+                      endArrow: false // 끝에 화살표 유무
+                  });
+                  polyline.setMap(map);  // 지도에 선을 표시합니다 
+                </script>
 
-                  for (var i = 0; i < lengw ; i++) {
+
+                <!-- 관광지 별 마커 -->
+                <script>
+                  //for (var i = 0; i < 72 ; i++){
+                  //  var positions_around_list = [
+                  //    {title: '<div style="width:100px; padding:5px; color: black; text-align:center;">{{GwName[i]}}</div>',
+                  //    latlng: new kakao.maps.LatLng('{{GwLat[i]}}', '{{GwLong[i]}}')}
+                  //  ];}
+
+                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                        
+                    for (var i = 0; i < 72 ; i++) {
                       var imageSize = new kakao.maps.Size(24, 35); // 24,35 
                       var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
                       var marker = new kakao.maps.Marker({
                           map: map, // 마커를 표시할 지도
-                          position:  new kakao.maps.LatLng(position_around[1][i], position_around[2][i]), // 마커를 표시할 위치
-                          title : position_around[0][i], // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                          position : new kakao.maps.LatLng('{{GwLat[i]}}', '{{GwLong[i]}}'), // 마커를 표시할 위치
+                          title : '{{GwName[i]}}', // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                           image : markerImage // 마커 이미지
                       });
-                  }
-                  
+                    }
+                </script>
+                <!-- 관광지 별 마커 -->
+                
+                
+                <!--숙박,식당,카페 추가-->            
+                <script>                 
+                  var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
+                      contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+                      markers = [], // 마커를 담을 배열입니다
+                      currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
+
                   var ps = new kakao.maps.services.Places(map); // 장소 검색 객체를 생성합니다
                   kakao.maps.event.addListener(map, 'idle', searchPlaces); // 지도에 idle 이벤트를 등록합니다
 
@@ -349,40 +408,6 @@
                       ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true}); 
                   }
 
-
-                  // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-                  var positions = [
-                      new kakao.maps.LatLng(37.264243, 129.327002),
-                      new kakao.maps.LatLng(37.552812, 129.116413),
-                      new kakao.maps.LatLng(37.636471, 129.044975),
-                      new kakao.maps.LatLng(37.819214, 128.890457),
-                      new kakao.maps.LatLng(38.024766, 128.722318),
-                      new kakao.maps.LatLng(38.314963, 128.534746)
-                  ];
-                  var iwContent = [
-                      '<div style="width:170px; text-align:center; padding:5px; color:black;">1️⃣신남항<br>다음 장소까지 🚗 49분<br></div>',
-                      '<div style="width:170px; text-align:center; padding:5px; color:black;">2️⃣묵호논골담길<br>다음 장소까지 🚗 24분<br></div>',
-                      '<div style="width:170px; text-align:center; padding:5px; color:black;">3️⃣금진해변<br>다음 장소까지 🚗 47분<br></div>',
-                      '<div style="width:170px; text-align:center; padding:5px; color:black;">4️⃣강릉가이택펜션<br>다음 장소까지 🚗 39분<br></div>',
-                      '<div style="width:170px; text-align:center; padding:5px; color:black;">5️⃣하조대해수욕장<br>다음 장소까지 🚗 46분<br></div>',
-                      '<div style="width:170px; text-align:center; padding:5px; color:black;">6️⃣삼포해수욕장 🚩</div >'
-                      ]
-                  // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
-                  for (var i = 0; i < positions.length; i++) {
-                      // 마커를 생성합니다
-                      var course_marker = new kakao.maps.Marker({
-                          map: map, // 마커를 표시할 지도
-                          position: positions[i] // 마커의 위치
-                      });
-                      // 마커에 표시할 인포윈도우를 생성합니다 
-                      var infowindow = new kakao.maps.InfoWindow({
-                          content: iwContent[i],  // 인포윈도우에 표시할 내용
-                          position: positions[i]  // 인포윈도우의 위치
-                      });
-
-                      infowindow.open(map, course_marker);
-                  }
                       // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
                       function placesSearchCB(data, status, pagination) {
                       if (status === kakao.maps.services.Status.OK) {
@@ -500,30 +525,6 @@
                               el.className = 'on';
                           } 
                       } 
-
-
-                  // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-                  var linePath = [
-                      new kakao.maps.LatLng(37.264243, 129.327002),
-                      new kakao.maps.LatLng(37.552812, 129.116413),
-                      new kakao.maps.LatLng(37.636471, 129.044975),
-                      new kakao.maps.LatLng(37.819214, 128.890457),
-                      new kakao.maps.LatLng(38.024766, 128.722318),
-                      new kakao.maps.LatLng(38.314963, 128.534746)
-                  ];
-
-                  // 지도에 표시할 선을 생성합니다
-                  var polyline = new kakao.maps.Polyline({
-                      path: linePath, // 선을 구성하는 좌표배열 입니다
-                      strokeWeight: 17, // 선의 두께 입니다
-                      strokeColor: 'mediumpurple', // 선의 색깔입니다
-                      strokeOpacity: 0.6, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-                      strokeStyle: 'solid', // 선의 스타일입니다
-                      endArrow: false // 끝에 화살표 유무
-                  });
-
-                  // 지도에 선을 표시합니다 
-                  polyline.setMap(map);  
               </script>
               <!-- 지도 끝 -->
           </div>
