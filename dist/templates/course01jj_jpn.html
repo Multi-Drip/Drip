@@ -146,7 +146,7 @@
         #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
         #category li:last-child{margin-right:0;border-right:0;}
         #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-        #category li .category_bg {background:url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png) no-repeat 0 0}
+        #category li .category_bg {background:url(../static/assets/2521/ico_around.png) no-repeat 0 0}
         #category li .accommodation {background-position: -0px -120px;}
         #category li .food {background-position: -0px 0;}
         #category li .cafe {background-position: -0px -30px;}
@@ -294,15 +294,15 @@
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
                     var positions_around_list = [
-                        {title: '이목대', latlng: new kakao.maps.LatLng(35.814244, 127.156094)},
-                        {title: '동학혁명기념관', latlng: new kakao.maps.LatLng(35.816764, 127.152016)},
-                        {title: '경기전', latlng: new kakao.maps.LatLng(35.815244, 127.149756)},
-                        {title: '전동성당', latlng: new kakao.maps.LatLng(35.813293, 127.149204)},
-                        {title: '풍남문', latlng: new kakao.maps.LatLng(35.813484, 127.147573)},
-                        {title: '아중호수', latlng: new kakao.maps.LatLng(35.821623, 127.177211)},
-                        {title: '완판본문화관', latlng: new kakao.maps.LatLng(35.811959, 127.158007)},
-                        {title: '동고사', latlng: new kakao.maps.LatLng(35.809697, 127.167813)},
-                        {title: '전주한옥마을', latlng: new kakao.maps.LatLng(35.814774, 127.152576)},
+                        {title: '梧木台(オモッテ)', latlng: new kakao.maps.LatLng(35.814244, 127.156094)},
+                        {title: '東学農民革命記念館', latlng: new kakao.maps.LatLng(35.816764, 127.152016)},
+                        {title: '慶基殿(キョンギジョン)', latlng: new kakao.maps.LatLng(35.815244, 127.149756)},
+                        {title: '全州殿洞聖堂', latlng: new kakao.maps.LatLng(35.813293, 127.149204)},
+                        {title: '全州豊南門(プンナン門)', latlng: new kakao.maps.LatLng(35.813484, 127.147573)},
+                        {title: '牙中湖水', latlng: new kakao.maps.LatLng(35.821623, 127.177211)},
+                        {title: '完版本文化館', latlng: new kakao.maps.LatLng(35.811959, 127.158007)},
+                        {title: '東固寺', latlng: new kakao.maps.LatLng(35.809697, 127.167813)},
+                        {title: '全州韓屋村', latlng: new kakao.maps.LatLng(35.814774, 127.152576)},
                     ];
 
                     // 마커 이미지의 이미지 주소입니다
@@ -438,7 +438,7 @@
 
                     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
                     function addMarker(position, order) {
-                        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+                        var imageSrc = '../static/assets/2521/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                             imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                             imgOptions =  {
                                 spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
