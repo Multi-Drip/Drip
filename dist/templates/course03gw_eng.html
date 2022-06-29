@@ -288,6 +288,97 @@
 
               var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
       
+              //관광지 별 마커 Start
+              var positions_around = [
+                {title: 'Edison Museum of Science', latlng: new kakao.maps.LatLng(37.7973093,128.8970549)},
+                {title: 'the eastbound town', latlng: new kakao.maps.LatLng(37.6925306,129.0317609)},
+                {title: 'Light artillery', latlng: new kakao.maps.LatLng(37.7950602,128.8966038)},
+                {title: 'Gyeongpo Beach', latlng: new kakao.maps.LatLng(37.8054953,128.9082081)},
+                {title: 'Gyeongpo Lake', latlng: new kakao.maps.LatLng(37.7979331,128.9048623)},
+                {title: 'Gangneung Missionary Field', latlng: new kakao.maps.LatLng(37.7866796,128.8851259)},
+                {title: 'Gangmun Beach', latlng: new kakao.maps.LatLng(37.7960033,128.9183385)},
+                {title: 'Yeongjin Beach', latlng: new kakao.maps.LatLng(37.8692569,128.8452235)},
+                {title: 'Juk Heon Oh', latlng: new kakao.maps.LatLng(37.7789833,128.8776624)},
+                {title: 'Chodang Soft Tofu Village', latlng: new kakao.maps.LatLng(37.7906975,128.9156023)},
+                {title: 'Site of Birthplace of Heo Nanseolheon', latlng: new kakao.maps.LatLng(37.7918973,128.9096442)},
+                {title: 'Songjeong Beach in Gangneung', latlng: new kakao.maps.LatLng(37.7802629,128.9377878)},
+                {title: 'Ordered port', latlng: new kakao.maps.LatLng(37.8921969,128.829985)},
+                {title: 'Anmok Beach', latlng: new kakao.maps.LatLng(37.7725746,128.9477906)},
+                {title: 'Jeong-dong Simgok Sea Fan-gil', latlng: new kakao.maps.LatLng(37.6835846,129.044075)},
+                {title: 'Gangneung Central Market', latlng: new kakao.maps.LatLng(37.753562,128.8983903)},
+                {title: 'Hyangho Beach', latlng: new kakao.maps.LatLng(37.9123319,128.8176)},
+                {title: 'Terra Rosa Coffee Factory', latlng: new kakao.maps.LatLng(37.6960845,128.8918603)},
+                {title: 'Solhyang Arboretum in Gangneung', latlng: new kakao.maps.LatLng(37.6952679,128.8602677)},
+                {title: 'Baekdo Beach', latlng: new kakao.maps.LatLng(38.3011306,128.5463992)},
+                {title: 'Gonghyeonjin Beach', latlng: new kakao.maps.LatLng(38.3516736,128.5119978)},
+                {title: 'Chunhakjeong Pavilion', latlng: new kakao.maps.LatLng(38.2890013,128.5476597)},
+                {title: 'Song Jiho Migratory Bird Network Tower', latlng: new kakao.maps.LatLng(38.3362708,128.5176535)},
+                {title: 'Wanggok Village', latlng: new kakao.maps.LatLng(38.3402229,128.500191)},
+                {title: 'Hwaamsa Temple in Geumgangsan Mountain', latlng: new kakao.maps.LatLng(38.2263223,128.4711825)},
+                {title: 'Hani Lavender Farm', latlng: new kakao.maps.LatLng(38.3494048,128.4156437)},
+                {title: 'Hwajinpo Beach', latlng: new kakao.maps.LatLng(38.4794678,128.438825)},
+                {title: 'Skye Valley, Dojavigol', latlng: new kakao.maps.LatLng(37.5552526,129.1191212)},
+                {title: 'East Sea Central Market', latlng: new kakao.maps.LatLng(37.5508278,129.1089482)},
+                {title: 'the port of Mukho Port', latlng: new kakao.maps.LatLng(37.5499191,129.1123032)},
+                {title: 'East Sea Local Confucian School', latlng: new kakao.maps.LatLng(37.5400832,129.0915499)},
+                {title: 'Delusional Beach', latlng: new kakao.maps.LatLng(37.5940178,129.0900515)},
+                {title: 'Chuam Beach', latlng: new kakao.maps.LatLng(37.4775412,129.1595545)},
+                {title: 'Mureung Valley', latlng: new kakao.maps.LatLng(37.46216,129.012875)},
+                {title: 'Churam Chotdaebawi Rock', latlng: new kakao.maps.LatLng(37.4791927,129.1600848)},
+                {title: 'Samcheok Offshore Cable Car', latlng: new kakao.maps.LatLng(37.289131,129.308543)},
+                {title: 'Jangho Fishing Village Experience Village', latlng: new kakao.maps.LatLng(37.2881246,129.317628)},
+                {title: 'Samcheok Marine Rail Bike', latlng: new kakao.maps.LatLng(37.3231857,129.2662923)},
+                {title: 'Chogok Yonggul Candle Rock Road', latlng: new kakao.maps.LatLng(37.311243,129.296356)},
+                {title: 'Deokbongsan Coastal Ecological Trail', latlng: new kakao.maps.LatLng(37.387852,129.239421)},
+                {title: 'a wild vegetable garden', latlng: new kakao.maps.LatLng(37.402947,129.208484)},
+                {title: 'an inveterate defense', latlng: new kakao.maps.LatLng(37.390509,129.232048)},
+                {title: 'Samcheok Rose Park', latlng: new kakao.maps.LatLng(37.433288,129.177519)},
+                {title: 'New Millennium Coastal Road (Isabu-gil)', latlng: new kakao.maps.LatLng(37.437674,129.193654)},
+                {title: 'Jukseoru Pavilion', latlng: new kakao.maps.LatLng(37.440921,129.1605409)},
+                {title: 'Deokpung Valley', latlng: new kakao.maps.LatLng(37.079614,129.201396)},
+                {title: 'Whirlwind Cave', latlng: new kakao.maps.LatLng(37.326396,129.020989)},
+                {title: 'Lake Yeongrang', latlng: new kakao.maps.LatLng(38.2180146,128.5809922)},
+                {title: 'Sokcho Lighthouse Observatory', latlng: new kakao.maps.LatLng(38.2136363,128.6001796)},
+                {title: 'Sokcho Tourism and Fisheries Market', latlng: new kakao.maps.LatLng(38.204615,128.590132)},
+                {title: 'Yeonggeumjeong Pavilion', latlng: new kakao.maps.LatLng(38.2118321,128.6015368)},
+                {title: 'Sokcho Expo Tower', latlng: new kakao.maps.LatLng(38.191599,128.583536)},
+                {title: 'a green lake', latlng: new kakao.maps.LatLng(38.1965759,128.587638)},
+                {title: 'a port of cannon', latlng: new kakao.maps.LatLng(38.172413,128.609144)},
+                {title: 'Hakhakpyeong Bean Flower Village Sundubu Village', latlng: new kakao.maps.LatLng(38.205935,128.523366)},
+                {title: 'Sokcho City Museum', latlng: new kakao.maps.LatLng(38.200559,128.539484)},
+                {title: 'Sokchoeye ferris wheel', latlng: new kakao.maps.LatLng(38.190782,128.602586)},
+                {title: 'Sokcho Beach', latlng: new kakao.maps.LatLng(38.190102,128.604223)},
+                {title: 'With the scent of the sea', latlng: new kakao.maps.LatLng(38.182927,128.609504)},
+                {title: 'Seoraksan National Park', latlng: new kakao.maps.LatLng(38.148972,128.393868)},
+                {title: 'Taurus Falls', latlng: new kakao.maps.LatLng(38.153036,128.494458)},
+                {title: 'Seorak Cable Car', latlng: new kakao.maps.LatLng(38.173151,128.489189)},
+                {title: 'Ulsan Rock of Seoraksan Mountain', latlng: new kakao.maps.LatLng(38.197818,128.468305)},
+                {title: 'Hajodae Skywalk', latlng: new kakao.maps.LatLng(38.0222688,128.7291414)},
+                {title: 'Jukdo Beach', latlng: new kakao.maps.LatLng(37.9726759,128.7611783)},
+                {title: 'Dongho Beach', latlng: new kakao.maps.LatLng(38.0583391,128.6824685)},
+                {title: 'Suffi Beach in Yangyang', latlng: new kakao.maps.LatLng(38.0280602,128.7175896)},
+                {title: 'Osan-ri Prehistoric Museum', latlng: new kakao.maps.LatLng(38.0860129,128.6605665)},
+                {title: 'Yangyang Traditional Market (4th and 9th)', latlng: new kakao.maps.LatLng(38.0748749,128.622787)},
+                {title: 'Namae Port Skywalk Observatory', latlng: new kakao.maps.LatLng(37.9448106,128.788535)},
+                {title: 'Naksan Temple', latlng: new kakao.maps.LatLng(38.1265937,128.6285213)},
+                {title: 'National Michengol Recreation Forest', latlng: new kakao.maps.LatLng(37.9489878,128.5119542)}
+              ]
+                
+              var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                  
+              for (var i = 0; i < positions_around.length; i++) {
+                var imageSize = new kakao.maps.Size(24, 35); // 24,35 
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                // 마커를 생성합니다
+                var marker = new kakao.maps.Marker({
+                    map: map, // 마커를 표시할 지도
+                    position : positions_around[i].latlng, // 마커를 표시할 위치
+                    title : positions_around[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                    image : markerImage // 마커 이미지
+                });
+              }
+            // 관광지 별 마커 End
+
             // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
             var positions = [
                 new kakao.maps.LatLng(37.264243, 129.327002),
@@ -341,28 +432,6 @@
             });
             polyline.setMap(map); // 지도에 선을 표시합니다 
           </script>
-
-
-          <!--관광지 별 마커-->
-          <script>
-            var positions_around_list = [
-                {title: '에디슨과학박물관', latlng: new kakao.maps.LatLng(37.7973093,128.8970549)},
-                {title: '경기전', latlng: new kakao.maps.LatLng(37.6925306,129.0317609)},
-            ];
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-                
-            for (var i = 0; i < positions_around_list.length; i ++) {
-                var imageSize = new kakao.maps.Size(24, 35); // 24,35 
-                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-                var marker = new kakao.maps.Marker({
-                    map: map, // 마커를 표시할 지도
-                    position: positions_around_list[i].latlng, // 마커를 표시할 위치
-                    title : positions_around_list[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                    image : markerImage // 마커 이미지 
-                });
-            }
-          </script>
-
 
           <!--숙박,식당,카페 추가-->            
           <script>
