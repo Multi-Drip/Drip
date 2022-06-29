@@ -259,18 +259,18 @@
 
       // 마커를 표시할 위치와 title 객체 배열입니다 
       var positions = [
-          {title: '臥龍(ワリョン)公園', latlng: new kakao.maps.LatLng(37.588976, 126.986732)},
-          {title: '孝子粉食', latlng: new kakao.maps.LatLng(37.583822, 126.969097)},
-          {title: '光化門(クァンファムン)', latlng: new kakao.maps.LatLng(37.571174, 126.977675)},
+          {title: 'マロニエ公園', latlng: new kakao.maps.LatLng(37.580519, 127.002811)},
           {title: '普信閣(ポシンカク)', latlng: new kakao.maps.LatLng(37.569930, 126.983583)},
-          {title: 'マロニエ公園', latlng: new kakao.maps.LatLng(37.580519, 127.002811)}
+          {title: '光化門(クァンファムン)', latlng: new kakao.maps.LatLng(37.571174, 126.977675)},
+          {title: '孝子粉食', latlng: new kakao.maps.LatLng(37.583822, 126.969097)},
+          {title: '臥龍(ワリョン)公園', latlng: new kakao.maps.LatLng(37.588976, 126.986732)}
       ];
       var iwContent = [
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">1️⃣臥龍公園<br>次の場所まで &#128663;約15分 🚶‍♂️45分</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">2️⃣孝子粉食<br>次の場所まで &#128663;約10分 🚶‍♂️29分</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">3️⃣光化門<br>次の場所まで <br>&#128663;約8分 🚶‍♂️16分</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">4️⃣普信閣<br>次の場所まで <br>&#128663;約13分 🚶‍♂️49分</div>',
-                    '<div style="width:170px; padding:5px; color: black; text-align:center;">5️⃣マロニエ公園🚩</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">5️⃣臥龍公園🚩</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">4️⃣孝子粉食<br>次の場所まで &#128663;約15分 🚶‍♂️45分</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">3️⃣光化門<br>次の場所まで &#128663;約10分 🚶‍♂️29分</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">2️⃣普信閣<br>次の場所まで >&#128663;約8分 🚶‍♂️16分</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">1️⃣マロニエ公園<br>次の場所まで &#128663;約13分 🚶‍♂️49分</div>',
                         ]
 
       for (var i = 0; i < positions.length; i++) {
@@ -289,11 +289,11 @@
 
           // polyline선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
           var linePath = [
-            new kakao.maps.LatLng(37.588976, 126.986732),
-            new kakao.maps.LatLng(37.583822, 126.969097),
-            new kakao.maps.LatLng(37.571174, 126.977675),
+            new kakao.maps.LatLng(37.580519, 127.002811),  
             new kakao.maps.LatLng(37.569930, 126.983583),
-            new kakao.maps.LatLng(37.580519, 127.002811)
+            new kakao.maps.LatLng(37.571174, 126.977675),
+            new kakao.maps.LatLng(37.583822, 126.969097),
+            new kakao.maps.LatLng(37.588976, 126.986732)
         ];
 
           // 지도에 표시할 polyline선을 생성합니다
@@ -309,18 +309,26 @@
           // 지도에 polyline선을 표시합니다 
           polyline.setMap(map);  
       </script>
-
+      <!-- 지도 끝 -->
+      </div>
+    </div>
+    <div class="pt-10" style="color:black; text-align:center;">
+      <h4><span style="background-color: #b9b6b6">ソウルのアクセス</span></h4>
+      <h5 style="color:rgb(0, 0, 0)">1. 仁川(インチョン)空港~1️⃣マロニエ公園(地下鉄ヘファ駅から徒歩約4分)<br>仁川空港から出発 >> 🚇地下鉄で約1時間半(乗換1回) >> 惠化(ヘファ)駅 下車</h5>
+      <h5 style="color:rgb(0, 0, 0)">2. 金浦(キンポ)空港~1️⃣マロニエ公園(地下鉄ヘファ駅から徒歩約4分)<br>金浦空港から出発 >> 🚇地下鉄で約50分(乗換1回) >> 惠化(ヘファ)駅 下車</h5><br><br>
+      <h5 style="color:grey">▶︎路線の詳細は<a href="http://www.seoulmetro.co.kr/en/cyberStation.do?menuIdx=337" style="color:rgb(17, 150, 245);">こちら(英語)</a>でチェックしてください。
+    </div>
     <!-- Swiper -->
     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="pt-50 swiper mySwiper2">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_04_02.jpg');">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_02_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">1</em>
-            <br>ヒド 訓練ver.湧き水の出るところ<br><br><a href="/locatesingle?Place=와룡공원">臥龍(ワリョン)公園</a>
+            <br>ライダー37とインジョルミの初の出会い<br><br><a href="/locatesingle?Place=마로니에공원">マロニエ公園</a>
           </div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_01_01.jpg');">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_07_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">2</em>
-            <br>ユリム家の軽食店<br><br><a href="/locatesingle?Place=효자분식">孝子粉食</a>
+            <br>新年行事の取材<br><br><a href="/locatesingle?Place=보신각">普信閣(ポシンカク)</a>
           </div>
         </div>
         <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_06_01.jpg');">
@@ -328,14 +336,14 @@
             <br>ヒドとイジンの半年ぶりの再会<br><br><a href="/locatesingle?Place=광화문광장">光化門(クァンファムン)</a>
           </div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_07_01.jpg');">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_01_01.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">4</em>
-            <br>新年行事の取材<br><br><a href="/locatesingle?Place=보신각">普信閣(ポシンカク)</a>
+            <br>ユリム家の軽食店<br><br><a href="/locatesingle?Place=효자분식">孝子粉食</a>
           </div>
         </div>
-        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_02_01.jpg');">
+        <div class="swiper-slide" style="background-image: url('/static/assets/2521/2_04_02.jpg');">
           <div class="lead-sm"><em style="display: inline-block; color: #fff; background: #f59696;">5</em>
-            <br>ライダー37とインジョルミの初の出会い<br><br><a href="/locatesingle?Place=마로니에공원">マロニエ公園</a>
+            <br>ヒド 訓練ver.湧き水の出るところ<br><br><a href="/locatesingle?Place=와룡공원">臥龍(ワリョン)公園</a>
           </div>
         </div>
       </div>
@@ -345,19 +353,19 @@
     <div thumbsSlider="" class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="{{ url_for('static', filename='assets/2521/2_04_02.jpg')}}" />
-        </div>
-        <div class="swiper-slide">
-          <img src="{{ url_for('static', filename='assets/2521/2_01_01.jpg')}}" />
-        </div>
-        <div class="swiper-slide">
-          <img src="{{ url_for('static', filename='assets/2521/2_06_01.jpg')}}" />
+          <img src="{{ url_for('static', filename='assets/2521/2_02_01.jpg')}}" />
         </div>
         <div class="swiper-slide">
           <img src="{{ url_for('static', filename='assets/2521/2_07_01.jpg')}}" />
         </div>
         <div class="swiper-slide">
-          <img src="{{ url_for('static', filename='assets/2521/2_02_01.jpg')}}" />
+          <img src="{{ url_for('static', filename='assets/2521/2_06_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_01_01.jpg')}}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='assets/2521/2_04_02.jpg')}}" />
         </div>
       </div>
     </div>
