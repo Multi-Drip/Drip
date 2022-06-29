@@ -288,6 +288,97 @@
 
               var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+              //관광지 별 마커 Start
+              var positions_around = [
+                {title: 'エジソン科学博物館', latlng: new kakao.maps.LatLng(37.7973093,128.8970549)},
+                {title: 'チョン·ドンジン', latlng: new kakao.maps.LatLng(37.6925306,129.0317609)},
+                {title: '鏡砲台', latlng: new kakao.maps.LatLng(37.7950602,128.8966038)},
+                {title: '鏡浦海岸', latlng: new kakao.maps.LatLng(37.8054953,128.9082081)},
+                {title: '鏡浦湖', latlng: new kakao.maps.LatLng(37.7979331,128.9048623)},
+                {title: '江陵宣教場', latlng: new kakao.maps.LatLng(37.7866796,128.8851259)},
+                {title: '川のほとり', latlng: new kakao.maps.LatLng(37.7960033,128.9183385)},
+                {title: '栄進海辺', latlng: new kakao.maps.LatLng(37.8692569,128.8452235)},
+                {title: 'オジュクホン', latlng: new kakao.maps.LatLng(37.7789833,128.8776624)},
+                {title: '草堂スンドゥブ村', latlng: new kakao.maps.LatLng(37.7906975,128.9156023)},
+                {title: '許蘭雪軒の生家跡', latlng: new kakao.maps.LatLng(37.7918973,128.9096442)},
+                {title: '江陵松亭海水浴場', latlng: new kakao.maps.LatLng(37.7802629,128.9377878)},
+                {title: '注文津港', latlng: new kakao.maps.LatLng(37.8921969,128.829985)},
+                {title: '眼目海辺', latlng: new kakao.maps.LatLng(37.7725746,128.9477906)},
+                {title: '正東深谷ウミ扇子道', latlng: new kakao.maps.LatLng(37.6835846,129.044075)},
+                {title: '江陵中央市場', latlng: new kakao.maps.LatLng(37.753562,128.8983903)},
+                {title: '香湖海水浴場', latlng: new kakao.maps.LatLng(37.9123319,128.8176)},
+                {title: 'テラロッサコーヒー工場', latlng: new kakao.maps.LatLng(37.6960845,128.8918603)},
+                {title: '江陵松香樹木園', latlng: new kakao.maps.LatLng(37.6952679,128.8602677)},
+                {title: '白島海水浴場', latlng: new kakao.maps.LatLng(38.3011306,128.5463992)},
+                {title: 'コンヒョンジン海水浴場', latlng: new kakao.maps.LatLng(38.3516736,128.5119978)},
+                {title: '天学亭', latlng: new kakao.maps.LatLng(38.2890013,128.5476597)},
+                {title: 'ソン·ジホ渡り鳥観望タワー', latlng: new kakao.maps.LatLng(38.3362708,128.5176535)},
+                {title: 'ワンゴク村', latlng: new kakao.maps.LatLng(38.3402229,128.500191)},
+                {title: '金剛山花岩寺', latlng: new kakao.maps.LatLng(38.2263223,128.4711825)},
+                {title: 'ハニラベンダーファーム', latlng: new kakao.maps.LatLng(38.3494048,128.4156437)},
+                {title: '花津浦海水浴場', latlng: new kakao.maps.LatLng(38.4794678,128.438825)},
+                {title: 'ドチェビゴル·スカイバレー', latlng: new kakao.maps.LatLng(37.5552526,129.1191212)},
+                {title: '東の海の中央市場', latlng: new kakao.maps.LatLng(37.5508278,129.1089482)},
+                {title: '墨湖港', latlng: new kakao.maps.LatLng(37.5499191,129.1123032)},
+                {title: '東海郷校', latlng: new kakao.maps.LatLng(37.5400832,129.0915499)},
+                {title: '妄想海辺', latlng: new kakao.maps.LatLng(37.5940178,129.0900515)},
+                {title: '秋岩海水浴場', latlng: new kakao.maps.LatLng(37.4775412,129.1595545)},
+                {title: '武陵渓谷', latlng: new kakao.maps.LatLng(37.46216,129.012875)},
+                {title: '秋岩燭台岩', latlng: new kakao.maps.LatLng(37.4791927,129.1600848)},
+                {title: '三陟海上ケーブルカー', latlng: new kakao.maps.LatLng(37.289131,129.308543)},
+                {title: 'チャンホ漁村体験村', latlng: new kakao.maps.LatLng(37.2881246,129.317628)},
+                {title: '三陟海洋レールバイク', latlng: new kakao.maps.LatLng(37.3231857,129.2662923)},
+                {title: '草谷龍窟燭台岩道', latlng: new kakao.maps.LatLng(37.311243,129.296356)},
+                {title: '徳峰山海岸生態探訪路', latlng: new kakao.maps.LatLng(37.387852,129.239421)},
+                {title: '萌え菜園', latlng: new kakao.maps.LatLng(37.402947,129.208484)},
+                {title: '盲妨害変', latlng: new kakao.maps.LatLng(37.390509,129.232048)},
+                {title: '三陟バラ公園', latlng: new kakao.maps.LatLng(37.433288,129.177519)},
+                {title: '新千年海岸道路(伊佐夫吉)', latlng: new kakao.maps.LatLng(37.437674,129.193654)},
+                {title: '竹書楼', latlng: new kakao.maps.LatLng(37.440921,129.1605409)},
+                {title: '徳豊渓谷', latlng: new kakao.maps.LatLng(37.079614,129.201396)},
+                {title: '幻仙窟', latlng: new kakao.maps.LatLng(37.326396,129.020989)},
+                {title: 'ヨンラン号', latlng: new kakao.maps.LatLng(38.2180146,128.5809922)},
+                {title: '束草灯台展望台', latlng: new kakao.maps.LatLng(38.2136363,128.6001796)},
+                {title: '束草観光水産市場', latlng: new kakao.maps.LatLng(38.204615,128.590132)},
+                {title: '霊金亭', latlng: new kakao.maps.LatLng(38.2118321,128.6015368)},
+                {title: '束草エキスポタワー', latlng: new kakao.maps.LatLng(38.191599,128.583536)},
+                {title: '清楚湖', latlng: new kakao.maps.LatLng(38.1965759,128.587638)},
+                {title: 'テポドン', latlng: new kakao.maps.LatLng(38.172413,128.609144)},
+                {title: '学士ピョンコン花村スンドゥブ村', latlng: new kakao.maps.LatLng(38.205935,128.523366)},
+                {title: '束草市立博物館', latlng: new kakao.maps.LatLng(38.200559,128.539484)},
+                {title: '束草アイ大観覧車', latlng: new kakao.maps.LatLng(38.190782,128.602586)},
+                {title: '束草海水浴場', latlng: new kakao.maps.LatLng(38.190102,128.604223)},
+                {title: '外オンチの海の香りで', latlng: new kakao.maps.LatLng(38.182927,128.609504)},
+                {title: '雪岳山国立公園', latlng: new kakao.maps.LatLng(38.148972,128.393868)},
+                {title: '土王星の滝', latlng: new kakao.maps.LatLng(38.153036,128.494458)},
+                {title: '雪岳ケーブルカー', latlng: new kakao.maps.LatLng(38.173151,128.489189)},
+                {title: '雪岳山蔚山岩', latlng: new kakao.maps.LatLng(38.197818,128.468305)},
+                {title: '下条台スカイウォーク', latlng: new kakao.maps.LatLng(38.0222688,128.7291414)},
+                {title: '竹島海水浴場', latlng: new kakao.maps.LatLng(37.9726759,128.7611783)},
+                {title: '東湖海辺', latlng: new kakao.maps.LatLng(38.0583391,128.6824685)},
+                {title: '襄陽サーフィビーチ', latlng: new kakao.maps.LatLng(38.0280602,128.7175896)},
+                {title: '烏山里先史遺跡博物館', latlng: new kakao.maps.LatLng(38.0860129,128.6605665)},
+                {title: '襄陽伝統市場(4、9日おきに開かれる市場)', latlng: new kakao.maps.LatLng(38.0748749,128.622787)},
+                {title: '南愛港スカイウォーク展望台', latlng: new kakao.maps.LatLng(37.9448106,128.788535)},
+                {title: '洛山寺', latlng: new kakao.maps.LatLng(38.1265937,128.6285213)},
+                {title: '国立ミチョンゴル自然休養林', latlng: new kakao.maps.LatLng(37.9489878,128.5119542)}
+              ]
+                
+              var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                  
+              for (var i = 0; i < positions_around.length; i++) {
+                var imageSize = new kakao.maps.Size(24, 35); // 24,35 
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                // 마커를 생성합니다
+                var marker = new kakao.maps.Marker({
+                    map: map, // 마커를 표시할 지도
+                    position : positions_around[i].latlng, // 마커를 표시할 위치
+                    title : positions_around[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                    image : markerImage // 마커 이미지
+                });
+              }
+              // 관광지 별 마커 End
+
             // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
             var positions = [
                 new kakao.maps.LatLng(37.264243, 129.327002),
@@ -341,28 +432,6 @@
             });
             polyline.setMap(map); // 지도에 선을 표시합니다 
           </script>
-
-
-          <!--관광지 별 마커-->
-          <script>
-            var positions_around_list = [
-                {title: '에디슨과학박물관', latlng: new kakao.maps.LatLng(37.7973093,128.8970549)},
-                {title: '경기전', latlng: new kakao.maps.LatLng(37.6925306,129.0317609)},
-            ];
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-                
-            for (var i = 0; i < positions_around_list.length; i ++) {
-                var imageSize = new kakao.maps.Size(24, 35); // 24,35 
-                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-                var marker = new kakao.maps.Marker({
-                    map: map, // 마커를 표시할 지도
-                    position: positions_around_list[i].latlng, // 마커를 표시할 위치
-                    title : positions_around_list[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                    image : markerImage // 마커 이미지 
-                });
-            }
-          </script>
-
 
           <!--숙박,식당,카페 추가-->            
           <script>
@@ -439,7 +508,7 @@
 
               // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
               function addMarker(position, order) {
-                  var imageSrc = 'https:../static/assets/2521/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+                  var imageSrc = '../static/assets/2521/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                       imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                       imgOptions =  {
                           spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
