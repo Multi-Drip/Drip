@@ -283,6 +283,97 @@
 
                   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+                  //관광지 별 마커 Start
+                  var positions_around = [
+                    {title: '에디슨과학박물관', latlng: new kakao.maps.LatLng(37.7973093,128.8970549)},
+                    {title: '정동진', latlng: new kakao.maps.LatLng(37.6925306,129.0317609)},
+                    {title: '경포대', latlng: new kakao.maps.LatLng(37.7950602,128.8966038)},
+                    {title: '경포해변', latlng: new kakao.maps.LatLng(37.8054953,128.9082081)},
+                    {title: '경포호', latlng: new kakao.maps.LatLng(37.7979331,128.9048623)},
+                    {title: '강릉 선교장', latlng: new kakao.maps.LatLng(37.7866796,128.8851259)},
+                    {title: '강문해변', latlng: new kakao.maps.LatLng(37.7960033,128.9183385)},
+                    {title: '영진해변', latlng: new kakao.maps.LatLng(37.8692569,128.8452235)},
+                    {title: '오죽헌', latlng: new kakao.maps.LatLng(37.7789833,128.8776624)},
+                    {title: '초당 순두부마을', latlng: new kakao.maps.LatLng(37.7906975,128.9156023)},
+                    {title: '허난설헌 생가터', latlng: new kakao.maps.LatLng(37.7918973,128.9096442)},
+                    {title: '강릉 송정해수욕장', latlng: new kakao.maps.LatLng(37.7802629,128.9377878)},
+                    {title: '주문진항', latlng: new kakao.maps.LatLng(37.8921969,128.829985)},
+                    {title: '안목해변', latlng: new kakao.maps.LatLng(37.7725746,128.9477906)},
+                    {title: '정동심곡 바다부채길', latlng: new kakao.maps.LatLng(37.6835846,129.044075)},
+                    {title: '강릉 중앙시장', latlng: new kakao.maps.LatLng(37.753562,128.8983903)},
+                    {title: '향호해수욕장', latlng: new kakao.maps.LatLng(37.9123319,128.8176)},
+                    {title: '테라로사 커피공장', latlng: new kakao.maps.LatLng(37.6960845,128.8918603)},
+                    {title: '강릉 솔향수목원', latlng: new kakao.maps.LatLng(37.6952679,128.8602677)},
+                    {title: '백도해수욕장', latlng: new kakao.maps.LatLng(38.3011306,128.5463992)},
+                    {title: '공현진해수욕장', latlng: new kakao.maps.LatLng(38.3516736,128.5119978)},
+                    {title: '천학정', latlng: new kakao.maps.LatLng(38.2890013,128.5476597)},
+                    {title: '송지호 철새관망타워', latlng: new kakao.maps.LatLng(38.3362708,128.5176535)},
+                    {title: '왕곡마을', latlng: new kakao.maps.LatLng(38.3402229,128.500191)},
+                    {title: '금강산 화암사', latlng: new kakao.maps.LatLng(38.2263223,128.4711825)},
+                    {title: '하늬라벤더팜', latlng: new kakao.maps.LatLng(38.3494048,128.4156437)},
+                    {title: '화진포해수욕장', latlng: new kakao.maps.LatLng(38.4794678,128.438825)},
+                    {title: '도째비골 스카이밸리', latlng: new kakao.maps.LatLng(37.5552526,129.1191212)},
+                    {title: '동쪽바다 중앙시장', latlng: new kakao.maps.LatLng(37.5508278,129.1089482)},
+                    {title: '묵호항', latlng: new kakao.maps.LatLng(37.5499191,129.1123032)},
+                    {title: '동해향교', latlng: new kakao.maps.LatLng(37.5400832,129.0915499)},
+                    {title: '망상해변', latlng: new kakao.maps.LatLng(37.5940178,129.0900515)},
+                    {title: '추암해수욕장', latlng: new kakao.maps.LatLng(37.4775412,129.1595545)},
+                    {title: '무릉계곡', latlng: new kakao.maps.LatLng(37.46216,129.012875)},
+                    {title: '추암 촛대바위', latlng: new kakao.maps.LatLng(37.4791927,129.1600848)},
+                    {title: '삼척 해상케이블카', latlng: new kakao.maps.LatLng(37.289131,129.308543)},
+                    {title: '장호어촌체험마을', latlng: new kakao.maps.LatLng(37.2881246,129.317628)},
+                    {title: '삼척 해양레일바이크', latlng: new kakao.maps.LatLng(37.3231857,129.2662923)},
+                    {title: '초곡 용굴 촛대바위길', latlng: new kakao.maps.LatLng(37.311243,129.296356)},
+                    {title: '덕봉산 해안생태탐방로', latlng: new kakao.maps.LatLng(37.387852,129.239421)},
+                    {title: '맹방 유채밭', latlng: new kakao.maps.LatLng(37.402947,129.208484)},
+                    {title: '맹방해변', latlng: new kakao.maps.LatLng(37.390509,129.232048)},
+                    {title: '삼척장미공원', latlng: new kakao.maps.LatLng(37.433288,129.177519)},
+                    {title: '새천년해안도로(이사부길)', latlng: new kakao.maps.LatLng(37.437674,129.193654)},
+                    {title: '죽서루', latlng: new kakao.maps.LatLng(37.440921,129.1605409)},
+                    {title: '덕풍계곡', latlng: new kakao.maps.LatLng(37.079614,129.201396)},
+                    {title: '환선굴', latlng: new kakao.maps.LatLng(37.326396,129.020989)},
+                    {title: '영랑호', latlng: new kakao.maps.LatLng(38.2180146,128.5809922)},
+                    {title: '속초등대전망대', latlng: new kakao.maps.LatLng(38.2136363,128.6001796)},
+                    {title: '속초 관광수산시장', latlng: new kakao.maps.LatLng(38.204615,128.590132)},
+                    {title: '영금정', latlng: new kakao.maps.LatLng(38.2118321,128.6015368)},
+                    {title: '속초 엑스포타워', latlng: new kakao.maps.LatLng(38.191599,128.583536)},
+                    {title: '청초호', latlng: new kakao.maps.LatLng(38.1965759,128.587638)},
+                    {title: '대포항', latlng: new kakao.maps.LatLng(38.172413,128.609144)},
+                    {title: '학사평콩꽃마을순두부촌', latlng: new kakao.maps.LatLng(38.205935,128.523366)},
+                    {title: '속초시립박물관', latlng: new kakao.maps.LatLng(38.200559,128.539484)},
+                    {title: '속초아이 대관람차', latlng: new kakao.maps.LatLng(38.190782,128.602586)},
+                    {title: '속초해수욕장', latlng: new kakao.maps.LatLng(38.190102,128.604223)},
+                    {title: '외옹치 바다향기로', latlng: new kakao.maps.LatLng(38.182927,128.609504)},
+                    {title: '설악산국립공원', latlng: new kakao.maps.LatLng(38.148972,128.393868)},
+                    {title: '토왕성폭포', latlng: new kakao.maps.LatLng(38.153036,128.494458)},
+                    {title: '설악 케이블카', latlng: new kakao.maps.LatLng(38.173151,128.489189)},
+                    {title: '설악산 울산바위', latlng: new kakao.maps.LatLng(38.197818,128.468305)},
+                    {title: '하조대 스카이워크', latlng: new kakao.maps.LatLng(38.0222688,128.7291414)},
+                    {title: '죽도해수욕장', latlng: new kakao.maps.LatLng(37.9726759,128.7611783)},
+                    {title: '동호해변', latlng: new kakao.maps.LatLng(38.0583391,128.6824685)},
+                    {title: '양양 서피비치', latlng: new kakao.maps.LatLng(38.0280602,128.7175896)},
+                    {title: '오산리선사유적박물관', latlng: new kakao.maps.LatLng(38.0860129,128.6605665)},
+                    {title: '양양전통시장 (4, 9일)', latlng: new kakao.maps.LatLng(38.0748749,128.622787)},
+                    {title: '남애항 스카이워크 전망대', latlng: new kakao.maps.LatLng(37.9448106,128.788535)},
+                    {title: '낙산사', latlng: new kakao.maps.LatLng(38.1265937,128.6285213)},
+                    {title: '국립 미천골자연휴양림', latlng: new kakao.maps.LatLng(37.9489878,128.5119542)}
+                  ]
+                
+                  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                      
+                  for (var i = 0; i < positions_around.length; i++) {
+                    var imageSize = new kakao.maps.Size(24, 35); // 24,35 
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                    // 마커를 생성합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map, // 마커를 표시할 지도
+                        position : positions_around[i].latlng, // 마커를 표시할 위치
+                        title : positions_around[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                        image : markerImage // 마커 이미지
+                    });
+                  }
+               // 관광지 별 마커 End
+
                   // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
                   var positions = [
                       new kakao.maps.LatLng(37.264243, 129.327002),
@@ -336,32 +427,6 @@
                   });
                   polyline.setMap(map);  // 지도에 선을 표시합니다 
                 </script>
-
-
-                <!-- 관광지 별 마커 -->
-                <script>
-                  //for (var i = 0; i < 72 ; i++){
-                  //  var positions_around_list = [
-                  //    {title: '<div style="width:100px; padding:5px; color: black; text-align:center;">{{GwName[i]}}</div>',
-                  //    latlng: new kakao.maps.LatLng('{{GwLat[i]}}', '{{GwLong[i]}}')}
-                  //  ];}
-
-                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-                        
-                    for (var i = 0; i < 72 ; i++) {
-                      var imageSize = new kakao.maps.Size(24, 35); // 24,35 
-                      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-                      // 마커를 생성합니다
-                      var marker = new kakao.maps.Marker({
-                          map: map, // 마커를 표시할 지도
-                          position : new kakao.maps.LatLng('{{GwLat[i]}}', '{{GwLong[i]}}'), // 마커를 표시할 위치
-                          title : '{{GwName[i]}}', // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                          image : markerImage // 마커 이미지
-                      });
-                    }
-                </script>
-                <!-- 관광지 별 마커 -->
-                
                 
                 <!--숙박,식당,카페 추가-->            
                 <script>                 
