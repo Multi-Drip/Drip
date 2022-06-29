@@ -350,7 +350,8 @@
                         
                     for (var i = 0; i < 72 ; i++) {
                       var imageSize = new kakao.maps.Size(24, 35); // 24,35 
-                      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                      // 마커를 생성합니다
                       var marker = new kakao.maps.Marker({
                           map: map, // 마커를 표시할 지도
                           position : new kakao.maps.LatLng('{{GwLat[i]}}', '{{GwLong[i]}}'), // 마커를 표시할 위치

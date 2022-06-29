@@ -147,7 +147,7 @@
         #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
         #category li:last-child{margin-right:0;border-right:0;}
         #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-        #category li .category_bg {background:url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png) no-repeat 0 0}
+        #category li .category_bg {background:url(../static/assets/2521/ico_around.png) no-repeat 0 0}
         #category li .accommodation {background-position: -0px -120px;}
         #category li .food {background-position: -0px 0;}
         #category li .cafe {background-position: -0px -30px;}
@@ -463,7 +463,7 @@
 
                     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
                     function addMarker(position, order) {
-                        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/info/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+                        var imageSrc = '../static/assets/2521/ico_around.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
                             imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
                             imgOptions =  {
                                 spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
@@ -581,6 +581,11 @@
             </div>
         </div>
 
+        <div class="pt-10" style="color:black; text-align:center;">
+            <h4><span style="background-color: #b9b6b6">전주 교통편</span></h4>
+            <h5 style="color:grey">1. 김해국제공항<br>김해공항 >> 🚇or🚌 >> 부산역 >> 🚄 >> 신경주역 (약1시간30분)</h5>
+            <h5 style="color:grey">2. 인천국제공항<br>인천공항 >> 🚇or🚌 >> 서울역 >> 🚄 >> 신경주역 (약3시간30분)</h5><br><br>
+        </div>
         <!-- Swiper -->
         <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="pt-50 swiper mySwiper2">
             <div class="swiper-wrapper">
