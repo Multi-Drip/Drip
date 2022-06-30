@@ -286,7 +286,7 @@
 
                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                         mapOption = {
-                            center: new kakao.maps.LatLng(37.584, 126.985), // 지도의 중심좌표
+                            center: new kakao.maps.LatLng(37.574, 126.985), // 지도의 중심좌표
                             level: 5 // 지도의 확대 레벨
                         };
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -374,11 +374,11 @@
                         { content: '<div>臥龍公園</div>', latlng: new kakao.maps.LatLng(37.588976, 126.986732) },
                     ];
                     var iwContent = [
-                        '<div style="width:150px; padding:5px; color: black; text-align:center;">マロニエ公園<br>次の場所まで<br> &#128663;13分 🚶‍♂️49分</div>',  
-                        '<div style="width:150px; padding:5px; color: black; text-align:center;">普信閣跡<br>次の場所まで<br> &#128663;8分 🚶‍♂️16分</div>',
-                        '<div style="width:150px; padding:5px; color: black; text-align:center;">光化門広場<br>次の場所まで &#128663;10分 🚶‍♂️29分</div>',
-                        '<div style="width:220px; padding:5px; color: black; text-align:center;">孝子粉食<br>次の場所まで &#128663;15分 🚶‍♂️45分</div>',
-                        '<div style="width:220px; padding:5px; color: black; text-align:center;">臥龍公園 🚩</div>',
+                        '<div style="width:210px; padding:5px; color: black; text-align:center;">1. マロニエ公園<br>次の場所まで &#128663;13分 🚶‍♂️49分</div>',  
+                        '<div style="width:150px; padding:5px; color: black; text-align:center;">2. 普信閣跡<br>次の場所まで<br> &#128663;8分 🚶‍♂️16分</div>',
+                        '<div style="width:150px; padding:5px; color: black; text-align:center;">3. 光化門広場<br>次の場所まで &#128663;10分 🚶‍♂️29分</div>',
+                        '<div style="width:210px; padding:5px; color: black; text-align:center;">4. 孝子粉食<br>次の場所まで &#128663;15分 🚶‍♂️45分</div>',
+                        '<div style="width:150px; padding:5px; color: black; text-align:center;">5. 臥龍公園 🚩</div>',
                     ]
 
                     for (var i = 0; i < positions.length; i++) {
