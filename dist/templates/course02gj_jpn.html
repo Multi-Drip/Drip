@@ -302,21 +302,6 @@
                         {title: '瞻星台', latlng: new kakao.maps.LatLng(35.834707, 129.218996)},
                         
                         {title: '東宮と月池', latlng: new kakao.maps.LatLng(35.834782, 129.226774)},
-// 良洞村
-// キョリのり巻き鳳凰大店
-// 慶州大陵苑
-// 瞻星台
-// 東宮と月池
-// 皇城公園(麦門洞)
-// チェ·ブジャ宅(キョチョン村)
-// 芬皇寺
-// 月精橋
-// 慶州ワールド&カリフォルニアビーチ
-// 普門亭
-// 普門湖
-// 柱状節理(陽南面)
-// 南山新仙岩磨崖菩薩半跏像
-// 慶州世界エキスポ文化公園
                         
                         {title: '皇城公園(麦門洞)', latlng: new kakao.maps.LatLng(35.859077, 129.214667)},
                         
@@ -330,13 +315,13 @@
                         
                         {title: '普門亭', latlng: new kakao.maps.LatLng(35.841032, 129.289588)},
                         
-                        {title: 'Gyeongㅇㅂㅇch', latlng: new kakao.maps.LatLng(35.835743, 129.282728)},
+                        {title: '慶州ワールド&カリフォルニアビーチ', latlng: new kakao.maps.LatLng(35.835743, 129.282728)},
                         
-                        {title: 'Gyeongju ㅇㅂㅇark', latlng: new kakao.maps.LatLng(35.830893, 129.288564)},
+                        {title: '慶州世界エキスポ文化公園', latlng: new kakao.maps.LatLng(35.830893, 129.288564)},
                         
-                        {title: 'Namsan Seoㅇㅂㅇhisattva Ban Sang', latlng: new kakao.maps.LatLng(35.771513, 129.234984)},
+                        {title: '南山新仙岩磨崖菩薩半跏像', latlng: new kakao.maps.LatLng(35.771513, 129.234984)},
                         
-                        {title: 'Columnar joiㅇㅂㅇam-myeon)', latlng: new kakao.maps.LatLng(35.686337, 129.474805)},
+                        {title: '柱状節理(陽南面)', latlng: new kakao.maps.LatLng(35.686337, 129.474805)},
                     ];
                     // 마커 이미지의 이미지 주소입니다
                     var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
@@ -404,17 +389,17 @@
 
                     // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
                     var positions = [
-                        {content: '<div>Geo일본어ion</div>', latlng: new kakao.maps.LatLng(35.854174, 129.097301)},
-                        {content: '<div>Gyeㅇㅂㅇtion</div>', latlng: new kakao.maps.LatLng(35.844368, 129.217767)},
-                        {content: '<div>Boㅇㅂㅇrist Complex</div>', latlng: new kakao.maps.LatLng(35.842679, 129.286341)},
-                        {content: '<div>Bㅇㅂㅇsa</div>', latlng: new kakao.maps.LatLng(35.786109, 129.328624)}
+                        {content: '<div>乾川駅(コンチョン駅)</div>', latlng: new kakao.maps.LatLng(35.854174, 129.097301)},
+                        {content: '<div>慶州駅(キョンジュ駅)</div>', latlng: new kakao.maps.LatLng(35.844368, 129.217767)},
+                        {content: '<div>慶州普門観光団地</div>', latlng: new kakao.maps.LatLng(35.842679, 129.286341)},
+                        {content: '<div>仏国寺</div>', latlng: new kakao.maps.LatLng(35.786109, 129.328624)}
                     ];
                     var iwContent = [
-                        '<div style="width:170px; padding:5px; color: black; text-align:center;">1. Geonㅇㅂㅇon <br>neㅇㅂㅇtion &#128663;23min</div>',
-                        '<div style="width:170px; padding:5px; color: black; text-align:center;">2. Gyeoㅇㅂㅇion <br>neㅇㅂㅇcation &#128663;16min</div>',
-                        '<div style="width:200px; padding:5px; color: black; text-align:center;">3. Bomㅇㅂㅇist Complex <br>next loacation &#128663;16min</div>',
-                        '<div style="width:170px; padding:5px; color: black; text-align:center;">4. Bㅇㅂㅇksa 🚩<br></div>',
-                            ]
+                        '<div style="width:170px; padding:5px; color: black; text-align:center;">1️⃣乾川駅 <br>次の場所まで 🚗 約23分</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">2️⃣慶州駅 <br>次の場所まで 🚗 約16分</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">3️⃣慶州普門観光団地 <br>次の場所まで 🚗 約16分</div>',
+                    '<div style="width:170px; padding:5px; color: black; text-align:center;">4️⃣仏国寺 🚩</div>',
+                        ]
                     // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 
                     for (var i = 0; i < positions.length; i++) {
@@ -589,11 +574,11 @@
             </div>
         </div>
         <div class="pt-10" style="color:black; text-align:center; margin-bottom: 35px;">
-            <h4><span style="background-color: #b9b6b6">경주 교통편</span></h4>
-            <h5 style="color:grey">김해국제공항에서 부산역까지 🚇 54분 🚌 1시간 6분</h5>
-            <h5 style="color:rgb(0, 0, 0)">부산역 >> 🚄 - <a href="https://www.letskorail.com/ebizbf/EbizbfForeign_pr16100.do?gubun=1" style="color:rgb(17, 70, 245);">KTX예매</a> <a href="https://etk.srail.kr/main.do?language=JA" style="color:rgb(17, 70, 245);">  SRT예매</a> >> 신경주역 (KTX, srt 약30분 소요)</h5>
-            <h5 style="color:grey">인천국제공항에서 서울역까지 🚇 1시간 20분</h5>
-            <h5 style="color:rgb(0, 0, 0)">서울역 >> 🚄 - <a href="https://www.letskorail.com/ebizbf/EbizbfForeign_pr16100.do?gubun=1" style="color:rgb(17, 70, 245);">KTX예매</a> >> 신경주역 (KTX 약 2시간 10분 소요)</h5>
+            <h4><span style="background-color: #b9b6b6">慶州(キョンジュ)のアクセス</span></h4>
+            <h5 style="color:grey">金海(プサン)空港からプサン駅まで 🚇約54分 🚌約1時間6分所要</h5>
+            <h5 style="color:rgb(0, 0, 0)">プサン駅 >> 🚄 - <a href="https://www.letskorail.com/ebizbf/EbizbfForeign_pr16100.do?gubun=1" style="color:rgb(17, 70, 245);">KTX情報はこちら</a> <a href="https://etk.srail.kr/main.do?language=JA" style="color:rgb(17, 70, 245);">/SRT情報はこちら</a> >> シンギョンジュ駅(KTX, SRTで約30分所要)</h5>
+            <h5 style="color:grey">仁川(インチョン)空港からソウル駅まで 🚇約1時間20分所要</h5>
+            <h5 style="color:rgb(0, 0, 0)">ソウル駅 >> 🚄 - <a href="https://www.letskorail.com/ebizbf/EbizbfForeign_pr16100.do?gubun=1" style="color:rgb(17, 70, 245);">KTX情報はこちら</a> >> シンギョンジュ駅(KTXで約2時間10分所要)</h5>
         </div>
         <!-- Swiper -->
         <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
